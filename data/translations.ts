@@ -114,11 +114,11 @@ export const translations = {
       minimize: 'Küçült',
       maximize: 'Büyüt',
       welcome: {
-        professional: "Merhaba! Ben Mert'in profesyonel asistanıyım. CV'si, projeleri veya yetenekleri hakkında sorularınızı cevaplayabilirim.",
-        chat: "Selam! Ben MertAI. Sence TOGG nasıl olmuş? Yada savunma sanayiindeki son gelişmeleri duydun mu? 🇹🇷"
+        professional: "Merhaba! Ben Mert'in AI asistanıyım. Projeleri veya yetenekleri hakkında sorularınızı cevaplayabilirim.",
+        chat: "Selam. Ben MertAI. Türkiye'nin teknoloji hamleleri, enerji projeleri veya savunma sanayisi hakkında sohbet etmeye ne dersin?"
       },
       error: 'Üzgünüm, bir hata oluştu. Lütfen tekrar deneyin.',
-      cv_mode_badge: 'CV & Projeler',
+      cv_mode_badge: 'Projeler',
       chat_mode_badge: 'Sohbet & Politika',
       professional_title: 'MertAI V2.0',
       persona_title: 'MertAI V2.0',
@@ -238,11 +238,11 @@ export const translations = {
       minimize: 'Minimize',
       maximize: 'Maximize',
       welcome: {
-        professional: "Hello! I'm Mert's professional assistant. You can ask about his CV, projects, or skills.",
-        chat: "Hi! I'm MertAI. What do you think about TOGG? or have you heard the latest defense industry news? 🇹🇷"
+        professional: "Hello! I'm Mert's AI assistant. I can answer your questions about his projects or capabilities.",
+        chat: "Hi. I'm MertAI. How about we chat about Türkiye's technology initiatives, energy projects, or defense industry?"
       },
       error: 'Sorry, something went wrong. Please try again.',
-      cv_mode_badge: 'CV & Projects',
+      cv_mode_badge: 'Projects',
       chat_mode_badge: 'Chat & Politics',
       professional_title: 'MertAI V2.0',
       persona_title: 'MertAI V2.0',
