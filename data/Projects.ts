@@ -20,7 +20,7 @@ export const projectsData = [
     youtubeUrl: null,
     githubUrl: null,
     startDate: '2025-12-01',
-    endDate: null,
+    endDate: '2026-01-01',
     technologyStack: [
       'Python',
       'OpenAI Whisper v3',
@@ -83,7 +83,7 @@ export const projectsData = [
     youtubeUrl: null,
     githubUrl: null,
     startDate: '2025-10-01',
-    endDate: '2025-12-01',
+    endDate: '2025-11-01',
     technologyStack: [
       'n8n',
       'LLM Integration',
@@ -205,7 +205,7 @@ export const projectsData = [
     youtubeUrl: null,
     githubUrl: null,
     startDate: '2025-09-01',
-    endDate: null,
+    endDate: '2025-12-01',
     technologyStack: [
       'IoT',
       'Home Assistant',
@@ -265,7 +265,7 @@ export const projectsData = [
     sourceUrl: 'https://dunya.mertgunes.com',
     youtubeUrl: null,
     githubUrl: null,
-    startDate: '2025-01-01',
+    startDate: '2026-01-01',
     endDate: null,
     technologyStack: [
       'React Three Fiber',
@@ -326,8 +326,8 @@ export const projectsData = [
     sourceUrl: 'https://mertgunes.me',
     youtubeUrl: null,
     githubUrl: null,
-    startDate: '2025-08-01',
-    endDate: '2025-10-01',
+    startDate: '2025-09-01',
+    endDate: null,
     technologyStack: [
       'Python',
       'Streamlit',
@@ -509,8 +509,8 @@ export const projectsData = [
     sourceUrl: 'https://scifi.mertgunes.com/',
     youtubeUrl: null,
     githubUrl: null,
-    startDate: '2025-02-01',
-    endDate: null,
+    startDate: '2026-02-01',
+    endDate: '2026-02-01',
     technologyStack: [
       'Next.js',
       'TypeScript',
@@ -551,4 +551,24 @@ export const projectsData = [
       ],
     },
   },
-];
+].sort((a, b) => {
+  // İkisi de devam ediyorsa (endDate === null), başlangıç tarihine göre sırala (en yeni başlayan en üstte)
+  if (a.endDate === null && b.endDate === null) {
+    return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
+  }
+
+  // Sadece biri devam ediyorsa, devam eden en üstte olsun
+  if (a.endDate === null) return -1;
+  if (b.endDate === null) return 1;
+
+  // İkisi de bitmişse, bitiş tarihine göre sırala (en yakın zamanda biten en üstte)
+  const endA = new Date(a.endDate).getTime();
+  const endB = new Date(b.endDate).getTime();
+
+  if (endA !== endB) {
+    return endB - endA;
+  }
+
+  // Eğer bitiş tarihleri de aynıysa, başlangıç tarihine göre sırala (en yeni başlayan en üstte)
+  return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
+});

@@ -64,14 +64,14 @@ export const ExperienceData = [
     },
     description: {
       en: [
-        'Developed interactive data dashboards using Python (Streamlit) by consolidating sales, service, and operational data.',
-        'Streamlined repetitive tasks in proposal and operations workflows through n8n and AI-based automations, reducing manual workload.',
-        'Provided data-driven input for product and process improvements by performing root cause analysis (RCA) on service data.',
+        'Developing Python and Streamlit-based internal performance dashboards to derive insights from operational data.',
+        'Automating repetitive manual tasks within service processes using n8n and AI tools.',
+        'Contributing to evidence-based process improvements by performing root cause analysis on service data.',
       ],
       tr: [
-        'Satış, servis ve operasyonel verileri bir araya getirerek Python (Streamlit) tabanlı interaktif veri panelleri geliştirdim.',
-        'Teklif ve operasyon süreçlerindeki tekrarlayan görevleri n8n ve AI tabanlı otomasyonlarla sadeleştirerek manuel iş yükünü azalttım.',
-        'Servis verileri üzerinde kök neden analizi (RCA) yaparak ürün ve süreç iyileştirmelerine veri odaklı girdi sağladım',
+        'Operasyonel verileri anlamlandırmak için Python ve Streamlit tabanlı şirket içi performans panelleri geliştiriyorum.',
+        'n8n ve yapay zeka araçlarını kullanarak servis süreçlerindeki tekrarlayan manuel işleri otomatikleştiriyorum.',
+        'Servis verileri üzerinden kök neden analizi yaparak süreç iyileştirmelerine veri odaklı katkı sağlıyorum.',
       ],
     },
     technologies: [

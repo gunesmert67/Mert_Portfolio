@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import type { Language } from '@/context/LanguageContext';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
@@ -81,46 +82,87 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      {isMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-0 z-40 bg-background h-screen flex flex-col items-center justify-center gap-8 transition-all duration-300">
-          <button
-            onClick={() => setIsMenuOpen(false)}
-            className="absolute top-8 right-8 text-foreground hover:text-primary transition-colors"
-            aria-label="Close menu"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden fixed inset-0 top-0 z-40 bg-background/95 backdrop-blur-xl h-screen flex flex-col items-center justify-center p-8 overflow-hidden"
           >
-            <X className="h-8 w-8" />
-          </button>
+            <motion.button
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              onClick={() => setIsMenuOpen(false)}
+              className="absolute top-8 right-8 text-foreground/80 hover:text-primary transition-colors p-2"
+              aria-label="Close menu"
+            >
+              <X className="h-8 w-8" />
+            </motion.button>
 
-          <div className="flex flex-col gap-8 items-center w-full">
-            {navLinkKeys.map((link) => {
-              const isActive =
-                pathname === link.href ||
-                (pathname === '/' && link.href === '/about');
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={closeMenu}
-                  className={`text-2xl font-bold transition-all duration-300 ${isActive
-                    ? 'text-primary'
-                    : 'text-muted-foreground hover:text-foreground'
-                    }`}
-                >
-                  {t(link.key)}
-                </Link>
-              );
-            })}
-          </div>
+            <motion.div
+              className="flex flex-col gap-6 items-center w-full"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.05, delayChildren: 0.1 }
+                }
+              }}
+            >
+              {navLinkKeys.map((link) => {
+                const isActive =
+                  pathname === link.href ||
+                  (pathname === '/' && link.href === '/about');
+                return (
+                  <motion.div
+                    key={link.href}
+                    variants={{
+                      hidden: { opacity: 0, y: 10 },
+                      visible: { opacity: 1, y: 0 }
+                    }}
+                  >
+                    <Link
+                      href={link.href}
+                      onClick={closeMenu}
+                      className={`text-3xl font-black tracking-tight transition-all duration-300 ${isActive
+                        ? 'text-primary scale-110'
+                        : 'text-foreground/70 hover:text-primary'
+                        }`}
+                    >
+                      {t(link.key)}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
 
-          <div className="flex flex-col items-center gap-6 mt-8">
-            <div className="flex items-center gap-4 bg-muted/30 p-4 rounded-2xl border border-border">
-              <ThemeToggle />
-              <div className="h-8 w-[1px] bg-border mx-2"></div>
-              <LanguageSwitch />
-            </div>
-          </div>
-        </div>
-      )}
+            <motion.div
+              className="flex flex-col items-center gap-6 mt-12 w-full max-w-[280px]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              <div className="w-full h-px bg-border/40 mb-2"></div>
+              <div className="flex items-center justify-center gap-8 w-full">
+                <div className="flex flex-col items-center gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">Görünüm</span>
+                  <ThemeToggle />
+                </div>
+                <div className="w-px h-10 bg-border/40 h-full"></div>
+                <div className="flex flex-col items-center gap-2">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">Dil</span>
+                  <LanguageSwitch />
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

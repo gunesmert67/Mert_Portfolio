@@ -68,7 +68,7 @@ const ContactMe = () => {
   return (
     <section
       id="contact"
-      className="flex flex-col items-center pb-16 md:pb-24 pt-10 px-4 lg:px-10 xl:px-16 mx-auto max-w-7xl w-full overflow-hidden relative gap-12 md:gap-16"
+      className="flex flex-col items-center pb-12 md:pb-20 pt-10 px-4 lg:px-10 xl:px-16 mx-auto max-w-7xl w-full overflow-hidden relative gap-12"
     >
       <SectionHeader
         title={t('contact.title')}

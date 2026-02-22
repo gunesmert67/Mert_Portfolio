@@ -29,21 +29,21 @@ const Footer = () => {
       <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between items-center gap-4 px-6 py-3 rounded-xl bg-background/80 backdrop-blur-md border border-border shadow-sm shadow-black/5 transition-all duration-300">
 
         {/* Left: Branding & Socials */}
-        <div className="flex items-center gap-6">
-          <h2 className="text-base font-black tracking-tighter text-foreground uppercase whitespace-nowrap">
+        <div className="flex items-center gap-4 md:gap-6">
+          <h2 className="text-sm md:text-base font-black tracking-tighter text-foreground uppercase whitespace-nowrap">
             Mert <span className="text-primary">Güneş</span>
           </h2>
-          <div className="hidden md:flex items-center gap-3 border-l border-border/20 pl-6">
+          <div className="flex items-center gap-3 border-l border-border/10 pl-4 md:pl-6">
             {socialLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 target={link.label === 'Email' ? undefined : '_blank'}
                 rel={link.label === 'Email' ? undefined : 'noopener noreferrer'}
-                className="text-muted-foreground/50 hover:text-primary transition-colors duration-300"
+                className="text-muted-foreground/70 hover:text-primary transition-colors duration-300"
                 aria-label={link.label}
               >
-                {React.cloneElement(link.icon as React.ReactElement, { size: 16 })}
+                {React.cloneElement(link.icon as React.ReactElement, { size: 14 })}
               </a>
             ))}
           </div>
@@ -57,16 +57,16 @@ const Footer = () => {
         </div>
 
         {/* Right: Legal Links */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 md:gap-6">
           <button
             onClick={() => setActiveLegal('privacy')}
-            className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground/50 hover:text-primary transition-colors duration-300 whitespace-nowrap"
+            className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground/70 hover:text-primary transition-colors duration-300 whitespace-nowrap"
           >
             {t('footer.privacy')}
           </button>
           <button
             onClick={() => setActiveLegal('terms')}
-            className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground/50 hover:text-primary transition-colors duration-300 whitespace-nowrap"
+            className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground/70 hover:text-primary transition-colors duration-300 whitespace-nowrap"
           >
             {t('footer.terms')}
           </button>

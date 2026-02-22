@@ -29,7 +29,7 @@ const Projects = () => {
         title={t('projects.title')}
       />
 
-      <div className="w-full max-w-6xl mx-auto flex flex-col items-center justify-center">
+      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
         {projectsData.map((project, index) => (
           <ProjectCard {...project} key={project.id} />
         ))}
