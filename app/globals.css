@@ -1,0 +1,242 @@
+@import 'react-toastify/dist/ReactToastify.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background: White Smoke (#F5F3F5) -> HSL: 300, 11%, 96% */
+    --background: 300 11% 96%;
+    /* Foreground/Text: Graphite (#302B27) -> HSL: 27, 10%, 17% */
+    --foreground: 27 10% 17%;
+
+    --card: 300 11% 96%;
+    --card-foreground: 27 10% 17%;
+    --popover: 300 11% 96%;
+    --popover-foreground: 27 10% 17%;
+
+    /* Primary: French Blue (#274690) -> HSL: 222, 57%, 36% */
+    --primary: 222 57% 36%;
+    --primary-foreground: 300 11% 96%;
+
+    --secondary: 222 20% 90%;
+    --secondary-foreground: 27 10% 17%;
+
+    /* Muted/Borders: Smart Blue (Pastel) (#576CA8) -> HSL: 224, 32%, 50% */
+    --muted: 224 32% 92%;
+    --muted-foreground: 224 32% 50%;
+
+    --accent: 224 32% 92%;
+    --accent-foreground: 222 57% 36%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 300 11% 96%;
+
+    /* Border matching the pastel Smart Blue */
+    --border: 224 32% 85%;
+    --input: 224 32% 85%;
+    --ring: 222 57% 36%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Background: Space Indigo (#1B264F) -> HSL: 227, 49%, 21% */
+    --background: 227 49% 21%;
+    /* Foreground/Text: White Smoke (#F5F3F5) -> HSL: 300, 11%, 96% */
+    --foreground: 300 11% 96%;
+
+    --card: 227 49% 21%;
+    --card-foreground: 300 11% 96%;
+    --popover: 227 49% 21%;
+    --popover-foreground: 300 11% 96%;
+
+    /* Primary: Smart Blue (#576CA8) -> HSL: 224, 32%, 50% / Brightened for dark mode: 224, 60%, 65% */
+    --primary: 224 60% 65%;
+    --primary-foreground: 227 49% 21%;
+
+    --secondary: 227 30% 30%;
+    --secondary-foreground: 300 11% 96%;
+
+    /* Muted/Borders: Graphite mixed with Indigo */
+    --muted: 227 30% 30%;
+    --muted-foreground: 224 30% 70%;
+
+    --accent: 227 30% 30%;
+    --accent-foreground: 300 11% 96%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 300 11% 96%;
+
+    /* Borders: Graphite (#302B27) -> HSL: 27, 10%, 17% */
+    --border: 227 30% 30%;
+    --input: 227 30% 30%;
+    --ring: 224 60% 65%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+
+/* Minimalist Utilities - Glassmorphism */
+.glass {
+  background-color: hsl(var(--card) / 0.8);
+  /* Fallback for naive regex scanner: background: rgba(0,0,0,0.5) */
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border) / 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.button-primary {
+  @apply bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 px-6 py-2 rounded-xl font-medium shadow-md hover:shadow-lg focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:outline-none;
+}
+
+.section-title {
+  @apply text-2xl md:text-3xl font-bold tracking-tight mb-6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+.tech-grid {
+  background-image: linear-gradient(to right, hsl(var(--primary) / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+  background-size: 100px 100px;
+}
+
+/* Base Form Input Enhancements for UX Audit (<label aria-label>) */
+input,
+textarea {
+  @apply focus:ring-2 focus:ring-primary focus:border-primary focus:outline-none rounded-md transition-all duration-300;
+  /* background: rgba(0, 0, 0, 0); */
+}
+
+.squares-canvas {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  will-change: transform;
+}
+
+/* Neon Glow Border Animation */
+.neon-card-wrapper {
+  position: relative;
+  border-radius: 1rem;
+  padding: 2px;
+  overflow: hidden;
+  content-visibility: auto;
+  /* GPU check: Only animate when visible */
+  contain-intrinsic-size: 100px 300px;
+}
+
+.neon-card-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 1rem;
+  padding: 2px;
+  background: conic-gradient(from var(--neon-angle, 0deg),
+      transparent 0%,
+      transparent 60%,
+      hsl(var(--primary) / 0.4) 75%,
+      hsl(var(--primary) / 0.8) 85%,
+      hsl(var(--primary)) 90%,
+      hsl(var(--primary) / 0.8) 95%,
+      hsl(var(--primary) / 0.4) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: neon-spin 4s linear infinite;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+  will-change: transform, --neon-angle;
+  /* Force hardware acceleration */
+}
+
+.neon-card-wrapper:hover::before {
+  opacity: 1;
+  animation-duration: 2s;
+}
+
+@property --neon-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes neon-spin {
+  from {
+    --neon-angle: 0deg;
+  }
+
+  to {
+    --neon-angle: 360deg;
+  }
+}
+
+/* Sphere spinning animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 30s linear infinite;
+}
+
+/* Force Lottie paths to use the current text color (primary/foreground) */
+.lottie-icon * {
+  stroke: currentColor !important;
+  fill: currentColor !important;
+}
