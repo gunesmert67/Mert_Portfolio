@@ -1,0 +1,128 @@
+/* From Uiverse.io by r7chardgh - Adapted for TR/EN and React CSS Modules */
+.switch {
+    font-size: 8.5px;
+    /* Scaled down from 10px */
+    /* Navbar uyumu için küçültüldü */
+    position: relative;
+    display: inline-block;
+    width: 7em;
+    /* TR/EN sığması için biraz genişletildi */
+    height: 2.5em;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.cb {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.toggle {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-color: #2a2a2a;
+    border-radius: 0.2em;
+    transition: 0.4s;
+    text-transform: uppercase;
+    font-weight: 800;
+    overflow: hidden;
+    box-shadow: -0.3em 0 0 0 #2a2a2a, -0.3em 0.3em 0 0 #2a2a2a,
+        0.3em 0 0 0 #2a2a2a, 0.3em 0.3em 0 0 #2a2a2a, 0 0.3em 0 0 #2a2a2a;
+}
+
+.left {
+    position: absolute;
+    display: flex;
+    width: 50%;
+    height: 88%;
+    background-color: #f3f3f3;
+    color: #1a1a1a;
+    left: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    transform-origin: right;
+    transform: rotateX(10deg);
+    transform-style: preserve-3d;
+    transition: all 150ms;
+}
+
+.left::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgb(200, 200, 200);
+    transform-origin: center left;
+    transform: rotateY(90deg);
+}
+
+.left::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgb(100, 100, 100);
+    transform-origin: center bottom;
+    transform: rotateX(90deg);
+}
+
+.right {
+    position: absolute;
+    display: flex;
+    width: 50%;
+    height: 88%;
+    background-color: #f3f3f3;
+    color: rgb(180, 180, 180);
+    right: 1px;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    transform-origin: left;
+    transform: rotateX(10deg) rotateY(-45deg);
+    transform-style: preserve-3d;
+    transition: all 150ms;
+}
+
+.right::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgb(200, 200, 200);
+    transform-origin: center right;
+    transform: rotateY(-90deg);
+}
+
+.right::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgb(100, 100, 100);
+    transform-origin: center bottom;
+    transform: rotateX(90deg);
+}
+
+/* Checked State - English Active */
+.cb:checked+.toggle>.left {
+    transform: rotateX(10deg) rotateY(45deg);
+    color: rgb(180, 180, 180);
+}
+
+.cb:checked+.toggle>.right {
+    transform: rotateX(10deg) rotateY(0deg);
+    color: #3b82f6;
+    /* Modern Blue */
+}
+
+/* Dark Mode Overrides */
+:global(.dark) .toggle {
+    background-color: #1a1a1a;
+    box-shadow: -0.3em 0 0 0 #1a1a1a, -0.3em 0.3em 0 0 #1a1a1a,
+        0.3em 0 0 0 #1a1a1a, 0.3em 0.3em 0 0 #1a1a1a, 0 0.3em 0 0 #1a1a1a;
+}

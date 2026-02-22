@@ -6,12 +6,13 @@ import Image from 'next/image';
 import { FaGithub, FaLinkedinIn, FaInstagram, FaTwitter, FaMedium, FaEnvelope } from 'react-icons/fa';
 import { useLanguage } from '@/context/LanguageContext';
 import { ContactData } from '@/data/Contact';
+import HeroButton from '../ui/HeroButton';
 
 const socialLinks = [
-  { href: ContactData.github, label: 'GitHub', icon: <FaGithub /> },
-  { href: ContactData.linkedin, label: 'LinkedIn', icon: <FaLinkedinIn /> },
-  { href: ContactData.instagram, label: 'Instagram', icon: <FaInstagram /> },
   { href: `mailto:${ContactData.email}`, label: 'Email', icon: <FaEnvelope /> },
+  { href: ContactData.linkedin, label: 'LinkedIn', icon: <FaLinkedinIn /> },
+  { href: ContactData.github, label: 'GitHub', icon: <FaGithub /> },
+  { href: ContactData.instagram, label: 'Instagram', icon: <FaInstagram /> },
 ];
 
 /**
@@ -168,12 +169,10 @@ const Hero = () => {
 
           {/* Actions & Socials */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-8 mt-6">
-            <button
+            <HeroButton
+              label={t('hero.cta')}
               onClick={() => window.dispatchEvent(new Event('open-chat'))}
-              className="px-8 py-4 bg-foreground text-background font-bold rounded-full hover:scale-105 transition-transform duration-300 shadow-xl cursor-pointer"
-            >
-              {t('hero.cta')}
-            </button>
+            />
 
             <div className="flex gap-6">
               {socialLinks.map((link) => (

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import type { Language } from '@/context/LanguageContext';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
+import { LanguageSwitch } from '@/components/ui/LanguageSwitch';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
@@ -59,29 +60,9 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <div className="flex items-center bg-muted/50 border border-border rounded-lg px-2 py-1 gap-2">
+          <div className="flex items-center bg-transparent gap-5">
             <ThemeToggle />
-            <div className="h-6 w-[1px] bg-border mx-1"></div>
-            <div className="flex gap-1">
-              <button
-                onClick={() => handleLanguageSwitch('tr')}
-                className={`px-3 py-1 text-xs font-bold rounded-md transition-all duration-200 ${language === 'tr'
-                  ? 'bg-primary text-primary-foreground shadow-sm'
-                  : 'text-muted-foreground hover:text-foreground'
-                  }`}
-              >
-                TR
-              </button>
-              <button
-                onClick={() => handleLanguageSwitch('en')}
-                className={`px-3 py-1 text-xs font-bold rounded-md transition-all duration-200 ${language === 'en'
-                  ? 'bg-primary text-primary-foreground shadow-sm'
-                  : 'text-muted-foreground hover:text-foreground'
-                  }`}
-              >
-                EN
-              </button>
-            </div>
+            <LanguageSwitch />
           </div>
         </div>
 
@@ -131,33 +112,12 @@ const Navbar = () => {
             })}
           </div>
 
-          <div className="flex items-center bg-muted/50 border border-border rounded-xl px-4 py-2 mt-8 gap-4">
-            <ThemeToggle />
-            <div className="h-8 w-[1px] bg-border mx-2"></div>
-            <button
-              onClick={() => {
-                handleLanguageSwitch('tr');
-                closeMenu();
-              }}
-              className={`px-4 py-2 text-sm font-bold rounded-lg transition-all duration-200 ${language === 'tr'
-                ? 'bg-primary text-primary-foreground shadow-md'
-                : 'text-muted-foreground hover:text-foreground'
-                }`}
-            >
-              TR
-            </button>
-            <button
-              onClick={() => {
-                handleLanguageSwitch('en');
-                closeMenu();
-              }}
-              className={`px-4 py-2 text-sm font-bold rounded-lg transition-all duration-200 ${language === 'en'
-                ? 'bg-primary text-primary-foreground shadow-md'
-                : 'text-muted-foreground hover:text-foreground'
-                }`}
-            >
-              EN
-            </button>
+          <div className="flex flex-col items-center gap-6 mt-8">
+            <div className="flex items-center gap-4 bg-muted/30 p-4 rounded-2xl border border-border">
+              <ThemeToggle />
+              <div className="h-8 w-[1px] bg-border mx-2"></div>
+              <LanguageSwitch />
+            </div>
           </div>
         </div>
       )}

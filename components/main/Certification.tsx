@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import SectionHeader from '../ui/SectionHeader';
 import { handleMissingLink } from '@/utils/Toaster';
-import { MagneticButton } from '../ui/MagneticButton';
+import CertButton from '../ui/CertButton';
 import { ArrowRightIcon } from 'lucide-react';
 
 import Image from 'next/image';
@@ -72,7 +72,7 @@ export const Certification = () => {
               variants={cardVariants}
               onMouseEnter={() => setHoveredCard(cert.id)}
               onMouseLeave={() => setHoveredCard(null)}
-              className={`group relative flex flex-col justify-between p-6 md:p-8 rounded-[2rem] bg-background/40 dark:bg-card/30 backdrop-blur-xl border border-border/50 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden ${colSpanClass}`}
+              className={`group relative flex flex-col justify-between p-6 md:p-8 rounded-[2rem] bg-background/40 dark:bg-card/30 backdrop-blur-xl border border-border/50 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden h-full ${colSpanClass}`}
             >
               {/* Color Bloom Effect: Expands on hover */}
               <div
@@ -96,19 +96,19 @@ export const Certification = () => {
                     )}
                   </div>
 
-                  {/* Magnetic Link Button */}
-                  {cert.CertificationLink ? (
-                    <MagneticButton
-                      onClick={() => window.open(cert.CertificationLink as string, '_blank')}
-                      className={`w-12 h-12 rounded-full border border-border/50 flex items-center justify-center bg-card/50 text-foreground group-hover:bg-background transition-colors shadow-sm`}
-                    >
-                      <ArrowRightIcon className={`w-5 h-5 -rotate-45 group-hover:rotate-0 transition-all duration-500 ${brand.colorClass}`} />
-                    </MagneticButton>
-                  ) : (
-                    <div className="w-12 h-12 rounded-full border border-border/50 flex items-center justify-center bg-muted/20 text-muted-foreground/30 cursor-not-allowed">
-                      <ArrowRightIcon className="w-5 h-5" />
-                    </div>
-                  )}
+                  {/* Info Badge or Animated Cert Button */}
+                  <div className="flex flex-col items-end gap-2">
+                    {cert.CertificationLink ? (
+                      <CertButton
+                        label={language === 'tr' ? 'Görüntüle' : 'View'}
+                        onClick={() => window.open(cert.CertificationLink as string, '_blank')}
+                      />
+                    ) : (
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/40 px-3 py-1 border border-dashed border-border/30 rounded-full">
+                        {language === 'tr' ? 'Kayıt Yok' : 'No Link'}
+                      </span>
+                    )}
+                  </div>
                 </div>
 
                 <div>
@@ -120,15 +120,15 @@ export const Certification = () => {
                       {cert.date}
                     </span>
                   </div>
-                  <h3 className={`text-xl md:text-2xl font-black text-foreground group-hover:${brand.colorClass} transition-colors duration-500 line-clamp-2 leading-tight`}>
+                  <h3 className={`text-xl font-black text-foreground group-hover:${brand.colorClass} transition-colors duration-500 leading-tight`}>
                     {cert.name}
                   </h3>
                 </div>
               </div>
 
               {/* Bottom part: Description */}
-              <div className="relative z-10 mt-6 pt-6 border-t border-border/30">
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed line-clamp-3 group-hover:text-foreground/80 transition-colors duration-500">
+              <div className="relative z-10 mt-4 pt-4 border-t border-border/20 h-full flex flex-col justify-start">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-500">
                   {displayDesc}
                 </p>
               </div>

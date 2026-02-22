@@ -8,10 +8,10 @@ import LegalModal from '@/components/ui/LegalModal';
 import { legalContent } from '@/data/LegalContent';
 
 const socialLinks = [
-  { href: ContactData.github, label: 'GitHub', icon: <FaGithub size={20} /> },
-  { href: ContactData.linkedin, label: 'LinkedIn', icon: <FaLinkedinIn size={20} /> },
-  { href: ContactData.instagram, label: 'Instagram', icon: <FaInstagram size={20} /> },
   { href: `mailto:${ContactData.email}`, label: 'Email', icon: <FaEnvelope size={20} /> },
+  { href: ContactData.linkedin, label: 'LinkedIn', icon: <FaLinkedinIn size={20} /> },
+  { href: ContactData.github, label: 'GitHub', icon: <FaGithub size={20} /> },
+  { href: ContactData.instagram, label: 'Instagram', icon: <FaInstagram size={20} /> },
 ];
 
 /**

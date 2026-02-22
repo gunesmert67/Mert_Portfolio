@@ -20,24 +20,24 @@ export const translations = {
       headingPart2: 'Sürekli',
       headingHighlight2: 'üreten',
       location: 'Istanbul, Turkey',
-      bio: 'Mekatronik mühendisi. Veri, yapay zeka ve otomasyon ile operasyonel süreçleri dönüştürüyorum.',
+      bio: 'Mekatronik Mühendisi. Modern yapay zeka araçlarını birleştirip "vibe coding" akışında kalarak kişisel otomasyonlar ve dijital deneyler yapıyorum.',
       cta: 'Konuşalım',
     },
     services: {
       title: 'Neler Üretiyorum',
       subtitle: 'Vibe coding ile hayata geçirdiğim projeler',
       service1Name: 'Yapay Zeka & RAG',
-      service1Desc: 'Yerel LLM\'ler ve vektör veritabanları ile sesli asistanlar ve akıllı arama sistemleri.',
+      service1Desc: "Yerel LLM'ler ve vektör veritabanları kullanarak izole çalışan otonom asistanlar ve akıllı bilgi getirme mimarileri.",
       service2Name: 'Otomasyon & İş Akışları',
-      service2Desc: 'n8n ve Python ile e-posta sınıflandırma, bildirim ve süreç otomasyonları.',
+      service2Desc: 'n8n ve Python ile tekrarlayan süreçleri elimine eden, verimlilik odaklı otonom veri ve bildirim akışları.',
       service3Name: 'Görsel AI & Üretim',
-      service3Desc: 'Stable Diffusion ve LoRA ile marka odaklı görsel üretim pipeline\'ları.',
+      service3Desc: 'Stable Diffusion ve LoRA kullanarak spesifik veri setleriyle eğitilmiş jeneratif görsel üretimi.',
       service4Name: 'IoT & Akıllı Ev',
       service4Desc: '20+ cihazlı Home Assistant ekosistemi, ağ segmentasyonu ve otonom kontrol.',
-      service5Name: 'Web & 3D Deneyimler',
-      service5Desc: 'Next.js, Three.js ve Framer Motion ile interaktif web uygulamaları.',
-      service6Name: 'Veri & Dashboard',
-      service6Desc: 'Streamlit ve Python ile operasyonel veriyi görselleştiren interaktif paneller.',
+      service5Name: 'Modern Web & 3D Arayüzler',
+      service5Desc: 'Next.js, Three.js ve Framer Motion kullanarak yüksek performanslı, minimalist ve 3D destekli web uygulamaları.',
+      service6Name: 'Veri Analitiği & Dashboard',
+      service6Desc: 'Python ve Streamlit ile karmaşık operasyonel verileri anlamlandıran, karar destek amaçlı interaktif paneller.',
     },
     statistics: {
       projectsCompleted: 'Tamamlanan Proje',
@@ -54,13 +54,13 @@ export const translations = {
       education: 'Eğitim',
     },
     skills: {
-      title: 'Teknoloji Yığını & Vibe Coding Araçları',
+      title: 'Yeteneklerim',
       subtitle:
         'Bunlar benim beynim ve ellerim - yapay zeka ile modern bir geliştirici olarak kullandığım araçlarım.',
       categories: {
-        vibe: 'Vibe Coding & Yapay Zeka Ajanları',
-        environment: 'Geliştirme Ortamı',
-        technologies: 'Ürettiğim Uygulamaların Teknolojileri'
+        web: 'Temel Mimari ve Web Teknolojileri',
+        vibe: 'Yapay Zeka ve Vibe Coding Ekosistemi',
+        automation: 'Sistem Altyapısı ve Otomasyon'
       }
     },
     projects: {
@@ -144,24 +144,24 @@ export const translations = {
       headingPart2: 'Always',
       headingHighlight2: 'building',
       location: 'Istanbul, Turkey',
-      bio: 'Mechatronics engineer. I transform operational processes with data, AI, and automation.',
+      bio: 'Mechatronics Engineer. I build personal automations and digital experiments by combining modern AI tools while staying in the "vibe coding" flow.',
       cta: "Let's Talk",
     },
     services: {
       title: 'What I Build',
       subtitle: 'Projects I bring to life with vibe coding',
       service1Name: 'AI & RAG',
-      service1Desc: 'Local LLMs and vector databases for voice assistants and smart search systems.',
+      service1Desc: 'Autonomous assistants and smart retrieval architectures using local LLMs and vector databases for isolated operations.',
       service2Name: 'Automation & Workflows',
-      service2Desc: 'Email classification, notifications, and process automations with n8n and Python.',
+      service2Desc: 'Efficiency-oriented autonomous data and notification streams with n8n and Python, eliminating repetitive processes.',
       service3Name: 'Visual AI & Generation',
-      service3Desc: 'Brand-oriented image generation pipelines with Stable Diffusion and LoRA.',
+      service3Desc: 'Generative image production trained on specific datasets using Stable Diffusion and LoRA.',
       service4Name: 'IoT & Smart Home',
       service4Desc: '20+ device Home Assistant ecosystem with network segmentation and autonomous control.',
-      service5Name: 'Web & 3D Experiences',
-      service5Desc: 'Interactive web apps with Next.js, Three.js, and Framer Motion.',
-      service6Name: 'Data & Dashboards',
-      service6Desc: 'Interactive panels visualizing operational data with Streamlit and Python.',
+      service5Name: 'Modern Web & 3D Interfaces',
+      service5Desc: 'High-performance, minimalist, and 3D-powered web applications using Next.js, Three.js, and Framer Motion.',
+      service6Name: 'Data Analytics & Dashboards',
+      service6Desc: 'Interactive panels for decision support, making sense of complex operational data with Python and Streamlit.',
     },
     statistics: {
       projectsCompleted: 'Projects Completed',
@@ -178,13 +178,13 @@ export const translations = {
       education: 'Education',
     },
     skills: {
-      title: 'Tech Stack & Vibe Coding Tools',
+      title: 'My Skills',
       subtitle:
         'These are my brain and my hands - my core tools as a modern AI-assisted developer.',
       categories: {
-        vibe: 'Vibe Coding & AI Agents',
-        environment: 'Development Environment',
-        technologies: 'Technologies I Build With'
+        web: 'Core Architecture & Web Technologies',
+        vibe: 'AI & Vibe Coding Ecosystem',
+        automation: 'Infrastructure & Automation'
       }
     },
     projects: {

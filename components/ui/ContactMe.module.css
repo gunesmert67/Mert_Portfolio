@@ -1,0 +1,205 @@
+/* From Uiverse.io - Contact Card */
+.uiverseContactParent {
+    width: 290px;
+    height: 300px;
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+.uiverseContactCard {
+    height: 100%;
+    border-radius: 50px;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%);
+    transition: all 0.5s ease-in-out;
+    transform-style: preserve-3d;
+    box-shadow: rgba(0, 0, 0, 0) 40px 50px 25px -40px, rgba(0, 0, 0, 0.2) 0px 25px 25px -5px;
+}
+
+.uiverseContactGlass {
+    transform-style: preserve-3d;
+    position: absolute;
+    inset: 8px;
+    border-radius: 55px;
+    border-top-right-radius: 100%;
+    background: linear-gradient(0deg, hsl(var(--background) / 0.4) 0%, hsl(var(--background) / 0.8) 100%);
+    transform: translate3d(0px, 0px, 25px);
+    border-left: 1px solid hsl(var(--border) / 0.5);
+    border-bottom: 1px solid hsl(var(--border) / 0.5);
+    transition: all 0.5s ease-in-out;
+}
+
+.uiverseContactContent {
+    padding: 60px 60px 0px 30px;
+    transform: translate3d(0, 0, 26px);
+}
+
+.title {
+    display: block;
+    color: hsl(var(--foreground));
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.text {
+    display: block;
+    color: hsl(var(--muted-foreground));
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.uiverseContactBottom {
+    padding: 10px 12px;
+    transform-style: preserve-3d;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate3d(0, 0, 26px);
+}
+
+.uiverseContactSocialButtonsContainer {
+    display: flex;
+    gap: 15px;
+    transform-style: preserve-3d;
+}
+
+.socialButton {
+    width: 40px;
+    aspect-ratio: 1;
+    padding: 8px;
+    background: hsl(var(--background));
+    border-radius: 50%;
+    border: none;
+    display: grid;
+    place-content: center;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 5px -5px;
+    cursor: pointer;
+}
+
+.socialButton:first-child {
+    transition: transform 0.2s ease-in-out 0.4s, box-shadow 0.2s ease-in-out 0.4s;
+}
+
+.socialButton:nth-child(2) {
+    transition: transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.6s;
+}
+
+.socialButton:nth-child(3) {
+    transition: transform 0.2s ease-in-out 0.8s, box-shadow 0.2s ease-in-out 0.8s;
+}
+
+.svg {
+    width: 20px;
+    height: 20px;
+    stroke: hsl(var(--foreground));
+    fill: none;
+}
+
+.socialButton:hover {
+    background: hsl(var(--foreground));
+}
+
+.socialButton:hover .svg {
+    stroke: hsl(var(--background));
+}
+
+.socialButton:active {
+    background: hsl(var(--primary));
+}
+
+.socialButton:active .svg {
+    stroke: hsl(var(--primary-foreground));
+}
+
+.uiverseContactLogo {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-style: preserve-3d;
+}
+
+.circle {
+    display: block;
+    position: absolute;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    background: hsl(var(--background) / 0.2);
+    transition: all 0.5s ease-in-out;
+}
+
+.circle1 {
+    width: 170px;
+    transform: translate3d(0, 0, 20px);
+    top: 8px;
+    right: 8px;
+}
+
+.circle2 {
+    width: 140px;
+    transform: translate3d(0, 0, 40px);
+    top: 10px;
+    right: 10px;
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+    transition-delay: 0.4s;
+}
+
+.circle3 {
+    width: 110px;
+    transform: translate3d(0, 0, 60px);
+    top: 17px;
+    right: 17px;
+    transition-delay: 0.8s;
+}
+
+.circle4 {
+    width: 80px;
+    transform: translate3d(0, 0, 80px);
+    top: 23px;
+    right: 23px;
+    transition-delay: 1.2s;
+}
+
+.circle5 {
+    width: 50px;
+    transform: translate3d(0, 0, 100px);
+    top: 30px;
+    right: 30px;
+    display: grid;
+    place-content: center;
+    transition-delay: 1.6s;
+}
+
+.uiverseContactParent:hover .uiverseContactCard {
+    transform: rotate3d(1, 1, 0, 30deg);
+    box-shadow: rgba(0, 0, 0, 0.3) 30px 50px 25px -40px, rgba(0, 0, 0, 0.1) 0px 25px 30px 0px;
+}
+
+.uiverseContactParent:hover .uiverseContactBottom .uiverseContactSocialButtonsContainer .socialButton {
+    transform: translate3d(0, 0, 50px);
+    box-shadow: rgba(0, 0, 0, 0.2) -5px 20px 10px 0px;
+}
+
+.uiverseContactParent:hover .circle2 {
+    transform: translate3d(0, 0, 60px);
+}
+
+.uiverseContactParent:hover .circle3 {
+    transform: translate3d(0, 0, 80px);
+}
+
+.uiverseContactParent:hover .circle4 {
+    transform: translate3d(0, 0, 100px);
+}
+
+.uiverseContactParent:hover .circle5 {
+    transform: translate3d(0, 0, 120px);
+}

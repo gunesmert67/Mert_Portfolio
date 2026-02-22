@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
 import { ContactData } from '@/data/Contact';
 import { MagneticButton } from './MagneticButton';
+import styles from './ContactMe.module.css';
 
 const slideUpVariant = {
   hidden: { opacity: 0, y: 30 },
@@ -84,38 +85,38 @@ const ContactMe = () => {
           variants={slideUpVariant}
           className="w-full lg:w-1/3 flex justify-center items-center"
         >
-          <div className="uiverse-contact-parent relative z-10 w-full flex justify-center">
-            <div className="uiverse-contact-card">
-              <div className="uiverse-contact-glass"></div>
-              <div className="uiverse-contact-content">
-                <span className="title">
+          <div className={`${styles.uiverseContactParent} relative z-10 w-full flex justify-center`}>
+            <div className={styles.uiverseContactCard}>
+              <div className={styles.uiverseContactGlass}></div>
+              <div className={styles.uiverseContactContent}>
+                <span className={styles.title}>
                   {language === 'tr' ? 'Hadi Tanışalım.' : "Let's Connect."}
                 </span>
-                <span className="text">
+                <span className={styles.text}>
                   {language === 'tr'
                     ? 'Projeler hakkında merak ettikleriniz veya sadece merhaba demek için bana ulaşabilirsiniz.'
                     : 'Feel free to reach out for projects inquiries, collaborations, or just to say hi.'}
                 </span>
               </div>
-              <div className="uiverse-contact-bottom">
-                <div className="uiverse-contact-social-buttons-container">
-                  <a href={`mailto:${ContactData.email}`} className="social-button" aria-label="Email" title="Email">
-                    <FiMail className="svg" />
+              <div className={styles.uiverseContactBottom}>
+                <div className={styles.uiverseContactSocialButtonsContainer}>
+                  <a href={`mailto:${ContactData.email}`} className={styles.socialButton} aria-label="Email" title="Email">
+                    <FiMail className={styles.svg} />
                   </a>
-                  <a href={ContactData.linkedin} target="_blank" rel="noopener noreferrer" className="social-button" aria-label="LinkedIn" title="LinkedIn">
-                    <FiLinkedin className="svg" />
+                  <a href={ContactData.linkedin} target="_blank" rel="noopener noreferrer" className={styles.socialButton} aria-label="LinkedIn" title="LinkedIn">
+                    <FiLinkedin className={styles.svg} />
                   </a>
-                  <a href={ContactData.github} target="_blank" rel="noopener noreferrer" className="social-button" aria-label="GitHub" title="GitHub">
-                    <FiGithub className="svg" />
+                  <a href={ContactData.github} target="_blank" rel="noopener noreferrer" className={styles.socialButton} aria-label="GitHub" title="GitHub">
+                    <FiGithub className={styles.svg} />
                   </a>
                 </div>
               </div>
-              <div className="uiverse-contact-logo">
-                <span className="circle circle1"></span>
-                <span className="circle circle2"></span>
-                <span className="circle circle3"></span>
-                <span className="circle circle4"></span>
-                <span className="circle circle5 text-foreground font-black text-xl tracking-tighter select-none">
+              <div className={styles.uiverseContactLogo}>
+                <span className={`${styles.circle} ${styles.circle1}`}></span>
+                <span className={`${styles.circle} ${styles.circle2}`}></span>
+                <span className={`${styles.circle} ${styles.circle3}`}></span>
+                <span className={`${styles.circle} ${styles.circle4}`}></span>
+                <span className={`${styles.circle} ${styles.circle5} text-foreground font-black text-xl tracking-tighter select-none`}>
                   MG
                 </span>
               </div>

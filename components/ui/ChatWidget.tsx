@@ -23,6 +23,7 @@ import {
   AlertTriangle,
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import styles from './ChatWidget.module.css';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -316,15 +317,15 @@ export default function ChatWidget() {
             <button
               onClick={() => setIsOpen((prev) => !prev)}
               aria-label="Toggle Chat"
-              className="chat-uiverse-btn"
+              className={styles.chatUiverseBtn}
             >
-              <div className="hover bt-1"></div>
-              <div className="hover bt-2"></div>
-              <div className="hover bt-3"></div>
-              <div className="hover bt-4"></div>
-              <div className="hover bt-5"></div>
-              <div className="hover bt-6"></div>
-              <div className="core-btn"></div>
+              <div className={`${styles.hover} ${styles.bt1}`}></div>
+              <div className={`${styles.hover} ${styles.bt2}`}></div>
+              <div className={`${styles.hover} ${styles.bt3}`}></div>
+              <div className={`${styles.hover} ${styles.bt4}`}></div>
+              <div className={`${styles.hover} ${styles.bt5}`}></div>
+              <div className={`${styles.hover} ${styles.bt6}`}></div>
+              <div className={styles.coreBtn}></div>
             </button>
           </motion.div>
         )}
