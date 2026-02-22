@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { HiOutlineMail } from 'react-icons/hi';
-import { FiMapPin, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import SectionHeader from '../ui/SectionHeader';
 import { useLanguage } from '@/context/LanguageContext';
 import { motion } from 'framer-motion';
@@ -65,13 +64,6 @@ const ContactMe = () => {
     }
   };
 
-  const contactLinks = [
-    { icon: <FiMail className="w-5 h-5" />, label: 'Email', value: ContactData.email, href: `mailto:${ContactData.email}` },
-    { icon: <FiLinkedin className="w-5 h-5" />, label: 'LinkedIn', value: 'mertgunes34', href: ContactData.linkedin },
-    { icon: <FiGithub className="w-5 h-5" />, label: 'GitHub', value: 'gunesmert67', href: ContactData.github },
-    { icon: <FiMapPin className="w-5 h-5" />, label: language === 'tr' ? 'Konum' : 'Location', value: ContactData.location[language], href: null },
-  ];
-
   return (
     <section
       id="contact"
@@ -90,53 +82,44 @@ const ContactMe = () => {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={slideUpVariant}
-          className="w-full lg:w-1/3 flex"
+          className="w-full lg:w-1/3 flex justify-center items-center"
         >
-          <div className="relative w-full p-8 md:p-10 rounded-[2rem] bg-background/50 dark:bg-card/40 backdrop-blur-xl border border-border/50 shadow-sm overflow-hidden group flex flex-col justify-between">
-            {/* Shimmer effect */}
-            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/5 to-transparent group-hover:animate-shimmer" />
-
-            <div>
-              <h3 className="text-2xl font-black tracking-tight text-foreground mb-2">
-                {language === 'tr' ? 'Hadi Tanışalım.' : "Let's Connect."}
-              </h3>
-              <p className="text-muted-foreground text-sm md:text-base mb-8 leading-relaxed">
-                {language === 'tr'
-                  ? 'Projeleriniz, iş birlikleri veya sadece merhaba demek için bana ulaşabilirsiniz.'
-                  : 'Feel free to reach out for projects, collaborations, or just to say hi.'}
-              </p>
+          <div className="uiverse-contact-parent relative z-10 w-full flex justify-center">
+            <div className="uiverse-contact-card">
+              <div className="uiverse-contact-glass"></div>
+              <div className="uiverse-contact-content">
+                <span className="title">
+                  {language === 'tr' ? 'Hadi Tanışalım.' : "Let's Connect."}
+                </span>
+                <span className="text">
+                  {language === 'tr'
+                    ? 'Projeler hakkında merak ettikleriniz veya sadece merhaba demek için bana ulaşabilirsiniz.'
+                    : 'Feel free to reach out for projects inquiries, collaborations, or just to say hi.'}
+                </span>
+              </div>
+              <div className="uiverse-contact-bottom">
+                <div className="uiverse-contact-social-buttons-container">
+                  <a href={`mailto:${ContactData.email}`} className="social-button" aria-label="Email" title="Email">
+                    <FiMail className="svg" />
+                  </a>
+                  <a href={ContactData.linkedin} target="_blank" rel="noopener noreferrer" className="social-button" aria-label="LinkedIn" title="LinkedIn">
+                    <FiLinkedin className="svg" />
+                  </a>
+                  <a href={ContactData.github} target="_blank" rel="noopener noreferrer" className="social-button" aria-label="GitHub" title="GitHub">
+                    <FiGithub className="svg" />
+                  </a>
+                </div>
+              </div>
+              <div className="uiverse-contact-logo">
+                <span className="circle circle1"></span>
+                <span className="circle circle2"></span>
+                <span className="circle circle3"></span>
+                <span className="circle circle4"></span>
+                <span className="circle circle5 text-foreground font-black text-xl tracking-tighter select-none">
+                  MG
+                </span>
+              </div>
             </div>
-
-            <div className="flex flex-col gap-6">
-              {contactLinks.map((link, idx) => {
-                const isLink = !!link.href;
-                const Wrapper = isLink ? 'a' : 'div';
-                return (
-                  <Wrapper
-                    key={idx}
-                    href={link.href as string}
-                    target={isLink ? "_blank" : undefined}
-                    rel={isLink ? "noopener noreferrer" : undefined}
-                    className={`flex items-center gap-4 group/item ${isLink ? 'cursor-pointer' : ''}`}
-                  >
-                    <div className="w-12 h-12 rounded-2xl bg-secondary/50 flex items-center justify-center text-foreground group-hover/item:bg-primary group-hover/item:text-white transition-colors duration-300">
-                      {link.icon}
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground group-hover/item:text-foreground transition-colors">
-                        {link.label}
-                      </span>
-                      <span className="text-sm md:text-base font-semibold text-foreground">
-                        {link.value}
-                      </span>
-                    </div>
-                  </Wrapper>
-                );
-              })}
-            </div>
-
-            {/* Subtle glow on card */}
-            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
           </div>
         </motion.div>
 

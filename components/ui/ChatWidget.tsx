@@ -305,42 +305,28 @@ export default function ChatWidget() {
     <>
       {/* Floating Action Button */}
       <AnimatePresence>
-        {!isExpanded && (
-          <motion.button
+        {!isOpen && !isExpanded && (
+          <motion.div
             key="fab"
-            onClick={() => setIsOpen((prev) => !prev)}
-            className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-border bg-background shadow-lg shadow-primary/10 transition-all hover:scale-110 hover:border-primary/50"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
+            className="fixed bottom-6 right-6 z-50 origin-[center_bottom] transition-all"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            aria-label="Toggle Chat"
           >
-            <AnimatePresence mode="wait">
-              {isOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X className="h-6 w-6 text-primary" />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="open"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <MessageCircle className="h-7 w-7 text-primary" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
+            <button
+              onClick={() => setIsOpen((prev) => !prev)}
+              aria-label="Toggle Chat"
+              className="chat-uiverse-btn"
+            >
+              <div className="hover bt-1"></div>
+              <div className="hover bt-2"></div>
+              <div className="hover bt-3"></div>
+              <div className="hover bt-4"></div>
+              <div className="hover bt-5"></div>
+              <div className="hover bt-6"></div>
+              <div className="core-btn"></div>
+            </button>
+          </motion.div>
         )}
       </AnimatePresence>
 
@@ -379,35 +365,35 @@ export default function ChatWidget() {
             className={`fixed z-[60] flex flex-col overflow-hidden border border-border bg-background shadow-2xl transition-all
               ${isExpanded
                 ? 'inset-0 m-auto w-[100vw] h-[100dvh] md:w-[95vw] md:h-[92vh] max-w-[1200px] rounded-none md:rounded-[24px]'
-                : 'bottom-[5.5rem] right-[4vw] w-[92vw] h-[70vh] md:bottom-24 md:right-6 md:w-[450px] md:h-[600px] rounded-[24px]'
+                : 'bottom-[5.5rem] right-[4vw] w-[92vw] h-[75vh] max-h-[700px] md:bottom-24 md:right-6 md:w-[400px] lg:w-[450px] md:h-[650px] rounded-[24px]'
               }`}
           >
             {/* Header with Presence & Analysis */}
             <div
-              className={`relative flex flex-col border-b border-border bg-muted/30 ${isExpanded ? 'py-3' : 'py-2'}`}
+              className={`relative flex flex-col border-b border-border bg-muted/30 ${isExpanded ? 'py-2 sm:py-3' : 'py-1 sm:py-2'}`}
             >
               {/* Top Bar: Bot Info & Actions */}
               <div
-                className={`flex items-center justify-between px-5 ${isExpanded ? 'py-2' : 'py-1'}`}
+                className={`flex items-center justify-between px-4 sm:px-5 ${isExpanded ? 'py-2' : 'py-1'}`}
               >
-                <div className="flex items-center gap-4 overflow-hidden">
+                <div className="flex items-center gap-3 sm:gap-4 overflow-hidden">
                   <div
-                    className={`flex-shrink-0 flex items-center justify-center rounded-lg border border-border bg-card shadow-sm transition-all duration-500 ${isExpanded ? 'h-14 w-14' : 'h-11 w-11'}`}
+                    className={`flex-shrink-0 flex items-center justify-center rounded-lg border border-border bg-card shadow-sm transition-all duration-500 ${isExpanded ? 'h-12 w-12 sm:h-14 sm:w-14' : 'h-10 w-10 sm:h-11 sm:w-11'}`}
                   >
                     {mode === 'cv' ? (
                       <Briefcase
-                        className={`${isExpanded ? 'h-7 w-7' : 'h-5 w-5'} text-primary`}
+                        className={`${isExpanded ? 'h-6 w-6 sm:h-7 sm:w-7' : 'h-5 w-5'} text-primary`}
                       />
                     ) : (
                       <Bot
-                        className={`${isExpanded ? 'h-8 w-8' : 'h-6 w-6'} text-primary`}
+                        className={`${isExpanded ? 'h-6 w-6 sm:h-8 sm:w-8' : 'h-5 w-5 sm:h-6 sm:w-6'} text-primary`}
                       />
                     )}
                   </div>
 
                   <div className="flex flex-col gap-0.5 overflow-hidden">
                     <h3
-                      className={`font-bold tracking-tighter text-foreground uppercase ${isExpanded ? 'text-xl' : 'text-base'}`}
+                      className={`font-bold tracking-tighter text-foreground ${isExpanded ? 'text-lg sm:text-xl' : 'text-[15px] sm:text-base'}`}
                     >
                       {mode === 'cv'
                         ? t('chat.professional_title')
@@ -502,20 +488,20 @@ export default function ChatWidget() {
               </div>
 
               {/* Mode Switcher Tabs */}
-              <div className="px-5 pb-3">
+              <div className="px-4 sm:px-5 pb-2 sm:pb-3">
                 <div className="flex p-1 bg-muted rounded-xl border border-border">
                   <button
                     onClick={() => mode !== 'cv' && toggleMode()}
-                    className={`flex-1 flex items-center justify-center gap-2.5 py-2.5 text-[10px] font-bold uppercase tracking-widest rounded-lg transition-all duration-300 ${mode === 'cv' ? 'bg-background text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
+                    className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2.5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold tracking-wide rounded-lg transition-all duration-300 ${mode === 'cv' ? 'bg-background text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
                   >
-                    <Briefcase className="h-4 w-4" />
+                    <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     {t('chat.professional_mode')}
                   </button>
                   <button
                     onClick={() => mode !== 'default' && toggleMode()}
-                    className={`flex-1 flex items-center justify-center gap-2.5 py-2.5 text-[10px] font-bold uppercase tracking-widest rounded-lg transition-all duration-300 ${mode === 'default' ? 'bg-background text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
+                    className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2.5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold tracking-wide rounded-lg transition-all duration-300 ${mode === 'default' ? 'bg-background text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
                   >
-                    <Gamepad2 className="h-4 w-4" />
+                    <Gamepad2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     {t('chat.chat_mode')}
                   </button>
                 </div>
@@ -525,9 +511,9 @@ export default function ChatWidget() {
             {/* Message Loop */}
             <div
               ref={scrollRef}
-              className="flex-1 overflow-y-auto px-6 py-6 scrollbar-thin"
+              className="flex-1 overflow-y-auto px-4 py-4 sm:px-6 sm:py-6 scrollbar-thin"
             >
-              <div className="flex flex-col gap-8 max-w-5xl mx-auto w-full">
+              <div className="flex flex-col gap-4 sm:gap-6 max-w-5xl mx-auto w-full">
                 {messages.map((msg, i) => (
                   <motion.div
                     key={i}
@@ -540,9 +526,9 @@ export default function ChatWidget() {
                     className={`flex w-full ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`relative max-w-[85%] px-6 py-4 shadow-sm ${isExpanded
-                          ? 'text-lg leading-relaxed'
-                          : 'text-sm leading-relaxed'
+                      className={`relative max-w-[88%] sm:max-w-[85%] px-4 py-3 sm:px-5 sm:py-3.5 shadow-sm ${isExpanded
+                        ? 'text-[15px] sm:text-lg leading-relaxed'
+                        : 'text-[13.5px] sm:text-sm leading-relaxed'
                         } ${msg.role === 'user'
                           ? 'rounded-2xl rounded-tr-none bg-primary text-primary-foreground'
                           : 'rounded-2xl rounded-tl-none bg-muted border border-border text-foreground'
@@ -559,7 +545,7 @@ export default function ChatWidget() {
                     animate={{ opacity: 1 }}
                     className="flex justify-start w-full"
                   >
-                    <div className="rounded-2xl rounded-tl-none bg-muted border border-border px-6 py-5">
+                    <div className="rounded-2xl rounded-tl-none bg-muted border border-border px-4 py-3.5 sm:px-5 sm:py-4">
                       <div className="flex gap-2">
                         <motion.div
                           className="h-2 w-2 rounded-full bg-primary"
@@ -611,12 +597,12 @@ export default function ChatWidget() {
 
             {/* Input & Controls */}
             <div
-              className={`border-t border-border bg-background px-6 ${isExpanded ? 'py-8' : 'py-5'}`}
+              className={`border-t border-border bg-background px-4 sm:px-6 ${isExpanded ? 'py-4 sm:py-6' : 'py-3 sm:py-4'}`}
             >
               <div className="max-w-5xl mx-auto w-full">
                 <form
                   onSubmit={handleSend}
-                  className={`flex items-center gap-3 rounded-full border border-border bg-muted/30 p-2 pl-6 transition-all focus-within:border-primary focus-within:bg-background shadow-sm`}
+                  className={`flex items-center gap-2 sm:gap-3 rounded-full border border-border bg-muted/30 p-1.5 pl-4 sm:p-2 sm:pl-6 transition-all focus-within:border-primary focus-within:bg-background shadow-sm`}
                 >
                   <input
                     ref={inputRef}
@@ -626,19 +612,19 @@ export default function ChatWidget() {
                     onKeyDown={handleKeyDown}
                     placeholder={t('chat.placeholder')}
                     disabled={isLoading}
-                    className={`flex-1 bg-transparent py-2 text-foreground placeholder-muted-foreground/60 focus:outline-none disabled:opacity-50 ${isExpanded ? 'text-lg' : 'text-sm'}`}
+                    className={`flex-1 bg-transparent py-2 text-foreground placeholder-muted-foreground/60 focus:outline-none disabled:opacity-50 ${isExpanded ? 'text-base sm:text-lg' : 'text-[13.5px] sm:text-sm'}`}
                   />
                   <button
                     type="submit"
                     disabled={isLoading || !input.trim()}
                     title={t('chat.send')}
-                    className={`flex items-center justify-center rounded-full bg-primary text-primary-foreground transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground ${isExpanded ? 'h-12 w-12' : 'h-10 w-10'}`}
+                    className={`flex items-center justify-center rounded-full bg-primary text-primary-foreground transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground ${isExpanded ? 'h-10 w-10 sm:h-12 sm:w-12' : 'h-9 w-9 sm:h-10 sm:w-10'}`}
                   >
-                    <Send className="h-4 w-4 ml-0.5" />
+                    <Send className="h-4 w-4 ml-0.5 sm:ml-1" />
                   </button>
                 </form>
-                <div className="mt-4 flex justify-center">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/30">
+                <div className="mt-2.5 sm:mt-3.5 flex justify-center">
+                  <span className="text-[10px] sm:text-xs font-medium tracking-wide text-muted-foreground/30">
                     {t('chat.footer')}
                   </span>
                 </div>

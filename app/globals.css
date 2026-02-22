@@ -240,3 +240,397 @@ textarea {
   stroke: currentColor !important;
   fill: currentColor !important;
 }
+
+/* --- Uiverse Chat Button CSS --- */
+.chat-uiverse-btn {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "bt-1 bt-2 bt-3"
+    "bt-4 bt-5 bt-6";
+  position: relative;
+  perspective: 800px;
+  padding: 0;
+  width: 135px;
+  height: 47px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.chat-uiverse-btn:active {
+  transform: scale(0.95);
+}
+
+.chat-uiverse-btn .hover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+}
+
+.chat-uiverse-btn .bt-1 {
+  grid-area: bt-1;
+}
+
+.chat-uiverse-btn .bt-2 {
+  grid-area: bt-2;
+}
+
+.chat-uiverse-btn .bt-3 {
+  grid-area: bt-3;
+}
+
+.chat-uiverse-btn .bt-4 {
+  grid-area: bt-4;
+}
+
+.chat-uiverse-btn .bt-5 {
+  grid-area: bt-5;
+}
+
+.chat-uiverse-btn .bt-6 {
+  grid-area: bt-6;
+}
+
+.chat-uiverse-btn .bt-1:hover~.core-btn {
+  transform: rotateX(15deg) rotateY(-15deg) rotateZ(0deg);
+  box-shadow: -2px -2px hsl(var(--primary) / 0.4);
+}
+
+.chat-uiverse-btn .bt-1:hover~.core-btn::after {
+  animation: shake 0.5s ease-in-out 0.3s;
+  text-shadow: -2px -2px hsl(var(--primary) / 0.4);
+}
+
+.chat-uiverse-btn .bt-3:hover~.core-btn {
+  transform: rotateX(15deg) rotateY(15deg) rotateZ(0deg);
+  box-shadow: 2px -2px hsl(var(--primary) / 0.4);
+}
+
+.chat-uiverse-btn .bt-3:hover~.core-btn::after {
+  animation: shake 0.5s ease-in-out 0.3s;
+  text-shadow: 2px -2px hsl(var(--primary) / 0.4);
+}
+
+.chat-uiverse-btn .bt-4:hover~.core-btn {
+  transform: rotateX(-15deg) rotateY(-15deg) rotateZ(0deg);
+  box-shadow: -2px 2px hsl(var(--primary) / 0.4);
+}
+
+.chat-uiverse-btn .bt-4:hover~.core-btn::after {
+  animation: shake 0.5s ease-in-out 0.3s;
+  text-shadow: -2px 2px hsl(var(--primary) / 0.4);
+}
+
+.chat-uiverse-btn .bt-6:hover~.core-btn {
+  transform: rotateX(-15deg) rotateY(15deg) rotateZ(0deg);
+  box-shadow: 2px 2px hsl(var(--primary) / 0.4);
+}
+
+.chat-uiverse-btn .bt-6:hover~.core-btn::after {
+  animation: shake 0.5s ease-in-out 0.3s;
+  text-shadow: 2px 2px hsl(var(--primary) / 0.4);
+}
+
+.chat-uiverse-btn .hover:hover~.core-btn::before {
+  background: transparent;
+}
+
+.chat-uiverse-btn .hover:hover~.core-btn::after {
+  content: "Ask AI";
+  top: -150%;
+  transform: translate(-50%, 0);
+  font-size: 34px;
+  color: hsl(var(--primary));
+}
+
+.chat-uiverse-btn .core-btn {
+  position: absolute;
+  padding: 0;
+  width: 135px;
+  height: 47px;
+  background: transparent;
+  font-size: 17px;
+  font-weight: 900;
+  border: 3px solid hsl(var(--primary));
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+}
+
+.chat-uiverse-btn .core-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 135px;
+  height: 47px;
+  background-color: hsl(var(--primary));
+  border-radius: 9px;
+  transition: all 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.chat-uiverse-btn .core-btn::after {
+  content: "Chat";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 135px;
+  height: 47px;
+  background-color: transparent;
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 47px;
+  color: hsl(var(--primary-foreground));
+  border: none;
+  border-radius: 12px;
+  transition: all 0.3s ease-in-out;
+  z-index: 2;
+}
+
+@keyframes shake {
+  0% {
+    left: 45%;
+  }
+
+  25% {
+    left: 54%;
+  }
+
+  50% {
+    left: 48%;
+  }
+
+  75% {
+    left: 52%;
+  }
+
+  100% {
+    left: 50%;
+  }
+}
+
+/* From Uiverse.io by Smit-Prajapati */
+.uiverse-contact-parent {
+  width: 290px;
+  height: 300px;
+  perspective: 1000px;
+  margin: 0 auto;
+}
+
+.uiverse-contact-card {
+  height: 100%;
+  border-radius: 50px;
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%);
+  transition: all 0.5s ease-in-out;
+  transform-style: preserve-3d;
+  box-shadow: rgba(0, 0, 0, 0) 40px 50px 25px -40px, rgba(0, 0, 0, 0.2) 0px 25px 25px -5px;
+}
+
+.uiverse-contact-glass {
+  transform-style: preserve-3d;
+  position: absolute;
+  inset: 8px;
+  border-radius: 55px;
+  border-top-right-radius: 100%;
+  background: linear-gradient(0deg, hsl(var(--background) / 0.4) 0%, hsl(var(--background) / 0.8) 100%);
+  /* -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px); */
+  transform: translate3d(0px, 0px, 25px);
+  border-left: 1px solid hsl(var(--border) / 0.5);
+  border-bottom: 1px solid hsl(var(--border) / 0.5);
+  transition: all 0.5s ease-in-out;
+}
+
+.uiverse-contact-content {
+  padding: 60px 60px 0px 30px;
+  transform: translate3d(0, 0, 26px);
+}
+
+.uiverse-contact-content .title {
+  display: block;
+  color: hsl(var(--foreground));
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.uiverse-contact-content .text {
+  display: block;
+  color: hsl(var(--muted-foreground));
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+.uiverse-contact-bottom {
+  padding: 10px 12px;
+  transform-style: preserve-3d;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Set to center since view-more is removed */
+  transform: translate3d(0, 0, 26px);
+}
+
+.uiverse-contact-social-buttons-container {
+  display: flex;
+  gap: 15px;
+  /* increase gap nicely */
+  transform-style: preserve-3d;
+}
+
+.uiverse-contact-social-buttons-container .social-button {
+  width: 40px;
+  /* modified to 40px for larger click target */
+  aspect-ratio: 1;
+  padding: 8px;
+  /* modified to 8px */
+  background: hsl(var(--background));
+  border-radius: 50%;
+  border: none;
+  display: grid;
+  place-content: center;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 5px -5px;
+  cursor: pointer;
+}
+
+.uiverse-contact-social-buttons-container .social-button:first-child {
+  transition: transform 0.2s ease-in-out 0.4s, box-shadow 0.2s ease-in-out 0.4s;
+}
+
+.uiverse-contact-social-buttons-container .social-button:nth-child(2) {
+  transition: transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.6s;
+}
+
+.uiverse-contact-social-buttons-container .social-button:nth-child(3) {
+  transition: transform 0.2s ease-in-out 0.8s, box-shadow 0.2s ease-in-out 0.8s;
+}
+
+.uiverse-contact-social-buttons-container .social-button .svg {
+  width: 20px;
+  /* changed to 20px */
+  height: 20px;
+  stroke: hsl(var(--foreground));
+  fill: none;
+}
+
+.uiverse-contact-social-buttons-container .social-button:hover {
+  background: hsl(var(--foreground));
+}
+
+.uiverse-contact-social-buttons-container .social-button:hover .svg {
+  stroke: hsl(var(--background));
+}
+
+.uiverse-contact-social-buttons-container .social-button:active {
+  background: hsl(var(--primary));
+}
+
+.uiverse-contact-social-buttons-container .social-button:active .svg {
+  stroke: hsl(var(--primary-foreground));
+}
+
+.uiverse-contact-logo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform-style: preserve-3d;
+}
+
+.uiverse-contact-logo .circle {
+  display: block;
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  top: 0;
+  right: 0;
+  box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  background: hsl(var(--background) / 0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.uiverse-contact-logo .circle1 {
+  width: 170px;
+  transform: translate3d(0, 0, 20px);
+  top: 8px;
+  right: 8px;
+}
+
+.uiverse-contact-logo .circle2 {
+  width: 140px;
+  transform: translate3d(0, 0, 40px);
+  top: 10px;
+  right: 10px;
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  transition-delay: 0.4s;
+}
+
+.uiverse-contact-logo .circle3 {
+  width: 110px;
+  transform: translate3d(0, 0, 60px);
+  top: 17px;
+  right: 17px;
+  transition-delay: 0.8s;
+}
+
+.uiverse-contact-logo .circle4 {
+  width: 80px;
+  transform: translate3d(0, 0, 80px);
+  top: 23px;
+  right: 23px;
+  transition-delay: 1.2s;
+}
+
+.uiverse-contact-logo .circle5 {
+  width: 50px;
+  transform: translate3d(0, 0, 100px);
+  top: 30px;
+  right: 30px;
+  display: grid;
+  place-content: center;
+  transition-delay: 1.6s;
+}
+
+.uiverse-contact-logo .circle5 .svg {
+  width: 25px;
+  /* increase mail icon */
+  height: 25px;
+  stroke: white;
+  fill: none;
+}
+
+.uiverse-contact-parent:hover .uiverse-contact-card {
+  transform: rotate3d(1, 1, 0, 30deg);
+  box-shadow: rgba(0, 0, 0, 0.3) 30px 50px 25px -40px, rgba(0, 0, 0, 0.1) 0px 25px 30px 0px;
+}
+
+.uiverse-contact-parent:hover .uiverse-contact-bottom .uiverse-contact-social-buttons-container .social-button {
+  transform: translate3d(0, 0, 50px);
+  box-shadow: rgba(0, 0, 0, 0.2) -5px 20px 10px 0px;
+}
+
+.uiverse-contact-parent:hover .uiverse-contact-logo .circle2 {
+  transform: translate3d(0, 0, 60px);
+}
+
+.uiverse-contact-parent:hover .uiverse-contact-logo .circle3 {
+  transform: translate3d(0, 0, 80px);
+}
+
+.uiverse-contact-parent:hover .uiverse-contact-logo .circle4 {
+  transform: translate3d(0, 0, 100px);
+}
+
+.uiverse-contact-parent:hover .uiverse-contact-logo .circle5 {
+  transform: translate3d(0, 0, 120px);
+}

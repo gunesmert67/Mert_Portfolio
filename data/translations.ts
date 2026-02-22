@@ -120,8 +120,8 @@ export const translations = {
       error: 'Üzgünüm, bir hata oluştu. Lütfen tekrar deneyin.',
       cv_mode_badge: 'CV & Projeler',
       chat_mode_badge: 'Sohbet & Politika',
-      professional_title: 'MertAI (Profesyonel)',
-      persona_title: 'MertAI (Persona)',
+      professional_title: 'MertAI V2.0',
+      persona_title: 'MertAI V2.0',
       clear_confirm: 'Silmek istiyor musun?',
       yes: 'EVET',
       no: 'HAYIR'
@@ -244,8 +244,8 @@ export const translations = {
       error: 'Sorry, something went wrong. Please try again.',
       cv_mode_badge: 'CV & Projects',
       chat_mode_badge: 'Chat & Politics',
-      professional_title: 'MertAI (Professional)',
-      persona_title: 'MertAI (Persona)',
+      professional_title: 'MertAI V2.0',
+      persona_title: 'MertAI V2.0',
       clear_confirm: 'Do you want to clear?',
       yes: 'YES',
       no: 'NO'
