@@ -34,7 +34,7 @@
 
 .button__text span {
     position: absolute;
-    transform: rotate(calc(var(--angle, 19deg) * var(--index)));
+    transform: rotate(calc(var(--angle) * var(--idx)));
     inset: 7px;
     text-align: center;
 }

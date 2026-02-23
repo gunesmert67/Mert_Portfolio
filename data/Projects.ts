@@ -18,7 +18,7 @@ export const projectsData = [
     },
     sourceUrl: null,
     youtubeUrl: null,
-    githubUrl: null,
+    githubUrl: 'https://github.com/gunesmert67/local-voice-rag',
     startDate: '2025-12-01',
     endDate: '2026-01-01',
     technologyStack: [
@@ -81,7 +81,7 @@ export const projectsData = [
     },
     sourceUrl: null,
     youtubeUrl: null,
-    githubUrl: null,
+    githubUrl: 'https://github.com/gunesmert67/MertMail-Pro',
     startDate: '2025-10-01',
     endDate: '2025-11-01',
     technologyStack: [
@@ -506,9 +506,9 @@ export const projectsData = [
       en: 'A professional, minimalist portfolio website built with Next.js and Framer Motion — featuring a technical, engineering-inspired background and a clean, architectural design system.',
       tr: 'Next.js ve Framer Motion ile oluşturulmuş profesyonel ve minimalist bir portföy web sitesi — teknik, mühendislik odaklı bir arka plan ve temiz, mimari bir tasarım sistemi sunuyor.',
     },
-    sourceUrl: 'https://scifi.mertgunes.com/',
+    sourceUrl: null,
     youtubeUrl: null,
-    githubUrl: null,
+    githubUrl: 'https://github.com/gunesmert67/Mert_Portfolio',
     startDate: '2026-02-01',
     endDate: '2026-02-01',
     technologyStack: [

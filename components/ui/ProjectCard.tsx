@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import React, { useState, useRef, memo } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaYoutube } from 'react-icons/fa';
+import { FaGithub, FaYoutube } from 'react-icons/fa';
 import Modal from './Modal';
 import LiveDemoButton from './LiveDemoButton';
 import { useLanguage } from '@/context/LanguageContext';
@@ -15,7 +15,6 @@ interface ProjectCardProps {
   description: { en: string; tr: string } | string;
   githubUrl: string | null;
   sourceUrl: string | null;
-  youtubeUrl: string | null;
   startDate: string;
   endDate: string | null;
   technologyStack: string[];
@@ -26,8 +25,7 @@ interface ProjectCardProps {
 
 /**
  * ProjectCard Component
- * Updated for minimal 2-column grid layout.
- * Each project takes up a grid cell with simple hover animations.
+ * minimalist 2-column grid layout with glassmorphism interactions.
  */
 const ProjectCard = ({
   id,
@@ -36,7 +34,6 @@ const ProjectCard = ({
   description,
   githubUrl,
   sourceUrl,
-  youtubeUrl,
   startDate,
   endDate,
   technologyStack,
@@ -92,73 +89,57 @@ const ProjectCard = ({
           {/* Subtle gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-          {/* View Details Hint */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-            <span className="px-6 py-2.5 bg-background/90 backdrop-blur-md rounded-full font-bold uppercase tracking-widest text-[11px] text-foreground shadow-xl border border-border/50 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-              {t('projects.details')}
-            </span>
+          {/* Date Badge - Bottom Left */}
+          <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
+            <div className="px-3 py-1.5 bg-background/60 backdrop-blur-md rounded-lg border border-border/40 shadow-sm flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
+              <span className="text-[10px] font-bold tracking-wider text-foreground uppercase opacity-90">
+                {formatMonthYear(startDate)}
+                {startDate !== endDate && endDate !== null ? ` - ${formatMonthYear(endDate)}` : ''}
+              </span>
+              {endDate === null && (
+                <span className="flex h-1.5 w-1.5 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-500"></span>
+                </span>
+              )}
+            </div>
+            {endDate === null && (
+              <span className="bg-amber-500/10 text-amber-600 dark:text-amber-400 text-[8px] uppercase font-bold py-1 px-2 rounded-lg border border-amber-500/20 backdrop-blur-md">
+                {t('projects.inProgress')}
+              </span>
+            )}
           </div>
 
-          <div className="absolute top-4 left-4 z-10 flex gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-destructive/60 opacity-60 backdrop-blur-sm shadow-sm" />
-            <div className="w-2.5 h-2.5 rounded-full bg-amber-500/60 opacity-60 backdrop-blur-sm shadow-sm" />
-            <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/60 opacity-60 backdrop-blur-sm shadow-sm" />
+          {/* Action Button - Bottom Right */}
+          <div className="absolute bottom-4 right-4 z-20">
+            {sourceUrl ? (
+              <LiveDemoButton
+                text="  DEMO      "
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                  e.stopPropagation();
+                  window.open(sourceUrl as string, '_blank', 'noopener noreferrer');
+                }}
+              />
+            ) : githubUrl ? (
+              <LiveDemoButton
+                text="  GITHUB      "
+                icon={<FaGithub size={20} />}
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                  e.stopPropagation();
+                  window.open(githubUrl, '_blank', 'noopener noreferrer');
+                }}
+              />
+            ) : null}
           </div>
         </div>
 
         {/* Content Side */}
         <div className="flex flex-col gap-2 px-1">
           <div className="flex flex-col gap-1.5">
-            <div className="flex items-center gap-2">
-              <span className="text-[10px] font-bold tracking-wider text-muted-foreground uppercase opacity-80">
-                {formatMonthYear(startDate)}
-                {startDate !== endDate && endDate !== null ? ` - ${formatMonthYear(endDate)}` : ''}
-              </span>
-              {endDate === null && (
-                <span className="shrink-0 bg-amber-500/10 text-amber-600 dark:text-amber-400 text-[8px] uppercase font-bold py-0.5 px-1.5 rounded-md border border-amber-500/20">
-                  {t('projects.inProgress')}
-                </span>
-              )}
-            </div>
-
             <div className="flex items-center justify-between gap-3">
               <h3 className="text-xl md:text-2xl font-black tracking-tight text-foreground leading-tight group-hover:text-primary transition-colors line-clamp-1">
                 {displayTitle}
               </h3>
-              <div className="flex items-center gap-2 shrink-0">
-                {githubUrl && (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      window.open(githubUrl, '_blank', 'noopener noreferrer');
-                    }}
-                    aria-label="GitHub"
-                    className="p-1.5 text-muted-foreground/60 hover:text-foreground transition-colors"
-                  >
-                    <FaGithub size={18} />
-                  </button>
-                )}
-                {sourceUrl && (
-                  <LiveDemoButton
-                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-                      e.stopPropagation();
-                      window.open(sourceUrl as string, '_blank', 'noopener noreferrer');
-                    }}
-                  />
-                )}
-                {youtubeUrl && (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      window.open(youtubeUrl, '_blank', 'noopener noreferrer');
-                    }}
-                    aria-label="YouTube"
-                    className="p-1.5 text-muted-foreground/60 hover:text-red-500 transition-colors"
-                  >
-                    <FaYoutube size={18} />
-                  </button>
-                )}
-              </div>
             </div>
           </div>
 

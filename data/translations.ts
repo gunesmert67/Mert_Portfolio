@@ -126,6 +126,11 @@ export const translations = {
       yes: 'EVET',
       no: 'HAYIR'
     },
+    cookie: {
+      message: 'Bu web sitesi, kullanıcı deneyiminizi artırmak ve performansı analiz etmek için (Vercel Analytics) çerezleri kullanır.',
+      accept: 'Anladım',
+      privacy: 'Gizlilik Politikası',
+    },
   },
   en: {
     nav: {
@@ -249,6 +254,11 @@ export const translations = {
       clear_confirm: 'Do you want to clear?',
       yes: 'YES',
       no: 'NO'
+    },
+    cookie: {
+      message: 'This website uses cookies to enhance your experience and analyze performance through Vercel Analytics.',
+      accept: 'Understood',
+      privacy: 'Privacy Policy',
     },
   },
 } as const;

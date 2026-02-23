@@ -89,6 +89,8 @@ export const metadata: Metadata = {
   },
 };
 
+import CookieConsent from '@/components/ui/CookieConsent';
+
 /**
  * Root layout component providing context and global styles.
  */
@@ -157,6 +159,7 @@ export default function RootLayout({
               <Footer />
             </main>
             <ChatWidget />
+            <CookieConsent />
           </LanguageProvider>
         </ThemeProvider>
 

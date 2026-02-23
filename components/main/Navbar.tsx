@@ -53,10 +53,10 @@ const Navbar = () => {
         {/* Desktop Navigation (AnimatedNav) */}
         <div className="hidden md:flex items-center mx-auto">
           <AnimatedNav
-            items={navLinkKeys.map(link => ({
+            items={React.useMemo(() => navLinkKeys.map(link => ({
               label: t(link.key),
               href: link.href
-            }))}
+            })), [t])}
           />
         </div>
 

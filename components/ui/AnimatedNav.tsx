@@ -29,28 +29,40 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({ items }) => {
     const pathname = usePathname();
     const router = useRouter();
     const navRef = useRef<HTMLDivElement>(null);
+    const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
     const [sparkles, setSparkles] = useState<Sparkle[]>([]);
 
+    const [pillStyle, setPillStyle] = useState({
+        left: 0,
+        width: 0,
+        opacity: 0
+    });
+
     const getActiveIndex = useCallback(() => {
-        const idx = items.findIndex(
-            (item) => pathname === item.href || (pathname === '/' && item.href === '/about')
-        );
+        const idx = items.findIndex((item) => pathname === item.href);
         return idx !== -1 ? idx : 0;
     }, [pathname, items]);
 
-    const [activeIndex, setActiveIndex] = useState(getActiveIndex);
+    const activeIndex = getActiveIndex();
 
+    // Update pill position when active index or items change
     useEffect(() => {
-        const newIdx = getActiveIndex();
-        if (newIdx !== activeIndex) {
-            setActiveIndex(newIdx);
+        const activeElement = itemRefs.current[activeIndex];
+        if (activeElement && navRef.current) {
+            const containerRect = navRef.current.getBoundingClientRect();
+            const activeRect = activeElement.getBoundingClientRect();
+
+            setPillStyle({
+                left: activeRect.left - containerRect.left,
+                width: activeRect.width,
+                opacity: 1
+            });
         }
-    }, [pathname, getActiveIndex, activeIndex]);
+    }, [activeIndex, items]);
 
     const createSparkles = (clickRect: DOMRect) => {
         if (!navRef.current) return;
         const containerRect = navRef.current.getBoundingClientRect();
-        // Calculate center of clicked element relative to the nav container
         const cx = (clickRect.left + clickRect.width / 2) - containerRect.left;
         const cy = (clickRect.top + clickRect.height / 2) - containerRect.top;
 
@@ -77,12 +89,25 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({ items }) => {
     };
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, index: number, href: string) => {
-        e.preventDefault();
-        if (activeIndex === index) return;
+        // Only trigger if clicking a different link
+        if (pathname === href) {
+            e.preventDefault();
+            return;
+        }
 
+        e.preventDefault();
         const rect = e.currentTarget.getBoundingClientRect();
         createSparkles(rect);
-        setActiveIndex(index);
+
+        // Pre-update pill position for immediate visual feedback before navigation
+        if (navRef.current) {
+            const containerRect = navRef.current.getBoundingClientRect();
+            setPillStyle({
+                left: rect.left - containerRect.left,
+                width: rect.width,
+                opacity: 1
+            });
+        }
 
         setTimeout(() => {
             router.push(href);
@@ -91,34 +116,39 @@ const AnimatedNav: React.FC<AnimatedNavProps> = ({ items }) => {
 
     return (
         <div ref={navRef} className="relative flex items-center gap-1">
+            {/* Single Sliding Pill */}
+            <motion.div
+                className="absolute h-full rounded-full bg-primary shadow-lg shadow-primary/20 pointer-events-none"
+                initial={false}
+                animate={{
+                    x: pillStyle.left,
+                    width: pillStyle.width,
+                    opacity: pillStyle.opacity
+                }}
+                transition={{
+                    type: 'spring',
+                    stiffness: 380,
+                    damping: 30,
+                }}
+                style={{ zIndex: 0 }}
+            />
+
             {items.map((item, index) => (
                 <a
                     key={item.href}
                     href={item.href}
+                    ref={(el) => (itemRefs.current[index] = el)}
                     onClick={(e) => handleClick(e, index, item.href)}
-                    className={`relative z-10 px-3 py-2 text-[0.8rem] font-semibold whitespace-nowrap rounded-full transition-colors duration-300 ${activeIndex === index
-                        ? 'text-primary-foreground'
-                        : 'text-muted-foreground hover:text-foreground'
+                    className={`relative z-10 px-3 py-2 text-[0.8rem] font-semibold whitespace-nowrap rounded-full transition-colors duration-300 ${pathname === item.href
+                            ? 'text-primary-foreground'
+                            : 'text-muted-foreground hover:text-foreground'
                         }`}
                 >
-                    {/* Sliding pill behind active item */}
-                    {activeIndex === index && (
-                        <motion.span
-                            layoutId="nav-pill"
-                            className="absolute inset-0 rounded-full bg-primary shadow-lg shadow-primary/20"
-                            style={{ zIndex: -1 }}
-                            transition={{
-                                type: 'spring',
-                                stiffness: 380,
-                                damping: 30,
-                            }}
-                        />
-                    )}
                     {item.label}
                 </a>
             ))}
 
-            {/* Sparkle particles — absolute within navRef container */}
+            {/* Sparkle particles */}
             <AnimatePresence>
                 {sparkles.map((sparkle) => {
                     const rad = (sparkle.angle * Math.PI) / 180;
