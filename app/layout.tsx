@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     title: 'Mert Güneş | Mechatronics Engineer & AI Specialist',
     description: 'Expertise in Mechatronics Engineering and AI Systems. Explore my portfolio of projects and innovations.',
     images: ['/icon.png'],
-    creator: '@mertgunes',
+    creator: '@mertgunes_6767',
   },
   icons: {
     icon: '/icon.png',
@@ -131,7 +131,7 @@ export default function RootLayout({
                 ContactData.instagram,
               ],
               description:
-                'Mert Güneş - Mechatronics Engineer & AI Specialist.',
+                'Mert Güneş - Mekatronik Mühendisi ve Yapay Zeka Uzmanı (AI Specialist). Yönetim Bilişim Sistemleri (MIS) altyapısıyla veri analizi, süreç iyileştirme, yapay zeka ajanları ve operasyonel verimlilik odaklı projeler geliştiren teknoloji profesyoneli.',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Istanbul',
