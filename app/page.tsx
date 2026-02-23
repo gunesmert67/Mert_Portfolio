@@ -1,12 +1,17 @@
-import { redirect } from 'next/navigation';
+import React from 'react';
+import Hero from '@/components/main/Hero';
+import Statistic from '@/components/main/Statistic';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Mert Güneş | Personal Portfolio',
-  description: 'Personal portfolio of Mert Güneş',
+  description: 'Mert Güneş - Mechatronics Engineer & AI Automation Developer. Explore my portfolio of projects, skills, and experience in AI workflows, automation, and robotics.',
 };
 
 export default function Home() {
-  // Redirect the root path to the new about landing page
-  redirect('/about');
+  return (
+    <div className="flex flex-col gap-8 md:gap-16 pt-24 pb-16">
+      <Hero />
+      <Statistic />
+    </div>
+  );
 }

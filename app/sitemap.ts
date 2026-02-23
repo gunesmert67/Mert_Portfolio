@@ -7,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const routes = [
         '',
-        '/about',
         '/services',
         '/career',
         '/projects',
@@ -17,8 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified,
-        changeFrequency: 'monthly' as const,
-        priority: route === '' || route === '/about' ? 1 : 0.8,
+        changeFrequency: 'weekly' as const,
+        priority: route === '' ? 1.0 : 0.8,
     }));
 
     return routes;

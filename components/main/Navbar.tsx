@@ -12,7 +12,7 @@ import { Menu, X } from 'lucide-react';
 import AnimatedNav from '../ui/AnimatedNav';
 
 const navLinkKeys = [
-  { href: '/about', key: 'nav.aboutme' },
+  { href: '/', key: 'nav.aboutme' },
   { href: '/services', key: 'nav.services' },
   { href: '/career', key: 'nav.career' },
   { href: '/skills', key: 'nav.skills' },
@@ -42,7 +42,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between w-full max-w-7xl mx-auto bg-background/80 backdrop-blur-md border border-border rounded-xl px-6 py-2 shadow-sm shadow-black/5 overflow-visible">
         <div className="flex items-center gap-2">
           <Link
-            href="/about"
+            href="/"
             className="font-black text-xl tracking-tighter text-foreground hover:text-primary transition-colors duration-300 cursor-pointer select-none"
             onClick={closeMenu}
           >
@@ -115,9 +115,7 @@ const Navbar = () => {
               }}
             >
               {navLinkKeys.map((link) => {
-                const isActive =
-                  pathname === link.href ||
-                  (pathname === '/' && link.href === '/about');
+                const isActive = pathname === link.href;
                 return (
                   <motion.div
                     key={link.href}

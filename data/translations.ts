@@ -20,7 +20,7 @@ export const translations = {
       headingPart2: 'Sürekli',
       headingHighlight2: 'üreten',
       location: 'Istanbul, Turkey',
-      bio: 'Mekatronik Mühendisi. Modern yapay zeka araçlarını birleştirip "vibe coding" akışında kalarak kişisel otomasyonlar ve dijital deneyler yapıyorum.',
+      bio: 'Mekatronik Mühendisi & AI Specialist. Modern yapay zeka araçlarını birleştirip "vibe coding" akışında kalarak kişisel otomasyonlar ve dijital deneyler yapıyorum.',
       cta: 'Konuşalım',
     },
     services: {
@@ -97,7 +97,7 @@ export const translations = {
       error: 'Bir hata oluştu. Lütfen tekrar deneyin.',
     },
     footer: {
-      subtitle: 'Mekatronik Mühendisi | Yapay Zeka & Otomasyon Geliştirici',
+      subtitle: 'Mekatronik Mühendisi | AI Specialist',
       copyright: 'Tüm hakları saklıdır.',
       builtWith: 'Hassasiyet ve Netlik ile İnşa Edildi',
       privacy: 'Gizlilik Politikası',
@@ -144,7 +144,7 @@ export const translations = {
       headingPart2: 'Always',
       headingHighlight2: 'building',
       location: 'Istanbul, Turkey',
-      bio: 'Mechatronics Engineer. I build personal automations and digital experiments by combining modern AI tools while staying in the "vibe coding" flow.',
+      bio: 'Mechatronics Engineer & AI Specialist. I build personal automations and digital experiments by combining modern AI tools while staying in the "vibe coding" flow.',
       cta: "Let's Talk",
     },
     services: {
@@ -221,7 +221,7 @@ export const translations = {
       error: 'Something went wrong. Please try again.',
     },
     footer: {
-      subtitle: 'Mechatronics Engineer | AI & Automation Developer',
+      subtitle: 'Mechatronics Engineer | AI Specialist',
       copyright: 'All rights reserved.',
       builtWith: 'Built with Precision & Clarity',
       privacy: 'Privacy Policy',

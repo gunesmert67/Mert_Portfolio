@@ -25,19 +25,20 @@ const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '700'] });
 export const metadata: Metadata = {
   metadataBase: new URL(ContactData.website),
   title: {
-    default: 'Mert Güneş | Personal Portfolio',
+    default: 'Mert Güneş | Mechatronics Engineer & AI Specialist',
     template: '%s | Mert Güneş',
   },
-  description: 'Personal portfolio of Mert Güneş',
+  description: 'Mert Güneş - Mechatronics Engineer & AI Specialist. Expert in AI workflows, autonomous systems, and mechatronic engineering.',
   keywords: [
     'Mert Güneş',
-    'Portfolio',
-    'Vibe Coder',
+    'AI Automation Developer',
     'Mechatronics Engineer',
-    'AI Developer',
-    'Automation',
+    'Mekatronik Mühendisi',
+    'Yapay Zeka Otomasyon',
+    'Vibe Coding',
+    'Next.js Portfolio',
     'AI Workflows',
-    'Next.js',
+    'Robotics Engineer Istanbul',
   ],
   authors: [{ name: 'Mert Güneş', url: ContactData.linkedin }],
   creator: 'Mert Güneş',
@@ -45,8 +46,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'tr_TR',
     url: ContactData.website,
-    title: 'Mert Güneş | Personal Portfolio',
-    description: 'Personal portfolio of Mert Güneş',
+    title: 'Mert Güneş | Mechatronics Engineer & AI Specialist',
+    description: 'Expertise in Mechatronics Engineering and AI Systems. Explore my portfolio of projects and innovations.',
     siteName: 'Mert Güneş Portfolio',
     images: [
       {
@@ -59,14 +60,32 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mert Güneş | Personal Portfolio',
-    description: 'Personal portfolio of Mert Güneş',
+    title: 'Mert Güneş | Mechatronics Engineer & AI Specialist',
+    description: 'Expertise in Mechatronics Engineering and AI Systems. Explore my portfolio of projects and innovations.',
     images: ['/icon.png'],
     creator: '@mertgunes',
   },
   icons: {
     icon: '/icon.png',
     apple: '/icon.png',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: ContactData.website,
+    languages: {
+      'en-US': ContactData.website,
+      'tr-TR': ContactData.website,
+    },
   },
 };
 
@@ -101,7 +120,7 @@ export default function RootLayout({
               '@type': 'Person',
               name: 'Mert Güneş',
               url: ContactData.website,
-              jobTitle: 'Mechatronics Engineer & AI Automation Developer',
+              jobTitle: 'Mechatronics Engineer & AI Specialist',
               sameAs: [
                 ContactData.linkedin,
                 ContactData.github,
@@ -110,7 +129,7 @@ export default function RootLayout({
                 ContactData.instagram,
               ],
               description:
-                'Personal portfolio of Mert Güneş - Mechatronics Engineer & AI Automation Developer.',
+                'Mert Güneş - Mechatronics Engineer & AI Specialist.',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Istanbul',

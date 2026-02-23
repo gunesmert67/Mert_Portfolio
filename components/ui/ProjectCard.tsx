@@ -84,7 +84,7 @@ const ProjectCard = ({
         <div className="w-full aspect-[16/10] relative overflow-hidden rounded-2xl border border-border/20 shadow-sm bg-card group-hover:border-primary/20 group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
           <Image
             src={src}
-            alt={`Project visual for ${displayTitle}`}
+            alt={`${displayTitle} - ${technologyStack.slice(0, 3).join(', ')} Project by Mert Güneş`}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
