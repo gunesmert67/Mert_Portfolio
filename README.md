@@ -28,9 +28,9 @@ Built with an **Architectural Minimalist aesthetic**, it features advanced UI pa
 - **Next.js 14 App Router**: Utilizing React Server Components (RSC) and optimized layouts.
 - **Bilingual & Global**: Full i18n support for Turkish and English with a seamless toggle.
 - **1080p & Mobile Optimization**: Pixel-perfect responsiveness across all display sizes, from high-res monitors to mobile devices.
-- **AI Integration**: Prepared for LLM-powered features using Groq and custom AI agent workflows.
-- **Contact Integration**: Secure and robust email delivery via `Resend`.
-- **Performance Excellence**: Optimized asset loading and WebGL rendering for high Lighthouse scores.
+- **Legal & GDPR Ready**: Integrated Privacy Policy, Terms of Service, and a modern Cookie Consent banner to comply with GDPR/KVKK.
+- **Performance Excellence**: Optimized asset loading, optimized WebGL rendering, and automatic image compression for high Lighthouse scores.
+- **Technical SEO**: Fully configured with dynamic Sitemaps, Robots.txt, and Metadata API for search engine indexing.
 
 ---
 
@@ -46,8 +46,10 @@ This project leverages a modern, type-safe stack:
 | **3D Graphics** | **React Three Fiber** | Declarative Three.js for React, using custom WebGL shaders |
 | **Animations** | **Framer Motion** | Production-ready animation library |
 | **AI / Vibe Coding** | **Groq / Ollama** | High-speed LLM inference and local AI integration |
+| **Legal / Compliance** | **GDPR / KVKK** | Integrated Privacy Policy & Cookie Consent banner |
 | **Automation** | **n8n** | Workflow automation for repetitive tasks |
 | **Email** | **Resend** | Developer-first email API |
+| **Analytics** | **Vercel Analytics** | Privacy-conscious user analytics and performance monitoring |
 | **Icons** | **Lucide & React Icons** | Consistent and lightweight icon sets |
 
 ---
@@ -165,6 +167,11 @@ The content of this portfolio is designed to be easily updated without modifying
 
 1. Open `data/Certification.ts`.
 2. Add new certification objects to the `CertificationData` array to update the Bento Grid.
+
+### Updating Legal Content
+
+1. Open `data/LegalContent.ts`.
+2. Update the Privacy Policy or Terms & Conditions in both Turkish and English.
 
 ---
 

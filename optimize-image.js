@@ -7,7 +7,12 @@ const outputPath = path.join(process.cwd(), 'public', 'mert_optimized.webp');
 
 async function optimizeImage() {
     try {
-        console.log('Optimizing image...');
+        if (!fs.existsSync(inputPath)) {
+            console.error('Input image (mert.jpg) not found in public folder');
+            return;
+        }
+
+        console.log('Optimizing personal image (mert.jpg)...');
         await sharp(inputPath)
             .resize(800)
             .webp({ quality: 75 })
