@@ -8,12 +8,13 @@ const Projects = dynamic(() => import('@/components/main/Projects'), {
 });
 
 export const metadata: Metadata = {
-  description: 'Mert G\u00fcne\u015f - Mechatronics Engineer & AI Automation Developer. Explore my portfolio of projects, skills, and experience in AI workflows, automation, and robotics.',
+  title: 'Projeler',
+  description: 'Yapay zeka, robotik ve yaz\u0131l\u0131m geli\u015ftirme alan\u0131ndaki projelerim. Mert G\u00fcne\u015f\'in inovatif \u00e7\u00f6z\u00fcmlerini ve teknik portfolyosunu inceleyin.',
   alternates: {
-    canonical: '/',
+    canonical: '/projects',
     languages: {
-      'tr-TR': '/',
-      'en-US': '/',
+      'tr-TR': '/projects',
+      'en-US': '/projects',
     },
   },
 };
