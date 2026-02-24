@@ -5,8 +5,8 @@ import { Metadata } from 'next';
 const ContactMe = dynamic(() => import('@/components/ui/ContactMe'));
 
 export const metadata: Metadata = {
-  title: 'İletişim',
-  description: 'Mert Güneş ile iletişime geçin. Proje teklifleri, iş birlikleri veya teknik danışmanlık için iletişim kanallarımı keşfedin.',
+  title: '\u0130leti\u015fim',
+  description: 'Mert G\u00fcne\u015f ile ileti\u015fime ge\u00e7in. Proje teklifleri, i\u015f birlikleri veya teknik dan\u0131\u015fmanl\u0131k i\u00e7in ileti\u015fim kanallar\u0131m\u0131 ke\u015ffedin.',
   alternates: {
     canonical: '/contact',
     languages: {

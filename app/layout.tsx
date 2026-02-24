@@ -31,43 +31,43 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(ContactData.website),
   title: {
-    default: 'Mert Güneş | Mekatronik Mühendisi & Yapay Zeka Uzmanı',
-    template: '%s | Mert Güneş',
+    default: 'Mert G\u00fcne\u015f | Mekatronik M\u00fchendisi & Yapay Zeka Uzman\u0131',
+    template: '%s | Mert G\u00fcne\u015f',
   },
-  description: 'Mert Güneş - Mekatronik Mühendisi ve Yapay Zeka Uzmanı (AI Specialist). Yapay zeka iş akışları, otonom sistemler ve mekatronik mühendisliği konularında uzman.',
+  description: 'Mert G\u00fcne\u015f - Mekatronik M\u00fchendisi ve Yapay Zeka Uzman\u0131 (AI Specialist). Yapay zeka i\u015f ak\u0131\u015flar\u0131, otonom sistemler ve mekatronik m\u00fchendisli\u011fi konular\u0131nda uzman.',
   keywords: [
-    'Mert Güneş',
+    'Mert G\u00fcne\u015f',
     'AI Automation Developer',
     'Mechatronics Engineer',
-    'Mekatronik Mühendisi',
+    'Mekatronik M\u00fchendisi',
     'Yapay Zeka Otomasyon',
     'Vibe Coding',
     'Next.js Portfolio',
     'AI Workflows',
     'Robotics Engineer Istanbul',
   ],
-  authors: [{ name: 'Mert Güneş', url: ContactData.linkedin }],
-  creator: 'Mert Güneş',
+  authors: [{ name: 'Mert G\u00fcne\u015f', url: ContactData.linkedin }],
+  creator: 'Mert G\u00fcne\u015f',
   openGraph: {
     type: 'website',
     locale: 'tr_TR',
     url: ContactData.website,
-    title: 'Mert Güneş | Mekatronik Mühendisi & Yapay Zeka Uzmanı',
-    description: 'Mekatronik Mühendisliği ve Yapay Zeka Sistemlerinde Uzmanlık. Projelerimi ve inovasyonlarımı keşfedin.',
-    siteName: 'Mert Güneş Portfolyo',
+    title: 'Mert G\u00fcne\u015f | Mekatronik M\u00fchendisi & Yapay Zeka Uzman\u0131',
+    description: 'Mekatronik M\u00fchendisli\u011fi ve Yapay Zeka Sistemlerinde Uzmanl\u0131k. Projelerimi ve inovasyonlar\u0131m\u0131 ke\u015ffedin.',
+    siteName: 'Mert G\u00fcne\u015f Portfolyo',
     images: [
       {
         url: '/icon.png',
         width: 1200,
         height: 630,
-        alt: 'Mert Güneş Portfolio',
+        alt: 'Mert G\u00fcne\u015f Portfolio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mert Güneş | Mekatronik Mühendisi & Yapay Zeka Uzmanı',
-    description: 'Mekatronik Mühendisliği ve Yapay Zeka Sistemlerinde Uzmanlık. Projelerimi ve inovasyonlarımı keşfedin.',
+    title: 'Mert G\u00fcne\u015f | Mekatronik M\u00fchendisi & Yapay Zeka Uzman\u0131',
+    description: 'Mekatronik M\u00fchendisli\u011fi ve Yapay Zeka Sistemlerinde Uzmanl\u0131k. Projelerimi ve inovasyonlar\u0131m\u0131 ke\u015ffedin.',
     images: ['/icon.png'],
     creator: '@mertgunes_6767',
   },
@@ -100,8 +100,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr" suppressHydrationWarning>
-      <head>
-        <meta charSet="utf-8" />
+      <body
+        className={`${dmSans.className} bg-background text-foreground overflow-y-scroll overflow-x-hidden`}
+      >
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -120,7 +121,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Person',
-              name: 'Mert Güneş',
+              name: 'Mert G\u00fcne\u015f',
               url: ContactData.website,
               jobTitle: 'Mechatronics Engineer & AI Specialist',
               sameAs: [
@@ -131,7 +132,7 @@ export default function RootLayout({
                 ContactData.instagram,
               ],
               description:
-                'Mert Güneş - Mekatronik Mühendisi ve Yapay Zeka Uzmanı (AI Specialist). İstanbul merkezli olarak yapay zeka iş akışları, otonom sistemler, veri analitiği ve mekatronik mühendisliği projeleri geliştiren teknoloji profesyoneli.',
+                'Mert G\u00fcne\u015f - Mekatronik M\u00fchendisi ve Yapay Zeka Uzman\u0131 (AI Specialist). \u0130stanbul merkezli olarak yapay zeka i\u015f ak\u0131\u015flar\u0131, otonom sistemler, veri analiti\u011fi ve mekatronik m\u00fchendisli\u011fi projeleri geli\u015ftiren teknoloji profesyoneli.',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Istanbul',
@@ -140,10 +141,6 @@ export default function RootLayout({
             }),
           }}
         />
-      </head>
-      <body
-        className={`${dmSans.className} bg-background text-foreground overflow-y-scroll overflow-x-hidden`}
-      >
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

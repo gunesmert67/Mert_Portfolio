@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Sertifikalar',
-    description: 'IBM, McKinsey, Udemy ve diğer global kurumlardan alınan profesyonel sertifikalar. Mert Güneş\'in eğitim ve uzmanlık belgeleri.',
+    description: 'IBM, McKinsey, Udemy ve di\u011fer global kurumlardan al\u0131nan profesyonel sertifikalar. Mert G\u00fcne\u015f\'in e\u011fitim ve uzmanl\u0131k belgeleri.',
     alternates: {
         canonical: '/certifications',
         languages: {

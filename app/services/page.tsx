@@ -6,7 +6,7 @@ const Services = dynamic(() => import('@/components/main/Services'));
 
 export const metadata: Metadata = {
     title: 'Hizmetler',
-    description: 'Yapay zeka otomasyonu, veri analitiği ve teknik mühendislik çözümleri. İş süreçlerinizi dijitalleştiren profesyonel hizmetlerimi keşfedin.',
+    description: 'Yapay zeka otomasyonlar\u0131, mekatronik çöz\u00fcm tasarım\u0131 ve teknik dan\u0131\u015fmanl\u0131k. Mert G\u00fcne\u015f tarafından sunulan profesyonel hizmetler.',
     alternates: {
         canonical: '/services',
         languages: {
