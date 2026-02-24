@@ -6,7 +6,7 @@ export const ContactData = {
     twitter: "https://x.com/mertgunes_6767",
     medium: "https://medium.com/@gunesmert67",
     instagram: "https://www.instagram.com/mert.gunes6/",
-    website: "https://mertgunes.com",
+    website: "https://www.mertgunes.com",
     location: {
         en: "Istanbul, Turkey",
         tr: "İstanbul, Türkiye"
