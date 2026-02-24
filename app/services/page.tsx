@@ -7,6 +7,13 @@ const Services = dynamic(() => import('@/components/main/Services'));
 export const metadata: Metadata = {
     title: 'Hizmetler',
     description: 'Yapay zeka otomasyonu, veri analitiği ve teknik mühendislik çözümleri. İş süreçlerinizi dijitalleştiren profesyonel hizmetlerimi keşfedin.',
+    alternates: {
+        canonical: '/services',
+        languages: {
+            'tr-TR': '/services',
+            'en-US': '/services',
+        },
+    },
 };
 
 export default function ServicesPage() {

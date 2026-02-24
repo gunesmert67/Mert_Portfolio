@@ -28,6 +28,7 @@ const CareerTimeline = () => {
     <section id="career-timeline" className="flex flex-col items-center pb-12 md:pb-20 pt-10 space-y-12 px-4 lg:px-10 xl:px-16 mx-auto max-w-7xl w-full relative z-10 overflow-hidden text-center">
       <SectionHeader
         title={t('career.title')}
+        useH1={true}
       />
 
       <div ref={ref} className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-8">

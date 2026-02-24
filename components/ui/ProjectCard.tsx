@@ -137,9 +137,9 @@ const ProjectCard = ({
         <div className="flex flex-col gap-2 px-1">
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center justify-between gap-3">
-              <h3 className="text-xl md:text-2xl font-black tracking-tight text-foreground leading-tight group-hover:text-primary transition-colors line-clamp-1">
+              <h2 className="text-xl md:text-2xl font-black tracking-tight text-foreground leading-tight group-hover:text-primary transition-colors line-clamp-1">
                 {displayTitle}
-              </h3>
+              </h2>
             </div>
           </div>
 

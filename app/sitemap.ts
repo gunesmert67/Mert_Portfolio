@@ -18,6 +18,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified,
         changeFrequency: 'weekly' as const,
         priority: route === '' ? 1.0 : 0.8,
+        languages: {
+            'tr-TR': `${baseUrl}${route}`,
+            'en-US': `${baseUrl}${route}`,
+        }
     }));
 
     return routes;

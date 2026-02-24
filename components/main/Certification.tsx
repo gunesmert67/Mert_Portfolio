@@ -46,6 +46,7 @@ export const Certification = () => {
     >
       <SectionHeader
         title={t('certifications.title')}
+        useH1={true}
       />
 
       <div
@@ -120,9 +121,9 @@ export const Certification = () => {
                       {cert.date}
                     </span>
                   </div>
-                  <h3 className={`text-xl font-black text-foreground group-hover:${brand.colorClass} transition-colors duration-500 leading-tight`}>
+                  <h2 className={`text-xl font-black text-foreground group-hover:${brand.colorClass} transition-colors duration-500 leading-tight`}>
                     {cert.name}
-                  </h3>
+                  </h2>
                 </div>
               </div>
 

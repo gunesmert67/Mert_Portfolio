@@ -5,6 +5,13 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Sertifikalar',
     description: 'IBM, McKinsey, Udemy ve diğer global kurumlardan alınan profesyonel sertifikalar. Mert Güneş\'in eğitim ve uzmanlık belgeleri.',
+    alternates: {
+        canonical: '/certifications',
+        languages: {
+            'tr-TR': '/certifications',
+            'en-US': '/certifications',
+        },
+    },
 };
 
 export default function CertificationsPage() {

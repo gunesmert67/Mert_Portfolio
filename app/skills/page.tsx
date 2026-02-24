@@ -13,6 +13,13 @@ const Skills = dynamic(() => import('@/components/main/Skills'), {
 export const metadata: Metadata = {
   title: 'Yetenekler',
   description: 'Python, Next.js, AI Workflow, PLC programlama ve daha fazlası. Mert Güneş\'in teknik yetkinlikleri ve kullandığı araçlar.',
+  alternates: {
+    canonical: '/skills',
+    languages: {
+      'tr-TR': '/skills',
+      'en-US': '/skills',
+    },
+  },
 };
 
 export default function SkillsPage() {

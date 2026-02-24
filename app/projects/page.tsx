@@ -10,6 +10,13 @@ const Projects = dynamic(() => import('@/components/main/Projects'), {
 export const metadata: Metadata = {
   title: 'Projeler',
   description: 'AI RAG sistemleri, otomasyon araçları ve mühendislik projeleri. Mert Güneş tarafından geliştirilen teknik projelerin detaylı incelemesi.',
+  alternates: {
+    canonical: '/projects',
+    languages: {
+      'tr-TR': '/projects',
+      'en-US': '/projects',
+    },
+  },
 };
 
 export default function ProjectsPage() {

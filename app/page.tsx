@@ -5,6 +5,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   description: 'Mert Güneş - Mechatronics Engineer & AI Automation Developer. Explore my portfolio of projects, skills, and experience in AI workflows, automation, and robotics.',
+  alternates: {
+    canonical: '/',
+    languages: {
+      'tr-TR': '/',
+      'en-US': '/',
+    },
+  },
 };
 
 export default function Home() {

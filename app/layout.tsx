@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { DM_Sans } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/main/Navbar';
@@ -22,13 +22,19 @@ const TechnicalBackground = dynamic(
 
 const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '700'] });
 
+export const viewport: Viewport = {
+  themeColor: '#ffffff',
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(ContactData.website),
   title: {
-    default: 'Mert Güneş | Mechatronics Engineer & AI Specialist',
+    default: 'Mert Güneş | Mekatronik Mühendisi & Yapay Zeka Uzmanı',
     template: '%s | Mert Güneş',
   },
-  description: 'Mert Güneş - Mechatronics Engineer & AI Specialist. Expert in AI workflows, autonomous systems, and mechatronic engineering.',
+  description: 'Mert Güneş - Mekatronik Mühendisi ve Yapay Zeka Uzmanı (AI Specialist). Yapay zeka iş akışları, otonom sistemler ve mekatronik mühendisliği konularında uzman.',
   keywords: [
     'Mert Güneş',
     'AI Automation Developer',
@@ -46,9 +52,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'tr_TR',
     url: ContactData.website,
-    title: 'Mert Güneş | Mechatronics Engineer & AI Specialist',
-    description: 'Expertise in Mechatronics Engineering and AI Systems. Explore my portfolio of projects and innovations.',
-    siteName: 'Mert Güneş Portfolio',
+    title: 'Mert Güneş | Mekatronik Mühendisi & Yapay Zeka Uzmanı',
+    description: 'Mekatronik Mühendisliği ve Yapay Zeka Sistemlerinde Uzmanlık. Projelerimi ve inovasyonlarımı keşfedin.',
+    siteName: 'Mert Güneş Portfolyo',
     images: [
       {
         url: '/icon.png',
@@ -60,8 +66,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mert Güneş | Mechatronics Engineer & AI Specialist',
-    description: 'Expertise in Mechatronics Engineering and AI Systems. Explore my portfolio of projects and innovations.',
+    title: 'Mert Güneş | Mekatronik Mühendisi & Yapay Zeka Uzmanı',
+    description: 'Mekatronik Mühendisliği ve Yapay Zeka Sistemlerinde Uzmanlık. Projelerimi ve inovasyonlarımı keşfedin.',
     images: ['/icon.png'],
     creator: '@mertgunes_6767',
   },
@@ -80,13 +86,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  alternates: {
-    canonical: ContactData.website,
-    languages: {
-      'en-US': ContactData.website,
-      'tr-TR': ContactData.website,
-    },
-  },
 };
 
 import CookieConsent from '@/components/ui/CookieConsent';
@@ -100,8 +99,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="tr" suppressHydrationWarning>
       <head>
+        <meta charSet="utf-8" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -131,7 +131,7 @@ export default function RootLayout({
                 ContactData.instagram,
               ],
               description:
-                'Mert Güneş - Mekatronik Mühendisi ve Yapay Zeka Uzmanı (AI Specialist). Yönetim Bilişim Sistemleri (MIS) altyapısıyla veri analizi, süreç iyileştirme, yapay zeka ajanları ve operasyonel verimlilik odaklı projeler geliştiren teknoloji profesyoneli.',
+                'Mert Güneş - Mekatronik Mühendisi ve Yapay Zeka Uzmanı (AI Specialist). İstanbul merkezli olarak yapay zeka iş akışları, otonom sistemler, veri analitiği ve mekatronik mühendisliği projeleri geliştiren teknoloji profesyoneli.',
               address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Istanbul',

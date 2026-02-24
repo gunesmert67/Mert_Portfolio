@@ -58,6 +58,7 @@ const Services = () => {
     >
       <SectionHeader
         title={t('services.title')}
+        useH1={true}
       />
 
       <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
@@ -79,9 +80,9 @@ const Services = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-black tracking-tight text-foreground">
+                <h2 className="text-lg font-black tracking-tight text-foreground">
                   {card.name}
-                </h3>
+                </h2>
 
                 {/* Description */}
                 <p className="text-sm text-muted-foreground leading-relaxed">

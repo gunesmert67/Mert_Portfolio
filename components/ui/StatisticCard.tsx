@@ -68,7 +68,7 @@ const StatisticCard = ({
 
           {/* Number + Description */}
           <div className="flex flex-col gap-1">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-foreground group-hover:text-primary transition-colors duration-500">
+            <span className="text-4xl md:text-5xl font-black tracking-tighter text-foreground group-hover:text-primary transition-colors duration-500 block">
               {inView ? (
                 <span className="flex items-baseline gap-1">
                   <CountUp end={number} duration={3} useEasing={true} separator="," />
@@ -77,7 +77,7 @@ const StatisticCard = ({
               ) : (
                 '0'
               )}
-            </h2>
+            </span>
             <p className="text-muted-foreground text-xs font-bold uppercase tracking-[0.2em] mt-2 opacity-80 group-hover:opacity-100 transition-opacity">
               {description}
             </p>

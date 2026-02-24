@@ -72,6 +72,7 @@ const ContactMe = () => {
     >
       <SectionHeader
         title={t('contact.title')}
+        useH1={true}
       />
 
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 w-full max-w-6xl mx-auto items-stretch">
@@ -89,9 +90,9 @@ const ContactMe = () => {
             <div className={styles.uiverseContactCard}>
               <div className={styles.uiverseContactGlass}></div>
               <div className={styles.uiverseContactContent}>
-                <span className={styles.title}>
+                <h2 className={styles.title}>
                   {language === 'tr' ? 'Hadi Tanışalım.' : "Let's Connect."}
-                </span>
+                </h2>
                 <span className={styles.text}>
                   {language === 'tr'
                     ? 'Projeler hakkında merak ettikleriniz veya sadece merhaba demek için bana ulaşabilirsiniz.'

@@ -8,12 +8,13 @@ import projectsIcon from '@/assets/lordicons/projects.json';
 import techIcon from '@/assets/lordicons/tech.json';
 import experienceIcon from '@/assets/lordicons/experience.json';
 import certificationsIcon from '@/assets/lordicons/certifications.json';
+import SectionHeader from '../ui/SectionHeader';
 
 /**
  * Statistic component displaying metrics in a responsive Bento Grid pattern.
  */
 const Statistic = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const statisticsData = [
     {
@@ -74,7 +75,10 @@ const Statistic = () => {
   ];
 
   return (
-    <section className="flex flex-col items-center pb-12 md:pb-20 pt-10 px-4 lg:px-10 xl:px-16 mx-auto max-w-7xl w-full relative z-10 overflow-hidden">
+    <section className="flex flex-col items-center pb-12 md:pb-20 pt-10 px-4 lg:px-10 xl:px-16 mx-auto max-w-7xl w-full relative z-10 overflow-hidden gap-12">
+      <SectionHeader
+        title={language === 'tr' ? 'Genel Bakış' : 'Overview'}
+      />
       <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {statisticsData.map(({ id, Icon, number, suffix, description }) => {
           let linkHref = '/';

@@ -25,14 +25,15 @@ const Skills = () => {
     >
       <SectionHeader
         title={t('skills.title')}
+        useH1={true}
       />
 
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-10 md:gap-12 mt-4">
         {SkillsData.map((category, index) => (
           <div key={index} className="flex flex-col gap-8 md:gap-10 relative w-full">
-            <h3 className="text-xl md:text-2xl font-bold text-center text-foreground uppercase tracking-[0.2em] opacity-80 decoration-primary/30 underline decoration-2 underline-offset-8">
+            <h2 className="text-xl md:text-2xl font-bold text-center text-foreground uppercase tracking-[0.2em] opacity-80 decoration-primary/30 underline decoration-2 underline-offset-8">
               {t(category.titleKey)}
-            </h3>
+            </h2>
             <SkillsGallery skillsData={category.skills} />
           </div>
         ))}

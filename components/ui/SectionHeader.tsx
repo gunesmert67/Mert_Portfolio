@@ -8,6 +8,7 @@ interface SectionHeaderProps {
   tagline?: string;
   alignLeft?: boolean;
   className?: string;
+  useH1?: boolean;
 }
 
 /**
@@ -20,6 +21,7 @@ const SectionHeader = ({
   tagline,
   alignLeft = false,
   className = '',
+  useH1 = false,
 }: SectionHeaderProps) => {
   return (
     <motion.div
@@ -44,9 +46,15 @@ const SectionHeader = ({
       )}
 
       <div className="space-y-2">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-foreground uppercase leading-[1.1]">
-          {title}
-        </h2>
+        {useH1 ? (
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-foreground uppercase leading-[1.1]">
+            {title}
+          </h1>
+        ) : (
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-foreground uppercase leading-[1.1]">
+            {title}
+          </h2>
+        )}
         {subtitle && (
           <p className="text-base md:text-lg text-muted-foreground font-medium max-w-[600px] mx-auto">
             {subtitle}
