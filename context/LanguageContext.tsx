@@ -26,7 +26,7 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
  * Provider component to wrap the application and provide language state.
  */
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguageState] = useState<Language>('tr');
+  const [language, setLanguageState] = useState<Language>('en');
 
   React.useEffect(() => {
     const saved = sessionStorage.getItem('appLang');
