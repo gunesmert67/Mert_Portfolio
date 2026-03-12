@@ -12,6 +12,8 @@ export const translations = {
       projects: 'Projeler',
       certifications: 'Sertifikalar',
       contact: 'İletişim',
+      theme: 'Görünüm',
+      language: 'Dil',
     },
     hero: {
       tagline: 'Mert Güneş - Mekatronik Mühendisi',
@@ -141,6 +143,8 @@ export const translations = {
       projects: 'Projects',
       certifications: 'Certifications',
       contact: 'Contact',
+      theme: 'Theme',
+      language: 'Language',
     },
     hero: {
       tagline: 'Mert Güneş - Mechatronics Engineer',

@@ -148,12 +148,12 @@ const Navbar = () => {
               <div className="w-full h-px bg-border/40 mb-2"></div>
               <div className="flex items-center justify-center gap-8 w-full">
                 <div className="flex flex-col items-center gap-2">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">Görünüm</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">{t('nav.theme')}</span>
                   <ThemeToggle />
                 </div>
                 <div className="w-px h-10 bg-border/40 h-full"></div>
                 <div className="flex flex-col items-center gap-2">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">Dil</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">{t('nav.language')}</span>
                   <LanguageSwitch />
                 </div>
               </div>
