@@ -9,18 +9,13 @@ import React, {
 } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  MessageCircle,
   X,
   Send,
-  Bot,
   Briefcase,
-  Gamepad2,
   Trash2,
-  Info,
+  AlertTriangle,
   Maximize2,
   Minimize2,
-  Check,
-  AlertTriangle,
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import styles from './ChatWidget.module.css';
@@ -30,8 +25,10 @@ interface Message {
   content: string;
 }
 
+const STORAGE_KEY = 'chat_history_cv';
+
 /**
- * ChatWidget component providing an AI-powered chat interface with analysis tracking and persistence.
+ * ChatWidget component providing an AI-powered portfolio assistant interface.
  */
 export default function ChatWidget() {
   const { t, language } = useLanguage();
@@ -41,24 +38,35 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [analysis, setAnalysis] = useState<string | null>(null);
-  const [analysisReason, setAnalysisReason] = useState<string | null>(null);
-  const [mode, setMode] = useState<'default' | 'cv'>('cv');
 
-  const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // 1. Recover last active mode on mount ONLY
+  // Load chat history from localStorage on mount only.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    const savedMode = localStorage.getItem('chat_mode') as
-      | 'default'
-      | 'cv'
-      | null;
-    if (savedMode && (savedMode === 'default' || savedMode === 'cv')) {
-      setMode(savedMode);
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      try {
+        setMessages(JSON.parse(saved));
+      } catch {
+        setMessages([{ role: 'assistant', content: t('chat.welcome.professional') }]);
+      }
+    } else {
+      setMessages([{ role: 'assistant', content: t('chat.welcome.professional') }]);
     }
   }, []);
+
+  // Update welcome message when language changes (only if it's the initial single message)
+  useEffect(() => {
+    setMessages((prev) => {
+      if (prev.length === 1 && prev[0].role === 'assistant') {
+        return [{ role: 'assistant', content: t('chat.welcome.professional') }];
+      }
+      return prev;
+    });
+  }, [language, t]);
 
   // Listen for 'open-chat' custom event (e.g. from Hero CTA button)
   useEffect(() => {
@@ -67,94 +75,14 @@ export default function ChatWidget() {
     return () => window.removeEventListener('open-chat', handleOpenChat);
   }, []);
 
-  // Update welcome message when language or mode changes, if it's the only message
-  useEffect(() => {
-    const storageKey = `chat_history_${mode}`;
-    const savedMessages = localStorage.getItem(storageKey);
-
-    if (savedMessages) {
-      // logic to handle existing messages - we don't automatically translate user history
-      // but we could theoretically update the welcome message if it's the first one.
-      // For simplicity and safety, let's just respect the saved history.
-    } else {
-      // No saved history? Set the localized welcome message.
-      setMessages([
-        {
-          role: 'assistant',
-          content:
-            mode === 'default'
-              ? t('chat.welcome.chat')
-              : t('chat.welcome.professional'),
-        },
-      ]);
-    }
-  }, [language, mode, t]); // Re-run when language changes
-
-  // 2. Load mode-specific history when mode changes
-  useEffect(() => {
-    // Load mode-specific history
-    const storageKey = `chat_history_${mode}`;
-    const savedMessages = localStorage.getItem(storageKey);
-
-    const savedAnalysis = localStorage.getItem(`chat_analysis_${mode}`);
-    const savedReason = localStorage.getItem(`chat_analysis_reason_${mode}`);
-
-    if (savedMessages) {
-      try {
-        setMessages(JSON.parse(savedMessages));
-      } catch (e) {
-        console.error('Failed to parse chat history', e);
-      }
-    } else {
-      // Default welcome messages if no history exists for this mode
-      setMessages([
-        {
-          role: 'assistant',
-          content:
-            mode === 'default'
-              ? t('chat.welcome.chat')
-              : t('chat.welcome.professional'),
-        },
-      ]);
-    }
-
-    if (savedAnalysis) setAnalysis(savedAnalysis);
-    else setAnalysis(null);
-
-    if (savedReason) setAnalysisReason(savedReason);
-    else setAnalysisReason(null);
-  }, [mode, t]); // Added t to dependencies just in case, though mostly controlled by above effect now
-
-  // Persist messages to localStorage whenever they change
+  // Persist messages to localStorage
   useEffect(() => {
     if (messages.length > 0) {
-      localStorage.setItem(`chat_history_${mode}`, JSON.stringify(messages));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
     }
-  }, [messages, mode]);
+  }, [messages]);
 
-  // Persist active mode
-  useEffect(() => {
-    localStorage.setItem('chat_mode', mode);
-  }, [mode]);
-
-  // Persist analysis state
-  useEffect(() => {
-    if (analysis) localStorage.setItem(`chat_analysis_${mode}`, analysis);
-    else localStorage.removeItem(`chat_analysis_${mode}`);
-
-    if (analysisReason)
-      localStorage.setItem(`chat_analysis_reason_${mode}`, analysisReason);
-    else localStorage.removeItem(`chat_analysis_reason_${mode}`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [analysis, analysisReason]);
-
-  // Handle mode switch
-  const toggleMode = () => {
-    const newMode = mode === 'default' ? 'cv' : 'default';
-    setMode(newMode);
-    // State updates will flow through useEffects above
-  };
-
+  // Scroll to bottom on new messages
   const scrollToBottom = () => {
     if (scrollRef.current) {
       const { scrollHeight, clientHeight } = scrollRef.current;
@@ -169,9 +97,9 @@ export default function ChatWidget() {
     scrollToBottom();
   }, [messages, isExpanded, isOpen]);
 
+  // Focus input when chat opens
   useEffect(() => {
     if (isOpen && inputRef.current) {
-      // Small delay to prevent layout jumps on mobile
       setTimeout(() => {
         inputRef.current?.focus();
       }, 100);
@@ -179,28 +107,13 @@ export default function ChatWidget() {
   }, [isOpen]);
 
   const handleClearHistory = () => {
-    setMessages([
-      {
-        role: 'assistant',
-        content:
-          mode === 'default'
-            ? t('chat.welcome.chat')
-            : t('chat.welcome.professional'),
-      },
-    ]);
-    setAnalysis(null);
-    setAnalysisReason(null);
-
-    // Clear mode-specific storage
-    localStorage.removeItem(`chat_history_${mode}`);
-    localStorage.removeItem(`chat_analysis_${mode}`);
-    localStorage.removeItem(`chat_analysis_reason_${mode}`);
-
+    setMessages([{ role: 'assistant', content: t('chat.welcome.professional') }]);
+    localStorage.removeItem(STORAGE_KEY);
     setShowClearConfirm(false);
   };
 
   /**
-   * Handles sending user messages and processing AI responses with side-channel analysis.
+   * Sends user message to CV assistant API and appends response.
    */
   const handleSend = async (e?: FormEvent) => {
     e?.preventDefault();
@@ -217,45 +130,20 @@ export default function ChatWidget() {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: updatedMessages, mode }),
+        body: JSON.stringify({ messages: updatedMessages }),
       });
 
       if (!res.ok) throw new Error('API Error');
 
       const data = await res.json();
-      const rawResponse = data.response;
-      let cleanResponse = rawResponse;
-
-      // Extract hidden JSON analysis block from response
-      const jsonRegex = /\{[\s\S]*"analiz_sonucu"[\s\S]*\}/;
-      const match = rawResponse.match(jsonRegex);
-
-      if (match) {
-        try {
-          const jsonStr = match[0];
-          const analysisData = JSON.parse(jsonStr);
-
-          if (analysisData.analiz_sonucu)
-            setAnalysis(analysisData.analiz_sonucu);
-          if (analysisData.sebep) setAnalysisReason(analysisData.sebep);
-
-          cleanResponse = rawResponse.replace(jsonRegex, '').trim();
-        } catch (e) {
-          console.error('Analysis block parsing failed', e);
-        }
-      }
-
       setMessages((prev) => [
         ...prev,
-        { role: 'assistant', content: cleanResponse },
+        { role: 'assistant', content: data.response },
       ]);
     } catch {
       setMessages((prev) => [
         ...prev,
-        {
-          role: 'assistant',
-          content: t('chat.error'),
-        },
+        { role: 'assistant', content: t('chat.error') },
       ]);
     } finally {
       setIsLoading(false);
@@ -278,27 +166,17 @@ export default function ChatWidget() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Simplified variants for entry/exit animation only
   const containerVariants = {
-    initial: {
-      opacity: 0,
-      scale: 0.9,
-    },
+    initial: { opacity: 0, scale: 0.9 },
     animate: {
       opacity: 1,
       scale: 1,
-      transition: {
-        duration: 0.3,
-        ease: 'easeOut',
-      },
+      transition: { duration: 0.3, ease: 'easeOut' },
     },
     exit: {
       opacity: 0,
       scale: 0.9,
-      transition: {
-        duration: 0.2,
-        ease: 'easeIn',
-      },
+      transition: { duration: 0.2, ease: 'easeIn' },
     },
   };
 
@@ -369,11 +247,10 @@ export default function ChatWidget() {
                 : 'bottom-[5.5rem] right-[4vw] w-[92vw] h-[75vh] max-h-[700px] md:bottom-24 md:right-6 md:w-[400px] lg:w-[450px] md:h-[650px] rounded-[24px]'
               }`}
           >
-            {/* Header with Presence & Analysis */}
+            {/* Header */}
             <div
               className={`relative flex flex-col border-b border-border bg-muted/30 ${isExpanded ? 'py-2 sm:py-3' : 'py-1 sm:py-2'}`}
             >
-              {/* Top Bar: Bot Info & Actions */}
               <div
                 className={`flex items-center justify-between px-4 sm:px-5 ${isExpanded ? 'py-2' : 'py-1'}`}
               >
@@ -381,35 +258,25 @@ export default function ChatWidget() {
                   <div
                     className={`flex-shrink-0 flex items-center justify-center rounded-lg border border-border bg-card shadow-sm transition-all duration-500 ${isExpanded ? 'h-12 w-12 sm:h-14 sm:w-14' : 'h-10 w-10 sm:h-11 sm:w-11'}`}
                   >
-                    {mode === 'cv' ? (
-                      <Briefcase
-                        className={`${isExpanded ? 'h-6 w-6 sm:h-7 sm:w-7' : 'h-5 w-5'} text-primary`}
-                      />
-                    ) : (
-                      <Bot
-                        className={`${isExpanded ? 'h-6 w-6 sm:h-8 sm:w-8' : 'h-5 w-5 sm:h-6 sm:w-6'} text-primary`}
-                      />
-                    )}
+                    <Briefcase
+                      className={`${isExpanded ? 'h-6 w-6 sm:h-7 sm:w-7' : 'h-5 w-5'} text-primary`}
+                    />
                   </div>
 
                   <div className="flex flex-col gap-0.5 overflow-hidden">
                     <h3
                       className={`font-bold tracking-tighter text-foreground ${isExpanded ? 'text-lg sm:text-xl' : 'text-[15px] sm:text-base'}`}
                     >
-                      {mode === 'cv'
-                        ? t('chat.professional_title')
-                        : t('chat.persona_title')}
+                      {t('chat.professional_title')}
                     </h3>
 
                     <div className="flex items-center gap-2">
-                      <span className={`relative flex h-2 w-2`}>
+                      <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-20"></span>
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
                       </span>
                       <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">
-                        {mode === 'cv'
-                          ? t('chat.cv_mode_badge')
-                          : t('chat.chat_mode_badge')}
+                        {t('chat.cv_mode_badge')}
                       </span>
                     </div>
                   </div>
@@ -421,9 +288,7 @@ export default function ChatWidget() {
                       <button
                         onClick={() => setIsExpanded(!isExpanded)}
                         className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground hover:bg-background hover:text-primary transition-all"
-                        title={
-                          isExpanded ? t('chat.minimize') : t('chat.maximize')
-                        }
+                        title={isExpanded ? t('chat.minimize') : t('chat.maximize')}
                       >
                         {isExpanded ? (
                           <Minimize2 className="h-4 w-4" />
@@ -442,7 +307,6 @@ export default function ChatWidget() {
                         <Trash2 className="h-4 w-4" />
                       </button>
 
-                      {/* Custom Confirmation Popup */}
                       <AnimatePresence>
                         {showClearConfirm && (
                           <motion.div
@@ -487,26 +351,6 @@ export default function ChatWidget() {
                   </div>
                 </div>
               </div>
-
-              {/* Mode Switcher Tabs */}
-              <div className="px-4 sm:px-5 pb-2 sm:pb-3">
-                <div className="flex p-1 bg-muted rounded-xl border border-border">
-                  <button
-                    onClick={() => mode !== 'cv' && toggleMode()}
-                    className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2.5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold tracking-wide rounded-lg transition-all duration-300 ${mode === 'cv' ? 'bg-background text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
-                  >
-                    <Briefcase className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                    {t('chat.professional_mode')}
-                  </button>
-                  <button
-                    onClick={() => mode !== 'default' && toggleMode()}
-                    className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2.5 py-2 sm:py-2.5 text-[11px] sm:text-xs font-semibold tracking-wide rounded-lg transition-all duration-300 ${mode === 'default' ? 'bg-background text-primary shadow-sm' : 'text-muted-foreground hover:text-foreground'}`}
-                  >
-                    <Gamepad2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                    {t('chat.chat_mode')}
-                  </button>
-                </div>
-              </div>
             </div>
 
             {/* Message Loop */}
@@ -520,10 +364,7 @@ export default function ChatWidget() {
                     key={i}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.4,
-                      ease: [0.23, 1, 0.32, 1],
-                    }}
+                    transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
                     className={`flex w-full ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
@@ -548,50 +389,23 @@ export default function ChatWidget() {
                   >
                     <div className="rounded-2xl rounded-tl-none bg-muted border border-border px-4 py-3.5 sm:px-5 sm:py-4">
                       <div className="flex gap-2">
-                        <motion.div
-                          className="h-2 w-2 rounded-full bg-primary"
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.5, 1, 0.5],
-                          }}
-                          transition={{
-                            repeat: Infinity,
-                            duration: 1.5,
-                            ease: 'easeInOut',
-                            delay: 0,
-                          }}
-                        />
-                        <motion.div
-                          className="h-2 w-2 rounded-full bg-primary"
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.5, 1, 0.5],
-                          }}
-                          transition={{
-                            repeat: Infinity,
-                            duration: 1.5,
-                            ease: 'easeInOut',
-                            delay: 0.2,
-                          }}
-                        />
-                        <motion.div
-                          className="h-2 w-2 rounded-full bg-primary"
-                          animate={{
-                            scale: [1, 1.2, 1],
-                            opacity: [0.5, 1, 0.5],
-                          }}
-                          transition={{
-                            repeat: Infinity,
-                            duration: 1.5,
-                            ease: 'easeInOut',
-                            delay: 0.4,
-                          }}
-                        />
+                        {[0, 0.2, 0.4].map((delay, idx) => (
+                          <motion.div
+                            key={idx}
+                            className="h-2 w-2 rounded-full bg-primary"
+                            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                            transition={{
+                              repeat: Infinity,
+                              duration: 1.5,
+                              ease: 'easeInOut',
+                              delay,
+                            }}
+                          />
+                        ))}
                       </div>
                     </div>
                   </motion.div>
                 )}
-                {/* Invisible element to scroll to */}
                 <div ref={messagesEndRef} className="h-1" />
               </div>
             </div>
@@ -603,7 +417,7 @@ export default function ChatWidget() {
               <div className="max-w-5xl mx-auto w-full">
                 <form
                   onSubmit={handleSend}
-                  className={`flex items-center gap-2 sm:gap-3 rounded-full border border-border bg-muted/30 p-1.5 pl-4 sm:p-2 sm:pl-6 transition-all focus-within:border-primary focus-within:bg-background shadow-sm`}
+                  className="flex items-center gap-2 sm:gap-3 rounded-full border border-border bg-muted/30 p-1.5 pl-4 sm:p-2 sm:pl-6 transition-all focus-within:border-primary focus-within:bg-background shadow-sm"
                 >
                   <input
                     ref={inputRef}

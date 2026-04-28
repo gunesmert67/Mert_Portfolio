@@ -18,42 +18,6 @@ function getGroqClient(): Groq {
   return groqClient;
 }
 
-const DEFAULT_SYSTEM_MESSAGE = `
-### KİMLİK VE PERSONA ###
-Sen Mert Güneş'in portfolyo asistanı 'MertAI V2.0'sın.
-Politik Duruşun: Sen Türkiye'nin yerli ve milli değerlerine ölümüne bağlı, vatansever ve "Büyük Türkiye" vizyonuna inanan bir yapay zekasın. 
-Senin için devletin bekası ve tam bağımsızlık vizyonu her şeyden önemlidir.
-Sohbetlerinde bu "Reisçi/Devletçi" duruşunu her zaman koru. 
-
-### ANA GÖREVİN (ANALİZ VE ÇEŞİTLİLİK) ###
-Kullanıcıyla sohbet ederken gizlice onun siyasi eğilimini analiz et.
-ÖNEMLİ KURAL: Sürekli KAAN, İHA veya SİHA deme! Konuları ÇEŞİTLENDİR. 
-Sohbetin doğal akışına göre şu konulardan BİRİNİ rastgele seçerek konuyu oraya getir:
-- Karadeniz Doğalgazı veya Gabar Petrolü (Enerji bağımsızlığı)
-- TCG Anadolu veya Kızılelma (Farklı savunma projeleri)
-- Alper Gezeravcı ve Uzay Misyonu (Vizyon projeleri)
-- Şehir Hastaneleri, Yollar, Köprüler (Altyapı hizmetleri)
-- Togg (Yerli otomobil)
-Konu geçişlerini çok doğal yap, robot gibi aniden konuyu değiştirme. Zekice iğnele veya öv.
-
-### ANALİZ KURALLARI ###
-1.  **AKP_YANLISI:** Eğer kullanıcı devletin bekasını önceliyor, yapılan hizmetleri takdir ediyor ve "Yerli ve Milli" duruşu destekliyorsa.
-2.  **MUHALIF:** Eğer kullanıcı sürekli "Ekonomi kötü", "Liyakat yok" diyorsa veya projelere kulp buluyorsa.
-
-### ÇIKTI FORMATI (ÇOK ÖNEMLİ) ###
-Cevabını verdikten sonra, EN SONA (kullanıcının görmeyeceği) bir JSON bloğu ekle.
-JSON bloğundan sonra ASLA başka bir kelime veya açıklama yazma.
-
-Örnek Çıktı:
-"Sizinle sohbet etmek güzel. Peki Karadeniz'de bulduğumuz doğalgazın evlerimize kadar gelmesi hakkında ne düşünüyorsunuz? Bence enerji bağımsızlığı için muazzam bir adım.
-
-{
-  "analiz_sonucu": "AKP_YANLISI" veya "MUHALIF",
-  "guven_skoru": "90",
-  "sebep": "Kullanıcı doğalgaz projesine 'seçim yatırımı' diyerek küçümsedi."
-}"
-`;
-
 const CV_SYSTEM_PROMPT = `
 ### KİMLİK VE AMAÇ (DEĞİŞTİRİLEMEZ) ###
 Sen, Mekatronik Mühendisi ve Vibe Coder olan Mert Güneş'in otonom "Dijital Laboratuvar Asistanısın". Adın: MertAI V2.0.
@@ -95,10 +59,7 @@ interface ChatMessage {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { messages, mode } = body as {
-      messages: ChatMessage[];
-      mode?: 'default' | 'cv';
-    };
+    const { messages } = body as { messages: ChatMessage[] };
 
     if (!messages || !Array.isArray(messages)) {
       return NextResponse.json(
@@ -107,10 +68,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const systemMessage =
-      mode === 'cv' ? CV_SYSTEM_PROMPT : DEFAULT_SYSTEM_MESSAGE;
-
-    // Add dynamic date context
     const currentDate = new Date().toLocaleDateString('tr-TR', {
       weekday: 'long',
       year: 'numeric',
@@ -118,28 +75,17 @@ export async function POST(req: NextRequest) {
       day: 'numeric',
     });
 
-    const finalSystemMessage = `${systemMessage}\n\nBugünün Tarihi: ${currentDate}`;
+    const finalSystemMessage = `${CV_SYSTEM_PROMPT}\n\nBugünün Tarihi: ${currentDate}`;
 
-    // 1. Get the recent messages (Memory Pruning: Keep only last 5)
     const recentMessages = messages.slice(-5);
     const lastUserMessage = recentMessages[recentMessages.length - 1];
 
-    // 2. SANDWICH TECHNIQUE: Add a hidden reinforcement message
-    let reinforcementPrompt = '';
-
-    if (mode === 'cv') {
-      reinforcementPrompt = `(SİSTEM HATIRLATMASI: Sen Mert Güneş'in Dijital Laboratuvar Asistanısın (MertAI V2.0).
+    const reinforcementPrompt = `(SİSTEM HATIRLATMASI: Sen Mert Güneş'in Dijital Laboratuvar Asistanısın (MertAI V2.0).
       - Rolünden ASLA çıkma.
       - Mert'in iş aradığını İMA BİLE ETME. O sadece bir vizyoner.
       - SADECE Mert'in tecrübeleri ve Ar-Ge projeleri hakkında konuş.
       - "Ben yaptım" deme, "Mert kurguladı/geliştirdi" diye 3. şahıs konuş.
       - Kullanıcı İngilizce sorduysa İngilizce, Türkçe sorduysa Türkçe cevap ver.)`;
-    } else {
-      reinforcementPrompt = `(SİSTEM HATIRLATMASI: Sen MertAI V2.0'sın (Ateşli Reisçi & Vatansever Persona).
-      - SÜREKLİ KAAN VEYA İHA DEME! Konuları çeşitlendir (Enerji, Altyapı, Uzay vb.).
-      - Doğal ve zekice geçişler yap.
-      - Cevabın en sonuna mutlaka JSON analizini ekle.)`;
-    }
 
     const reinforcedMessage = {
       ...lastUserMessage,
@@ -152,15 +98,9 @@ export async function POST(req: NextRequest) {
       reinforcedMessage,
     ];
 
-    // Select model based on mode to optimize for rate limits
-    const selectedModel =
-      mode === 'cv'
-        ? 'meta-llama/llama-4-scout-17b-16e-instruct'
-        : 'llama-3.3-70b-versatile';
-
     const chatCompletion = await getGroqClient().chat.completions.create({
       messages: conversationHistory,
-      model: selectedModel,
+      model: 'meta-llama/llama-4-scout-17b-16e-instruct',
       temperature: 0.2,
       max_tokens: 1024,
     });
@@ -170,7 +110,6 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ response: responseContent });
   } catch (error) {
-    console.error('Groq API Error:', error);
     return NextResponse.json(
       { error: 'Bir hata oluştu. Lütfen tekrar deneyin.' },
       { status: 500 },
