@@ -23,6 +23,14 @@ Built with an **Architectural Minimalist aesthetic**, it features advanced UI pa
 - **Gooey Nav Animation**: A custom navigation system with particle-based transitions and fluid motion.
 - **3D Breathing Grid**: A WebGL shader-based background using `React Three Fiber` with sine-wave vertex displacement and mouse-proximity tracking.
 
+### 🤖 AI Portfolio Assistant (MertAI V2.0)
+
+- **Floating Chat Widget**: A fully animated chat widget powered by **Groq** (Llama 4 Scout model) that acts as an intelligent portfolio assistant.
+- **CV-Grounded Responses**: The AI answers questions strictly based on structured data (experience, skills, projects, certifications, contact) — no hallucinations.
+- **Bilingual**: Automatically responds in the language of the visitor (TR/EN).
+- **Persistent History**: Conversation history is preserved per session via `localStorage`.
+- **Prompt Injection Protection**: Role-lock and reinforcement prompting prevent off-topic manipulation.
+
 ### 🛠️ Technical Prowess
 
 - **Next.js 14 App Router**: Utilizing React Server Components (RSC) and optimized layouts.
@@ -61,7 +69,9 @@ A brief overview of the directory structure:
 ```bash
 Mert-Portfolio/
 ├── 📂 app/                 # Next.js App Router (Pages, Layouts, API Routes)
-│   ├── 📂 api/             # Backend endpoints (Contact)
+│   ├── 📂 api/
+│   │   ├── 📂 chat/        # AI portfolio assistant endpoint (Groq / Llama 4 Scout)
+│   │   └── 📂 contact/     # Contact form email endpoint (Resend)
 │   ├── 📂 about/           # About Me Page
 │   ├── 📂 career/          # Career Timeline Page
 │   ├── 📂 certifications/  # Bento Grid Certifications Page
@@ -123,9 +133,12 @@ Follow these steps to run the project locally.
     Create a `.env.local` file in the root directory and add the following keys:
 
     ```env
+    # AI Chat Assistant (Groq)
+    GROQ_API_KEY=your_groq_api_key_here
+
     # Email Service Configuration
     RESEND_API_KEY=your_resend_api_key_here
-    
+
     # Optional: Analytics
     NEXT_PUBLIC_ANALYTICS_ID=your_analytics_id
     ```
