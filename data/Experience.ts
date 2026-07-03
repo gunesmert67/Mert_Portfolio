@@ -8,11 +8,11 @@ export const ExperienceData = [
     id: 1,
     type: MilestoneTypes.Education,
     date: {
-      en: 'September 2025 - June 2026',
-      tr: 'Eylül 2025 - Haziran 2026',
+      en: 'September 2025 - February 2027',
+      tr: 'Eylül 2025 - Şubat 2027',
     },
     title: {
-      en: 'Management Information Systems • Master\'s Degree',
+      en: "Management Information Systems • Master's Degree",
       tr: 'Yönetim Bilişim Sistemleri • Yüksek Lisans',
     },
     img: '/company-logo/marmara.png',
@@ -24,7 +24,7 @@ export const ExperienceData = [
       en: 'Istanbul, Turkey',
       tr: 'İstanbul, Türkiye',
     },
-    gpa: 3.9,
+    gpa: 3.95,
     description: {
       en: [
         'Specializing in AI-powered business development and modern application development.',
@@ -131,7 +131,7 @@ export const ExperienceData = [
       tr: 'Eylül 2018 - Temmuz 2023',
     },
     title: {
-      en: 'Mechatronics Engineering • Bachelor\'s Degree',
+      en: "Mechatronics Engineering • Bachelor's Degree",
       tr: 'Mekatronik Mühendisliği • Lisans',
     },
     img: '/company-logo/ticaret.png',
