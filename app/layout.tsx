@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { DM_Sans } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/main/Navbar';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ToastContainer } from 'react-toastify';
 import { LanguageProvider } from '@/context/LanguageContext';
