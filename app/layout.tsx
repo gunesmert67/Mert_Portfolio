@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { DM_Sans } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import Navbar from '@/components/main/Navbar';
 import { Analytics } from '@vercel/analytics/react';
@@ -54,8 +55,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'tr_TR',
     url: ContactData.website,
-    title:
-      'Mert Güneş | Mekatronik Mühendisi & Yapay Zeka Uzmanı',
+    title: 'Mert Güneş | Mekatronik Mühendisi & Yapay Zeka Uzmanı',
     description:
       'Mekatronik Mühendisliği ve Yapay Zeka Sistemlerinde Uzmanlık. Projelerimi ve inovasyonlarımı keşfedin.',
     siteName: 'Mert Güneş Portfolyo',
@@ -72,8 +72,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title:
-      'Mert Güneş | Mekatronik Mühendisi & Yapay Zeka Uzmanı',
+    title: 'Mert Güneş | Mekatronik Mühendisi & Yapay Zeka Uzmanı',
     description:
       'Mekatronik Mühendisliği ve Yapay Zeka Sistemlerinde Uzmanlık. Projelerimi ve inovasyonlarımı keşfedin.',
     images: [`${ContactData.website}/icon.png`],
@@ -86,9 +85,7 @@ export const metadata: Metadata = {
       { url: '/icon.png', sizes: '512x512', type: 'image/png' },
     ],
     shortcut: ['/icon.png'],
-    apple: [
-      { url: '/icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/icon.png', sizes: '180x180', type: 'image/png' }],
     other: [
       {
         rel: 'apple-touch-icon-precomposed',
@@ -144,11 +141,29 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-Y6G6EMTEQ1';
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${dmSans.className} bg-background text-foreground overflow-y-scroll overflow-x-hidden`}
       >
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${gaId}');
+              `}
+            </Script>
+          </>
+        )}
         <script
           dangerouslySetInnerHTML={{
             __html: `
