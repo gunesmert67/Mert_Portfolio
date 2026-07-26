@@ -1,0 +1,33 @@
+# Mert Güneş - Comprehensive Profile & Technical Catalog
+
+## Overview
+Mert Güneş is a Mechatronics Engineer and AI Specialist (AI Automation Developer) based in Istanbul, Turkey. He focuses on building intelligent autonomous systems, local Retrieval-Augmented Generation (RAG) models, automated business workflows, and modern web applications.
+
+## Technical Skills Matrix
+
+### Artificial Intelligence & Automation
+- **Architectures**: RAG (Retrieval-Augmented Generation), Agentic Workflows, Function Calling, Prompt Engineering.
+- **Models & Tools**: OpenAI Whisper v3, Qwen 2.5, Llama 3, Ollama, Qdrant Vector Database, ChromaDB, LangChain, n8n.
+- **AI Integration**: Speech-to-Text (STT), Text-to-Speech (TTS), Local Air-Gapped Deployments, Enterprise Privacy AI.
+
+### Mechatronics & Hardware Engineering
+- **Control Systems**: PLC (Programmable Logic Controller), Microcontroller (Arduino, ESP32, STM32), Sensor Data Fusion.
+- **Robotics**: Kinematics, Motor Control, Autonomous Navigation, Hardware-in-the-loop (HIL) testing.
+
+### Full-Stack Web & Software Engineering
+- **Frontend**: Next.js (App Router), React, TypeScript, Tailwind CSS, Framer Motion.
+- **Backend & Cloud**: Python, FastAPI, Docker, Node.js, RESTful APIs, MySQL, PostgreSQL.
+- **DevOps & Analytics**: Vercel, Analytics, Speed Insights, GitHub Actions CI/CD.
+
+## Services Offered
+1. **AI & Automation Systems**: Building custom RAG assistants, local LLM installations, and n8n workflow automations for companies.
+2. **Mechatronic & Robotics Design**: End-to-end prototyping of automated hardware-software hardware solutions and sensor integration.
+3. **Full-Stack Web Development**: Building fast, SEO-optimized, modern web applications with Next.js and React.
+4. **Technical Consulting**: Architectural guidance for AI privacy, hardware selection, and digital transformation.
+
+## Contact Information
+- **Website**: https://mertgunes.com
+- **Email**: contact@mertgunes.com
+- **LinkedIn**: https://linkedin.com/in/mertgunes67
+- **GitHub**: https://github.com/gunesmert67
+- **Twitter**: https://twitter.com/mertgunes_6767

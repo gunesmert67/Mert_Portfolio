@@ -81,6 +81,26 @@ export const metadata: Metadata = {
     icon: '/icon.png',
     apple: '/icon.png',
   },
+  category: 'Technology & Engineering',
+  classification: 'Mechatronics & AI Engineering Portfolio',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
+    yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || '',
+    other: {
+      'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION || '',
+    },
+  },
+  other: {
+    'geo.region': 'TR-34',
+    'geo.placename': 'Istanbul',
+    'geo.position': '41.0082;28.9784',
+    ICBM: '41.0082, 28.9784',
+  },
   robots: {
     index: true,
     follow: true,
@@ -124,27 +144,68 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Person',
-              name: 'Mert G\u00fcne\u015f',
-              url: ContactData.website,
-              jobTitle: 'Mechatronics Engineer & AI Specialist',
-              sameAs: [
-                ContactData.linkedin,
-                ContactData.github,
-                ContactData.twitter,
-                ContactData.medium,
-                ContactData.instagram,
-              ],
-              description:
-                'Mert G\u00fcne\u015f - Mekatronik M\u00fchendisi ve Yapay Zeka Uzman\u0131 (AI Specialist). \u0130stanbul merkezli olarak yapay zeka i\u015f ak\u0131\u015flar\u0131, otonom sistemler, veri analiti\u011fi ve mekatronik m\u00fchendisli\u011fi projeleri geli\u015ftiren teknoloji profesyoneli.',
-              address: {
-                '@type': 'PostalAddress',
-                addressLocality: 'Istanbul',
-                addressCountry: 'TR',
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'Person',
+                '@id': `${ContactData.website}/#person`,
+                name: 'Mert Güneş',
+                url: ContactData.website,
+                image: `${ContactData.website}/mert_optimized.webp`,
+                jobTitle: 'Mechatronics Engineer & AI Specialist',
+                worksFor: {
+                  '@type': 'Organization',
+                  name: 'Freelance / Autonomous Systems Developer',
+                },
+                knowsAbout: [
+                  'Mechatronics Engineering',
+                  'Artificial Intelligence',
+                  'AI Workflows & Automation',
+                  'Robotics',
+                  'Next.js',
+                  'Python',
+                  'PLC Programming',
+                  'Full-Stack Software Development',
+                ],
+                sameAs: [
+                  ContactData.linkedin,
+                  ContactData.github,
+                  ContactData.twitter,
+                  ContactData.medium,
+                  ContactData.instagram,
+                ],
+                description:
+                  'Mert Güneş - Mekatronik Mühendisi ve Yapay Zeka Uzmanı (AI Specialist). İstanbul merkezli olarak yapay zeka iş akışları, otonom sistemler, veri analitiği ve mekatronik mühendisliği projeleri geliştiren teknoloji profesyoneli.',
+                address: {
+                  '@type': 'PostalAddress',
+                  addressLocality: 'Istanbul',
+                  addressCountry: 'TR',
+                },
               },
-            }),
+              {
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                '@id': `${ContactData.website}/#website`,
+                url: ContactData.website,
+                name: 'Mert Güneş Portfolio',
+                description:
+                  'Mekatronik Mühendisliği ve Yapay Zeka Sistemlerinde Uzmanlık Portfolyosu.',
+                inLanguage: ['tr-TR', 'en-US'],
+                publisher: {
+                  '@id': `${ContactData.website}/#person`,
+                },
+              },
+              {
+                '@context': 'https://schema.org',
+                '@type': 'ProfilePage',
+                '@id': `${ContactData.website}/#profilepage`,
+                url: ContactData.website,
+                name: 'Mert Güneş | Personal Portfolio & Profile',
+                mainEntity: {
+                  '@id': `${ContactData.website}/#person`,
+                },
+              },
+            ]),
           }}
         />
         <ThemeProvider

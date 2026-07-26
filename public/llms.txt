@@ -1,0 +1,30 @@
+# Mert Güneş
+
+> Mechatronics Engineer & AI Specialist based in Istanbul, Turkey.
+> Specializing in AI workflows, RAG architectures, local LLM deployment, autonomous mechatronic systems, and full-stack software development.
+
+## Summary & Profile
+Mert Güneş is a technology professional operating at the intersection of Mechatronics Engineering and Artificial Intelligence. He builds end-to-end autonomous solutions, local document-grounded AI assistants (RAG), automated workflows (n8n), and high-performance web applications.
+
+## Key Capabilities & Technical Stack
+- **AI Automation & LLMs**: Local RAG Architectures, OpenAI Whisper v3, Qwen 2.5, Llama 3, Qdrant Vector DB, Ollama, n8n Workflow Automation.
+- **Mechatronics & Robotics**: Embedded Systems, PLC Programming, Sensor Integration, Control Systems, Microcontrollers.
+- **Full-Stack Software**: Next.js, React, TypeScript, Python, Docker, REST APIs, Tailwind CSS.
+
+## Key Projects
+- **Offline Voice Assistant (RAG)**: Completely air-gapped, on-prem voice assistant using Whisper v3, Qwen 2.5, and Qdrant for document semantic querying.
+- **Automated AI Workflows**: n8n-powered autonomous agents and data processing pipelines.
+
+## Main Navigation Links
+- [Portfolio Homepage](https://mertgunes.com): Profile overview and highlights.
+- [Projects Portfolio](https://mertgunes.com/projects): Comprehensive technical project breakdown.
+- [Services & Solutions](https://mertgunes.com/services): AI engineering, mechatronic design, and technical consulting.
+- [Career & Experience](https://mertgunes.com/career): Timeline of engineering roles and achievements.
+- [Certifications](https://mertgunes.com/certifications): Professional credentials from IBM, McKinsey, etc.
+- [Contact](https://mertgunes.com/contact): Reach out for project inquiries and engineering collaborations.
+
+## Social & Developer Links
+- [GitHub](https://github.com/gunesmert67)
+- [LinkedIn](https://linkedin.com/in/mertgunes67)
+- [Twitter](https://twitter.com/mertgunes_6767)
+- [Medium](https://medium.com/@mertgunes6767)

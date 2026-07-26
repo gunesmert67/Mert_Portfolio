@@ -1,13 +1,15 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
+import JsonLd from '@/components/seo/JsonLd';
+import { ContactData } from '@/data/Contact';
 
 const ContactMe = dynamic(() => import('@/components/ui/ContactMe'));
 
 export const metadata: Metadata = {
-  title: '\u0130leti\u015fim',
+  title: 'İletişim',
   description:
-    'Mert G\u00fcne\u015f ile ileti\u015fime ge\u00e7in. Proje teklifleri, i\u015f birlikleri veya teknik dan\u0131\u015fmanl\u0131k i\u00e7in ileti\u015fim kanallar\u0131m\u0131 ke\u015ffedin.',
+    'Mert Güneş ile iletişime geçin. Proje teklifleri, iş birlikleri veya teknik danışmanlık için iletişim kanallarımı keşfedin.',
   alternates: {
     canonical: '/contact',
     languages: {
@@ -18,9 +20,50 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Ana Sayfa',
+        item: ContactData.website,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'İletişim',
+        item: `${ContactData.website}/contact`,
+      },
+    ],
+  };
+
+  const contactPageLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Mert Güneş - İletişim',
+    url: `${ContactData.website}/contact`,
+    mainEntity: {
+      '@type': 'Person',
+      name: 'Mert Güneş',
+      email: ContactData.email,
+      url: ContactData.website,
+      sameAs: [
+        ContactData.linkedin,
+        ContactData.github,
+        ContactData.twitter,
+        ContactData.medium,
+        ContactData.instagram,
+      ],
+    },
+  };
+
   return (
     <div className="flex flex-col gap-8 md:gap-16 pt-24 pb-16">
+      <JsonLd data={[breadcrumbLd, contactPageLd]} />
       <ContactMe />
     </div>
   );
 }
+
