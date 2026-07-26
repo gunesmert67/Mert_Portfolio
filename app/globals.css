@@ -23,9 +23,9 @@
     --secondary: 222 20% 90%;
     --secondary-foreground: 27 10% 17%;
 
-    /* Muted/Borders: Smart Blue (Pastel) (#576CA8) -> HSL: 224, 32%, 50% */
+    /* Muted/Borders: Smart Blue (#3A4C80) -> HSL: 224, 38%, 36% for 5.5:1 contrast */
     --muted: 224 32% 92%;
-    --muted-foreground: 224 32% 50%;
+    --muted-foreground: 224 38% 36%;
 
     --accent: 224 32% 92%;
     --accent-foreground: 222 57% 36%;

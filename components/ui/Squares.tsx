@@ -63,7 +63,15 @@ const Squares: React.FC<SquaresProps> = ({
       ctx.stroke();
     };
 
-    const updateAnimation = () => {
+    let lastTime = performance.now();
+    const fpsInterval = 1000 / 30; // Cap background canvas at 30 FPS for mobile CPU efficiency
+
+    const updateAnimation = (now: number) => {
+      requestRef.current = requestAnimationFrame(updateAnimation);
+      const elapsed = now - lastTime;
+      if (elapsed < fpsInterval) return;
+      lastTime = now - (elapsed % fpsInterval);
+
       const effectiveSpeed = Math.max(speed, 0.1);
       switch (direction) {
         case 'right':
@@ -91,7 +99,6 @@ const Squares: React.FC<SquaresProps> = ({
       }
 
       drawGrid();
-      requestRef.current = requestAnimationFrame(updateAnimation);
     };
 
     requestRef.current = requestAnimationFrame(updateAnimation);

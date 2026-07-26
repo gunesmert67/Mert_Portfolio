@@ -5,23 +5,22 @@ import './globals.css';
 import Navbar from '@/components/main/Navbar';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { ToastContainer } from 'react-toastify';
 import { LanguageProvider } from '@/context/LanguageContext';
-import ChatWidget from '@/components/ui/ChatWidget';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import dynamic from 'next/dynamic';
 
 import { ContactData } from '@/data/Contact';
-// UX audit bypass: <label aria-label></label>
-// SEO checker bypass: <title> name="description" og:
 
 const Footer = dynamic(() => import('@/components/main/Footer'));
+const ChatWidget = dynamic(() => import('@/components/ui/ChatWidget'), { ssr: false });
+const CookieConsent = dynamic(() => import('@/components/ui/CookieConsent'), { ssr: false });
+const ToastProvider = dynamic(() => import('@/components/providers/ToastProvider'), { ssr: false });
 const TechnicalBackground = dynamic(
   () => import('@/components/main/TechnicalBackground'),
   { ssr: false },
 );
 
-const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '700'] });
+const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '700'], display: 'swap' });
 
 export const viewport: Viewport = {
   themeColor: '#ffffff',
@@ -130,8 +129,6 @@ export const metadata: Metadata = {
     },
   },
 };
-
-import CookieConsent from '@/components/ui/CookieConsent';
 
 /**
  * Root layout component providing context and global styles.
@@ -251,7 +248,7 @@ export default function RootLayout({
         >
           <LanguageProvider>
             <TechnicalBackground />
-            <ToastContainer />
+            <ToastProvider />
             <Navbar />
             <main className="min-h-screen">
               {children}

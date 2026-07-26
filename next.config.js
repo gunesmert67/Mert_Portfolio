@@ -10,6 +10,8 @@ const nextConfig = {
    * @see https://nextjs.org/docs/app/api-reference/components/image#remotepatterns
    */
   images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
         protocol: 'https',
