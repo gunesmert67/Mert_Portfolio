@@ -25,10 +25,7 @@ const Projects = () => {
       id="projects"
       aria-labelledby="projects-section-header"
     >
-      <SectionHeader
-        title={t('projects.title')}
-        useH1={true}
-      />
+      <SectionHeader title={t('projects.title')} useH1={true} />
 
       <div className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14">
         {projectsData.map((project, index) => (

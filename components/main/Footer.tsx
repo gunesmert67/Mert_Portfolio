@@ -1,17 +1,36 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FaGithub, FaLinkedinIn, FaEnvelope, FaTwitter, FaInstagram, FaMedium } from 'react-icons/fa';
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaEnvelope,
+  FaTwitter,
+  FaInstagram,
+  FaMedium,
+} from 'react-icons/fa';
 import { useLanguage } from '@/context/LanguageContext';
 import { ContactData } from '@/data/Contact';
 import LegalModal from '@/components/ui/LegalModal';
 import { legalContent } from '@/data/LegalContent';
 
 const socialLinks = [
-  { href: `mailto:${ContactData.email}`, label: 'Email', icon: <FaEnvelope size={20} /> },
-  { href: ContactData.linkedin, label: 'LinkedIn', icon: <FaLinkedinIn size={20} /> },
+  {
+    href: `mailto:${ContactData.email}`,
+    label: 'Email',
+    icon: <FaEnvelope size={20} />,
+  },
+  {
+    href: ContactData.linkedin,
+    label: 'LinkedIn',
+    icon: <FaLinkedinIn size={20} />,
+  },
   { href: ContactData.github, label: 'GitHub', icon: <FaGithub size={20} /> },
-  { href: ContactData.instagram, label: 'Instagram', icon: <FaInstagram size={20} /> },
+  {
+    href: ContactData.instagram,
+    label: 'Instagram',
+    icon: <FaInstagram size={20} />,
+  },
 ];
 
 /**
@@ -20,14 +39,15 @@ const socialLinks = [
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const { t, language } = useLanguage();
-  const [activeLegal, setActiveLegal] = useState<'privacy' | 'terms' | null>(null);
+  const [activeLegal, setActiveLegal] = useState<'privacy' | 'terms' | null>(
+    null,
+  );
 
   const legalInfo = activeLegal ? legalContent[language][activeLegal] : null;
 
   return (
     <footer className="w-full py-10 px-4 mt-auto relative z-10 flex justify-center">
       <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between items-center gap-4 px-6 py-3 rounded-xl bg-background/80 backdrop-blur-md border border-border shadow-sm shadow-black/5 transition-all duration-300">
-
         {/* Left: Branding & Socials */}
         <div className="flex items-center gap-4 md:gap-6">
           <h2 className="text-sm md:text-base font-black tracking-tighter text-foreground uppercase whitespace-nowrap">
@@ -43,7 +63,9 @@ const Footer = () => {
                 className="text-muted-foreground/70 hover:text-primary transition-colors duration-300"
                 aria-label={link.label}
               >
-                {React.cloneElement(link.icon as React.ReactElement, { size: 14 })}
+                {React.cloneElement(link.icon as React.ReactElement, {
+                  size: 14,
+                })}
               </a>
             ))}
           </div>
@@ -71,7 +93,6 @@ const Footer = () => {
             {t('footer.terms')}
           </button>
         </div>
-
       </div>
 
       {/* Legal Modal Integration */}

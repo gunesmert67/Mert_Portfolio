@@ -20,7 +20,13 @@ interface SkillItemProps {
  * SkillItem Component
  * Updated for Bento Grid / Glassmorphism layout. Huge, clean logos with soft hover.
  */
-const SkillItem = ({ id, src, skillName, invertInDark, link }: SkillItemProps) => {
+const SkillItem = ({
+  id,
+  src,
+  skillName,
+  invertInDark,
+  link,
+}: SkillItemProps) => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   const variants = {
@@ -54,8 +60,9 @@ const SkillItem = ({ id, src, skillName, invertInDark, link }: SkillItemProps) =
           fill
           sizes="(max-width: 768px) 56px, (max-width: 1200px) 80px, 96px"
           alt={skillName}
-          className={`object-contain transition-all duration-500 group-hover:drop-shadow-lg ${invertInDark ? ' dark:invert dark:brightness-200' : ''
-            }`}
+          className={`object-contain transition-all duration-500 group-hover:drop-shadow-lg ${
+            invertInDark ? ' dark:invert dark:brightness-200' : ''
+          }`}
         />
       </div>
       <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-foreground/50 group-hover:text-foreground transition-colors duration-300 text-center line-clamp-1">
@@ -66,7 +73,12 @@ const SkillItem = ({ id, src, skillName, invertInDark, link }: SkillItemProps) =
 
   if (link) {
     return (
-      <a href={link} target="_blank" rel="noopener noreferrer" className="block h-full w-full">
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block h-full w-full"
+      >
         {Content}
       </a>
     );
@@ -76,4 +88,3 @@ const SkillItem = ({ id, src, skillName, invertInDark, link }: SkillItemProps) =
 };
 
 export default SkillItem;
-

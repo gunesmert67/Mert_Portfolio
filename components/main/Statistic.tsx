@@ -76,9 +76,7 @@ const Statistic = () => {
 
   return (
     <section className="flex flex-col items-center pb-12 md:pb-20 pt-10 px-4 lg:px-10 xl:px-16 mx-auto max-w-7xl w-full relative z-10 overflow-hidden gap-12">
-      <SectionHeader
-        title={language === 'tr' ? 'Genel Bakış' : 'Overview'}
-      />
+      <SectionHeader title={language === 'tr' ? 'Genel Bakış' : 'Overview'} />
       <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {statisticsData.map(({ id, Icon, number, suffix, description }) => {
           let linkHref = '/';

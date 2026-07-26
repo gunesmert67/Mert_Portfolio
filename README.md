@@ -46,19 +46,19 @@ Built with an **Architectural Minimalist aesthetic**, it features advanced UI pa
 
 This project leverages a modern, type-safe stack:
 
-| Category | Technology | Description |
-| :--- | :--- | :--- |
-| **Frontend** | **Next.js 14** | App Router, Server Components, Image Optimization |
-| **Language** | **TypeScript** | Strict type safety for maintainable code |
-| **Styling** | **Tailwind CSS** | Utility-first CSS framework with `tailwindcss-animate` |
-| **3D Graphics** | **React Three Fiber** | Declarative Three.js for React, using custom WebGL shaders |
-| **Animations** | **Framer Motion** | Production-ready animation library |
-| **AI / Vibe Coding** | **Groq / Ollama** | High-speed LLM inference and local AI integration |
-| **Legal / Compliance** | **GDPR / KVKK** | Integrated Privacy Policy & Cookie Consent banner |
-| **Automation** | **n8n** | Workflow automation for repetitive tasks |
-| **Email** | **Resend** | Developer-first email API |
-| **Analytics** | **Vercel Analytics** | Privacy-conscious user analytics and performance monitoring |
-| **Icons** | **Lucide & React Icons** | Consistent and lightweight icon sets |
+| Category               | Technology               | Description                                                 |
+| :--------------------- | :----------------------- | :---------------------------------------------------------- |
+| **Frontend**           | **Next.js 14**           | App Router, Server Components, Image Optimization           |
+| **Language**           | **TypeScript**           | Strict type safety for maintainable code                    |
+| **Styling**            | **Tailwind CSS**         | Utility-first CSS framework with `tailwindcss-animate`      |
+| **3D Graphics**        | **React Three Fiber**    | Declarative Three.js for React, using custom WebGL shaders  |
+| **Animations**         | **Framer Motion**        | Production-ready animation library                          |
+| **AI / Vibe Coding**   | **Groq / Ollama**        | High-speed LLM inference and local AI integration           |
+| **Legal / Compliance** | **GDPR / KVKK**          | Integrated Privacy Policy & Cookie Consent banner           |
+| **Automation**         | **n8n**                  | Workflow automation for repetitive tasks                    |
+| **Email**              | **Resend**               | Developer-first email API                                   |
+| **Analytics**          | **Vercel Analytics**     | Privacy-conscious user analytics and performance monitoring |
+| **Icons**              | **Lucide & React Icons** | Consistent and lightweight icon sets                        |
 
 ---
 
@@ -113,43 +113,43 @@ Follow these steps to run the project locally.
 
 1. **Clone the repository:**
 
-    ```bash
-    git clone https://github.com/gunesmert67/Mert-Portfolio.git
-    cd Mert-Portfolio
-    ```
+   ```bash
+   git clone https://github.com/gunesmert67/Mert-Portfolio.git
+   cd Mert-Portfolio
+   ```
 
 2. **Install dependencies:**
 
-    ```bash
-    npm install
-    # or
-    yarn install
-    # or
-    pnpm install
-    ```
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
 3. **Configure Environment Variables:**
 
-    Create a `.env.local` file in the root directory and add the following keys:
+   Create a `.env.local` file in the root directory and add the following keys:
 
-    ```env
-    # AI Chat Assistant (Groq)
-    GROQ_API_KEY=your_groq_api_key_here
+   ```env
+   # AI Chat Assistant (Groq)
+   GROQ_API_KEY=your_groq_api_key_here
 
-    # Email Service Configuration
-    RESEND_API_KEY=your_resend_api_key_here
+   # Email Service Configuration
+   RESEND_API_KEY=your_resend_api_key_here
 
-    # Optional: Analytics
-    NEXT_PUBLIC_ANALYTICS_ID=your_analytics_id
-    ```
+   # Optional: Analytics
+   NEXT_PUBLIC_ANALYTICS_ID=your_analytics_id
+   ```
 
 4. **Run the Development Server:**
 
-    ```bash
-    npm run dev
-    ```
+   ```bash
+   npm run dev
+   ```
 
-    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ---
 

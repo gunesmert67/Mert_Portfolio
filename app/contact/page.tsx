@@ -6,7 +6,8 @@ const ContactMe = dynamic(() => import('@/components/ui/ContactMe'));
 
 export const metadata: Metadata = {
   title: '\u0130leti\u015fim',
-  description: 'Mert G\u00fcne\u015f ile ileti\u015fime ge\u00e7in. Proje teklifleri, i\u015f birlikleri veya teknik dan\u0131\u015fmanl\u0131k i\u00e7in ileti\u015fim kanallar\u0131m\u0131 ke\u015ffedin.',
+  description:
+    'Mert G\u00fcne\u015f ile ileti\u015fime ge\u00e7in. Proje teklifleri, i\u015f birlikleri veya teknik dan\u0131\u015fmanl\u0131k i\u00e7in ileti\u015fim kanallar\u0131m\u0131 ke\u015ffedin.',
   alternates: {
     canonical: '/contact',
     languages: {

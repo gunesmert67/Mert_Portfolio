@@ -17,12 +17,54 @@ import { useLanguage } from '@/context/LanguageContext';
 import { ServicesApps } from '@/data/Services';
 
 const iconMap: Record<number, React.ReactNode> = {
-  1: <AnimatedLottieIcon animationData={aiIcon} size={36} className="text-primary drop-shadow-sm lottie-icon" speed={0.5} />,
-  2: <AnimatedLottieIcon animationData={automationIcon} size={36} className="text-primary drop-shadow-sm lottie-icon" speed={0.5} />,
-  3: <AnimatedLottieIcon animationData={visualIcon} size={36} className="text-primary drop-shadow-sm lottie-icon" speed={0.5} />,
-  4: <AnimatedLottieIcon animationData={iotIcon} size={36} className="text-primary drop-shadow-sm lottie-icon" speed={1} />, // Home icons usually better faster
-  5: <AnimatedLottieIcon animationData={webIcon} size={36} className="text-primary drop-shadow-sm lottie-icon" speed={0.5} />,
-  6: <AnimatedLottieIcon animationData={dataIcon} size={36} className="text-primary drop-shadow-sm lottie-icon" speed={0.5} />,
+  1: (
+    <AnimatedLottieIcon
+      animationData={aiIcon}
+      size={36}
+      className="text-primary drop-shadow-sm lottie-icon"
+      speed={0.5}
+    />
+  ),
+  2: (
+    <AnimatedLottieIcon
+      animationData={automationIcon}
+      size={36}
+      className="text-primary drop-shadow-sm lottie-icon"
+      speed={0.5}
+    />
+  ),
+  3: (
+    <AnimatedLottieIcon
+      animationData={visualIcon}
+      size={36}
+      className="text-primary drop-shadow-sm lottie-icon"
+      speed={0.5}
+    />
+  ),
+  4: (
+    <AnimatedLottieIcon
+      animationData={iotIcon}
+      size={36}
+      className="text-primary drop-shadow-sm lottie-icon"
+      speed={1}
+    />
+  ), // Home icons usually better faster
+  5: (
+    <AnimatedLottieIcon
+      animationData={webIcon}
+      size={36}
+      className="text-primary drop-shadow-sm lottie-icon"
+      speed={0.5}
+    />
+  ),
+  6: (
+    <AnimatedLottieIcon
+      animationData={dataIcon}
+      size={36}
+      className="text-primary drop-shadow-sm lottie-icon"
+      speed={0.5}
+    />
+  ),
 };
 
 const Services = () => {
@@ -56,14 +98,14 @@ const Services = () => {
       className="flex flex-col items-center pb-12 md:pb-20 pt-10 space-y-12 px-4 lg:px-10 xl:px-16 mx-auto max-w-7xl w-full relative z-10 overflow-hidden"
       id="services"
     >
-      <SectionHeader
-        title={t('services.title')}
-        useH1={true}
-      />
+      <SectionHeader title={t('services.title')} useH1={true} />
 
       <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
         {/* Left: 6 Neon Glow Cards in 2x3 grid */}
-        <div ref={ref} className="w-full lg:w-3/5 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div
+          ref={ref}
+          className="w-full lg:w-3/5 grid grid-cols-1 sm:grid-cols-2 gap-5"
+        >
           {cards.map((card, i) => (
             <motion.div
               key={card.id}

@@ -43,19 +43,22 @@ export default function ChatWidget() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Load chat history from localStorage on mount only.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
         setMessages(JSON.parse(saved));
       } catch {
-        setMessages([{ role: 'assistant', content: t('chat.welcome.professional') }]);
+        setMessages([
+          { role: 'assistant', content: t('chat.welcome.professional') },
+        ]);
       }
     } else {
-      setMessages([{ role: 'assistant', content: t('chat.welcome.professional') }]);
+      setMessages([
+        { role: 'assistant', content: t('chat.welcome.professional') },
+      ]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Update welcome message when language changes (only if it's the initial single message)
@@ -80,7 +83,7 @@ export default function ChatWidget() {
     if (messages.length > 0) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
     }
-  }, [messages]);
+  }, [messages, t]);
 
   // Scroll to bottom on new messages
   const scrollToBottom = () => {
@@ -107,7 +110,9 @@ export default function ChatWidget() {
   }, [isOpen]);
 
   const handleClearHistory = () => {
-    setMessages([{ role: 'assistant', content: t('chat.welcome.professional') }]);
+    setMessages([
+      { role: 'assistant', content: t('chat.welcome.professional') },
+    ]);
     localStorage.removeItem(STORAGE_KEY);
     setShowClearConfirm(false);
   };
@@ -242,9 +247,10 @@ export default function ChatWidget() {
               opacity: { duration: 0.2 },
             }}
             className={`fixed z-[60] flex flex-col overflow-hidden border border-border bg-background shadow-2xl transition-all
-              ${isExpanded
-                ? 'inset-0 m-auto w-[100vw] h-[100dvh] md:w-[95vw] md:h-[92vh] max-w-[1200px] rounded-none md:rounded-[24px]'
-                : 'bottom-[5.5rem] right-[4vw] w-[92vw] h-[75vh] max-h-[700px] md:bottom-24 md:right-6 md:w-[400px] lg:w-[450px] md:h-[650px] rounded-[24px]'
+              ${
+                isExpanded
+                  ? 'inset-0 m-auto w-[100vw] h-[100dvh] md:w-[95vw] md:h-[92vh] max-w-[1200px] rounded-none md:rounded-[24px]'
+                  : 'bottom-[5.5rem] right-[4vw] w-[92vw] h-[75vh] max-h-[700px] md:bottom-24 md:right-6 md:w-[400px] lg:w-[450px] md:h-[650px] rounded-[24px]'
               }`}
           >
             {/* Header */}
@@ -288,7 +294,9 @@ export default function ChatWidget() {
                       <button
                         onClick={() => setIsExpanded(!isExpanded)}
                         className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground hover:bg-background hover:text-primary transition-all"
-                        title={isExpanded ? t('chat.minimize') : t('chat.maximize')}
+                        title={
+                          isExpanded ? t('chat.minimize') : t('chat.maximize')
+                        }
                       >
                         {isExpanded ? (
                           <Minimize2 className="h-4 w-4" />
@@ -368,13 +376,15 @@ export default function ChatWidget() {
                     className={`flex w-full ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
                     <div
-                      className={`relative max-w-[88%] sm:max-w-[85%] px-4 py-3 sm:px-5 sm:py-3.5 shadow-sm ${isExpanded
-                        ? 'text-[15px] sm:text-lg leading-relaxed'
-                        : 'text-[13.5px] sm:text-sm leading-relaxed'
-                        } ${msg.role === 'user'
+                      className={`relative max-w-[88%] sm:max-w-[85%] px-4 py-3 sm:px-5 sm:py-3.5 shadow-sm ${
+                        isExpanded
+                          ? 'text-[15px] sm:text-lg leading-relaxed'
+                          : 'text-[13.5px] sm:text-sm leading-relaxed'
+                      } ${
+                        msg.role === 'user'
                           ? 'rounded-2xl rounded-tr-none bg-primary text-primary-foreground'
                           : 'rounded-2xl rounded-tl-none bg-muted border border-border text-foreground'
-                        }`}
+                      }`}
                     >
                       {msg.content}
                     </div>
@@ -393,7 +403,10 @@ export default function ChatWidget() {
                           <motion.div
                             key={idx}
                             className="h-2 w-2 rounded-full bg-primary"
-                            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                            animate={{
+                              scale: [1, 1.2, 1],
+                              opacity: [0.5, 1, 0.5],
+                            }}
                             transition={{
                               repeat: Infinity,
                               duration: 1.5,

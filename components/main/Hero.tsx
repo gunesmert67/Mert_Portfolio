@@ -3,7 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { FaGithub, FaLinkedinIn, FaInstagram, FaTwitter, FaMedium, FaEnvelope } from 'react-icons/fa';
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaInstagram,
+  FaTwitter,
+  FaMedium,
+  FaEnvelope,
+} from 'react-icons/fa';
 import { useLanguage } from '@/context/LanguageContext';
 import { ContactData } from '@/data/Contact';
 import HeroButton from '../ui/HeroButton';
@@ -114,7 +121,6 @@ const Hero = () => {
       >
         {/* Left Side: Typography */}
         <div className="w-full lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left gap-6">
-
           {/* Tagline */}
           <motion.div variants={itemVariants} className="inline-block">
             <div className="py-1 px-4 border border-border/40 bg-background/40 backdrop-blur-md rounded-full shadow-sm">
@@ -125,7 +131,10 @@ const Hero = () => {
           </motion.div>
 
           {/* Typewriter Headings */}
-          <motion.div variants={itemVariants} className="flex flex-col gap-1 relative">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col gap-1 relative"
+          >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tighter text-foreground">
               {/* Line 1: Sürekli öğrenen, */}
               <span className="block">
@@ -161,14 +170,22 @@ const Hero = () => {
           </motion.div>
 
           {/* Short Bio */}
-          <motion.div variants={itemVariants} className="w-full max-w-[500px] mt-4">
+          <motion.div
+            variants={itemVariants}
+            className="w-full max-w-[500px] mt-4"
+          >
             <p className="text-base md:text-lg text-muted-foreground font-medium leading-relaxed">
-              {typeof t('hero.bio') === 'string' ? t('hero.bio') : 'Mechatronics engineer. I transform operational processes with data, AI, and automation.'}
+              {typeof t('hero.bio') === 'string'
+                ? t('hero.bio')
+                : 'Mechatronics engineer. I transform operational processes with data, AI, and automation.'}
             </p>
           </motion.div>
 
           {/* Actions & Socials */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-8 mt-6">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row items-center gap-8 mt-6"
+          >
             <HeroButton
               label={t('hero.cta')}
               onClick={() => window.dispatchEvent(new Event('open-chat'))}
@@ -209,7 +226,6 @@ const Hero = () => {
             </div>
           </div>
         </motion.div>
-
       </motion.div>
     </section>
   );

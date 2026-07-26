@@ -23,14 +23,14 @@ const Skills = () => {
       id="skills"
       className="flex flex-col items-center pb-12 md:pb-20 pt-10 px-4 lg:px-10 xl:px-16 mx-auto max-w-7xl w-full relative z-10 overflow-hidden"
     >
-      <SectionHeader
-        title={t('skills.title')}
-        useH1={true}
-      />
+      <SectionHeader title={t('skills.title')} useH1={true} />
 
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-10 md:gap-12 mt-4">
         {SkillsData.map((category, index) => (
-          <div key={index} className="flex flex-col gap-8 md:gap-10 relative w-full">
+          <div
+            key={index}
+            className="flex flex-col gap-8 md:gap-10 relative w-full"
+          >
             <h2 className="text-xl md:text-2xl font-bold text-center text-foreground uppercase tracking-[0.2em] opacity-80 decoration-primary/30 underline decoration-2 underline-offset-8">
               {t(category.titleKey)}
             </h2>

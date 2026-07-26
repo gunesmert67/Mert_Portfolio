@@ -12,7 +12,8 @@ const Skills = dynamic(() => import('@/components/main/Skills'), {
 
 export const metadata: Metadata = {
   title: 'Yetenekler',
-  description: 'Python, Next.js, AI Workflow, PLC programlama ve daha fazlas\u0131. Mert G\u00fcne\u015f\'in teknik yetkinlikleri ve kulland\u0131\u011f\u0131 ara\u00e7lar.',
+  description:
+    "Python, Next.js, AI Workflow, PLC programlama ve daha fazlas\u0131. Mert G\u00fcne\u015f'in teknik yetkinlikleri ve kulland\u0131\u011f\u0131 ara\u00e7lar.",
   alternates: {
     canonical: '/skills',
     languages: {

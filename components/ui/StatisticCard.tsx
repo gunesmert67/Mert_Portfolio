@@ -53,16 +53,20 @@ const StatisticCard = ({
     >
       <Link href={href} className="block h-full">
         <div className="neon-card relative flex flex-col justify-between h-full p-5 md:p-6 rounded-2xl bg-background/60 dark:bg-card/30 backdrop-blur-md border border-transparent overflow-hidden transition-all duration-500 shadow-sm transition-transform hover:scale-[1.02]">
-
           {/* Top part: Icon */}
           <div className="flex justify-between items-start mb-6">
             <div className="p-3 rounded-xl bg-primary/5 text-primary group-hover:bg-primary/15 transition-colors duration-500">
-              {React.cloneElement(Icon, { size: 36, className: "text-primary drop-shadow-sm lottie-icon" })}
+              {React.cloneElement(Icon, {
+                size: 36,
+                className: 'text-primary drop-shadow-sm lottie-icon',
+              })}
             </div>
 
             {/* Small arrow like in services cards but subtle */}
             <div className="w-8 h-8 rounded-full border border-border/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span className="text-primary text-lg transform -rotate-45">→</span>
+              <span className="text-primary text-lg transform -rotate-45">
+                →
+              </span>
             </div>
           </div>
 
@@ -71,8 +75,15 @@ const StatisticCard = ({
             <span className="text-4xl md:text-5xl font-black tracking-tighter text-foreground group-hover:text-primary transition-colors duration-500 block">
               {inView ? (
                 <span className="flex items-baseline gap-1">
-                  <CountUp end={number} duration={3} useEasing={true} separator="," />
-                  <span className="text-2xl md:text-3xl text-primary/80">{suffix}</span>
+                  <CountUp
+                    end={number}
+                    duration={3}
+                    useEasing={true}
+                    separator=","
+                  />
+                  <span className="text-2xl md:text-3xl text-primary/80">
+                    {suffix}
+                  </span>
                 </span>
               ) : (
                 '0'

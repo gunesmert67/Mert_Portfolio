@@ -3,7 +3,7 @@
  * Updated with latest high-quality SVG logos and organized into requested categories.
  */
 
-export interface Skill {
+interface Skill {
   id: number;
   skillName: string;
   image: string;

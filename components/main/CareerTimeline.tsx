@@ -20,19 +20,25 @@ const CareerTimeline = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   // Split data
-  const workExperience = ExperienceData.filter(m => m.type === MilestoneTypes.Work);
+  const workExperience = ExperienceData.filter(
+    (m) => m.type === MilestoneTypes.Work,
+  );
   // Optional: keep education chronological or reverse chronological depending on preference
-  const educationExperience = ExperienceData.filter(m => m.type === MilestoneTypes.Education);
+  const educationExperience = ExperienceData.filter(
+    (m) => m.type === MilestoneTypes.Education,
+  );
 
   return (
-    <section id="career-timeline" className="flex flex-col items-center pb-12 md:pb-20 pt-10 space-y-12 px-4 lg:px-10 xl:px-16 mx-auto max-w-7xl w-full relative z-10 overflow-hidden text-center">
-      <SectionHeader
-        title={t('career.title')}
-        useH1={true}
-      />
+    <section
+      id="career-timeline"
+      className="flex flex-col items-center pb-12 md:pb-20 pt-10 space-y-12 px-4 lg:px-10 xl:px-16 mx-auto max-w-7xl w-full relative z-10 overflow-hidden text-center"
+    >
+      <SectionHeader title={t('career.title')} useH1={true} />
 
-      <div ref={ref} className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-8">
-
+      <div
+        ref={ref}
+        className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-8"
+      >
         {/* Left Column: Work Experience */}
         <div className="flex-1 w-full">
           <motion.div
@@ -65,10 +71,8 @@ const CareerTimeline = () => {
           </div>
         </div>
 
-
         {/* Desktop Divider - Optional visual separation */}
         <div className="hidden lg:flex w-px bg-border/40 my-16 mx-4" />
-
 
         {/* Right Column: Education */}
         <div className="flex-1 w-full">
@@ -102,7 +106,6 @@ const CareerTimeline = () => {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );

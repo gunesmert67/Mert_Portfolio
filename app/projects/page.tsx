@@ -9,7 +9,8 @@ const Projects = dynamic(() => import('@/components/main/Projects'), {
 
 export const metadata: Metadata = {
   title: 'Projeler',
-  description: 'Yapay zeka, robotik ve yaz\u0131l\u0131m geli\u015ftirme alan\u0131ndaki projelerim. Mert G\u00fcne\u015f\'in inovatif \u00e7\u00f6z\u00fcmlerini ve teknik portfolyosunu inceleyin.',
+  description:
+    "Yapay zeka, robotik ve yaz\u0131l\u0131m geli\u015ftirme alan\u0131ndaki projelerim. Mert G\u00fcne\u015f'in inovatif \u00e7\u00f6z\u00fcmlerini ve teknik portfolyosunu inceleyin.",
   alternates: {
     canonical: '/projects',
     languages: {

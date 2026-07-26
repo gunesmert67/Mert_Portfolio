@@ -17,7 +17,7 @@ import { ContactData } from '@/data/Contact';
 const Footer = dynamic(() => import('@/components/main/Footer'));
 const TechnicalBackground = dynamic(
   () => import('@/components/main/TechnicalBackground'),
-  { ssr: false }
+  { ssr: false },
 );
 
 const dmSans = DM_Sans({ subsets: ['latin'], weight: ['400', '500', '700'] });
@@ -31,10 +31,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(ContactData.website),
   title: {
-    default: 'Mert G\u00fcne\u015f | Mekatronik M\u00fchendisi & Yapay Zeka Uzman\u0131',
+    default:
+      'Mert G\u00fcne\u015f | Mekatronik M\u00fchendisi & Yapay Zeka Uzman\u0131',
     template: '%s | Mert G\u00fcne\u015f',
   },
-  description: 'Mert G\u00fcne\u015f - Mekatronik M\u00fchendisi ve Yapay Zeka Uzman\u0131 (AI Specialist). Yapay zeka i\u015f ak\u0131\u015flar\u0131, otonom sistemler ve mekatronik m\u00fchendisli\u011fi konular\u0131nda uzman.',
+  description:
+    'Mert G\u00fcne\u015f - Mekatronik M\u00fchendisi ve Yapay Zeka Uzman\u0131 (AI Specialist). Yapay zeka i\u015f ak\u0131\u015flar\u0131, otonom sistemler ve mekatronik m\u00fchendisli\u011fi konular\u0131nda uzman.',
   keywords: [
     'Mert G\u00fcne\u015f',
     'AI Automation Developer',
@@ -52,8 +54,10 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'tr_TR',
     url: ContactData.website,
-    title: 'Mert G\u00fcne\u015f | Mekatronik M\u00fchendisi & Yapay Zeka Uzman\u0131',
-    description: 'Mekatronik M\u00fchendisli\u011fi ve Yapay Zeka Sistemlerinde Uzmanl\u0131k. Projelerimi ve inovasyonlar\u0131m\u0131 ke\u015ffedin.',
+    title:
+      'Mert G\u00fcne\u015f | Mekatronik M\u00fchendisi & Yapay Zeka Uzman\u0131',
+    description:
+      'Mekatronik M\u00fchendisli\u011fi ve Yapay Zeka Sistemlerinde Uzmanl\u0131k. Projelerimi ve inovasyonlar\u0131m\u0131 ke\u015ffedin.',
     siteName: 'Mert G\u00fcne\u015f Portfolyo',
     images: [
       {
@@ -66,8 +70,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mert G\u00fcne\u015f | Mekatronik M\u00fchendisi & Yapay Zeka Uzman\u0131',
-    description: 'Mekatronik M\u00fchendisli\u011fi ve Yapay Zeka Sistemlerinde Uzmanl\u0131k. Projelerimi ve inovasyonlar\u0131m\u0131 ke\u015ffedin.',
+    title:
+      'Mert G\u00fcne\u015f | Mekatronik M\u00fchendisi & Yapay Zeka Uzman\u0131',
+    description:
+      'Mekatronik M\u00fchendisli\u011fi ve Yapay Zeka Sistemlerinde Uzmanl\u0131k. Projelerimi ve inovasyonlar\u0131m\u0131 ke\u015ffedin.',
     images: ['/icon.png'],
     creator: '@mertgunes_6767',
   },

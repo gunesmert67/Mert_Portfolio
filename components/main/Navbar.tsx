@@ -53,10 +53,14 @@ const Navbar = () => {
         {/* Desktop Navigation (AnimatedNav) */}
         <div className="hidden md:flex items-center mx-auto">
           <AnimatedNav
-            items={React.useMemo(() => navLinkKeys.map(link => ({
-              label: t(link.key),
-              href: link.href
-            })), [t])}
+            items={React.useMemo(
+              () =>
+                navLinkKeys.map((link) => ({
+                  label: t(link.key),
+                  href: link.href,
+                })),
+              [t],
+            )}
           />
         </div>
 
@@ -110,8 +114,8 @@ const Navbar = () => {
                 hidden: { opacity: 0 },
                 visible: {
                   opacity: 1,
-                  transition: { staggerChildren: 0.05, delayChildren: 0.1 }
-                }
+                  transition: { staggerChildren: 0.05, delayChildren: 0.1 },
+                },
               }}
             >
               {navLinkKeys.map((link) => {
@@ -121,16 +125,17 @@ const Navbar = () => {
                     key={link.href}
                     variants={{
                       hidden: { opacity: 0, y: 10 },
-                      visible: { opacity: 1, y: 0 }
+                      visible: { opacity: 1, y: 0 },
                     }}
                   >
                     <Link
                       href={link.href}
                       onClick={closeMenu}
-                      className={`text-3xl font-black tracking-tight transition-all duration-300 ${isActive
-                        ? 'text-primary scale-110'
-                        : 'text-foreground/70 hover:text-primary'
-                        }`}
+                      className={`text-3xl font-black tracking-tight transition-all duration-300 ${
+                        isActive
+                          ? 'text-primary scale-110'
+                          : 'text-foreground/70 hover:text-primary'
+                      }`}
                     >
                       {t(link.key)}
                     </Link>
@@ -148,12 +153,16 @@ const Navbar = () => {
               <div className="w-full h-px bg-border/40 mb-2"></div>
               <div className="flex items-center justify-center gap-8 w-full">
                 <div className="flex flex-col items-center gap-2">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">{t('nav.theme')}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">
+                    {t('nav.theme')}
+                  </span>
                   <ThemeToggle />
                 </div>
                 <div className="w-px h-10 bg-border/40 h-full"></div>
                 <div className="flex flex-col items-center gap-2">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">{t('nav.language')}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/50">
+                    {t('nav.language')}
+                  </span>
                   <LanguageSwitch />
                 </div>
               </div>

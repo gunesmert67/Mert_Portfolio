@@ -16,12 +16,37 @@ import { ArrowRightIcon } from 'lucide-react';
 import Image from 'next/image';
 
 // Map specific brand data to certification IDs
-const brandDetails: Record<number, { logoPath: string, colorClass: string, bgGlow: string, invertDark?: boolean }> = {
-  1: { logoPath: '/company-logo/IBM.svg', colorClass: 'text-blue-500', bgGlow: 'from-blue-500/20 to-cyan-500/10' }, // IBM
-  2: { logoPath: '/company-logo/McKinsey.svg', colorClass: 'text-indigo-400', bgGlow: 'from-indigo-500/20 to-slate-500/10', invertDark: true }, // McKinsey
-  3: { logoPath: '/company-logo/Berlitz.svg', colorClass: 'text-orange-500', bgGlow: 'from-orange-500/20 to-amber-500/10' }, // Berlitz
-  4: { logoPath: '/company-logo/Udemy.svg', colorClass: 'text-purple-500', bgGlow: 'from-purple-500/20 to-fuchsia-500/10' }, // Udemy
-  5: { logoPath: '/company-logo/Pearson.svg', colorClass: 'text-emerald-500', bgGlow: 'from-emerald-500/20 to-teal-500/10', invertDark: true }, // Pearson
+const brandDetails: Record<
+  number,
+  { logoPath: string; colorClass: string; bgGlow: string; invertDark?: boolean }
+> = {
+  1: {
+    logoPath: '/company-logo/IBM.svg',
+    colorClass: 'text-blue-500',
+    bgGlow: 'from-blue-500/20 to-cyan-500/10',
+  }, // IBM
+  2: {
+    logoPath: '/company-logo/McKinsey.svg',
+    colorClass: 'text-indigo-400',
+    bgGlow: 'from-indigo-500/20 to-slate-500/10',
+    invertDark: true,
+  }, // McKinsey
+  3: {
+    logoPath: '/company-logo/Berlitz.svg',
+    colorClass: 'text-orange-500',
+    bgGlow: 'from-orange-500/20 to-amber-500/10',
+  }, // Berlitz
+  4: {
+    logoPath: '/company-logo/Udemy.svg',
+    colorClass: 'text-purple-500',
+    bgGlow: 'from-purple-500/20 to-fuchsia-500/10',
+  }, // Udemy
+  5: {
+    logoPath: '/company-logo/Pearson.svg',
+    colorClass: 'text-emerald-500',
+    bgGlow: 'from-emerald-500/20 to-teal-500/10',
+    invertDark: true,
+  }, // Pearson
 };
 
 const cardVariants = {
@@ -30,7 +55,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
@@ -44,21 +69,25 @@ export const Certification = () => {
       id="certifications"
       className="flex flex-col items-center pb-12 md:pb-20 pt-10 px-4 lg:px-10 xl:px-16 mx-auto max-w-7xl w-full relative z-10 overflow-hidden gap-12"
     >
-      <SectionHeader
-        title={t('certifications.title')}
-        useH1={true}
-      />
+      <SectionHeader title={t('certifications.title')} useH1={true} />
 
       <div
         ref={ref}
         className="w-full max-w-6xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6"
       >
         {CertificationData.map((cert, index) => {
-          const displayDesc = typeof cert.description === 'object' && cert.description !== null && 'en' in cert.description
-            ? (cert.description as { en: string; tr: string })[language]
-            : cert.description;
+          const displayDesc =
+            typeof cert.description === 'object' &&
+            cert.description !== null &&
+            'en' in cert.description
+              ? (cert.description as { en: string; tr: string })[language]
+              : cert.description;
 
-          const brand = brandDetails[cert.id] || { logoPath: '', colorClass: 'text-primary', bgGlow: 'from-primary/20 to-primary/5' };
+          const brand = brandDetails[cert.id] || {
+            logoPath: '',
+            colorClass: 'text-primary',
+            bgGlow: 'from-primary/20 to-primary/5',
+          };
 
           // Make first two cards span 3 columns (50%) and others span 2 columns (33%) on large screens
           const isTopRow = index < 2;
@@ -83,7 +112,9 @@ export const Certification = () => {
               {/* Top part: Logo & Header */}
               <div className="relative z-10 flex flex-col gap-6">
                 <div className="flex justify-between items-start">
-                  <div className={`w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-card dark:bg-white border border-border/50 shadow-sm flex items-center justify-center ${brand.colorClass} group-hover:scale-110 transition-transform duration-500 overflow-hidden relative`}>
+                  <div
+                    className={`w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-card dark:bg-white border border-border/50 shadow-sm flex items-center justify-center ${brand.colorClass} group-hover:scale-110 transition-transform duration-500 overflow-hidden relative`}
+                  >
                     {brand.logoPath ? (
                       <Image
                         src={brand.logoPath}
@@ -102,7 +133,12 @@ export const Certification = () => {
                     {cert.CertificationLink ? (
                       <CertButton
                         label={language === 'tr' ? 'Görüntüle' : 'View'}
-                        onClick={() => window.open(cert.CertificationLink as string, '_blank')}
+                        onClick={() =>
+                          window.open(
+                            cert.CertificationLink as string,
+                            '_blank',
+                          )
+                        }
                       />
                     ) : (
                       <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/40 px-3 py-1 border border-dashed border-border/30 rounded-full">
@@ -114,14 +150,18 @@ export const Certification = () => {
 
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className={`text-[10px] font-bold uppercase tracking-widest ${brand.colorClass} bg-background/50 px-3 py-1 rounded-full border border-border/50`}>
+                    <span
+                      className={`text-[10px] font-bold uppercase tracking-widest ${brand.colorClass} bg-background/50 px-3 py-1 rounded-full border border-border/50`}
+                    >
                       {cert.issuer}
                     </span>
                     <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                       {cert.date}
                     </span>
                   </div>
-                  <h2 className={`text-xl font-black text-foreground group-hover:${brand.colorClass} transition-colors duration-500 leading-tight`}>
+                  <h2
+                    className={`text-xl font-black text-foreground group-hover:${brand.colorClass} transition-colors duration-500 leading-tight`}
+                  >
                     {cert.name}
                   </h2>
                 </div>

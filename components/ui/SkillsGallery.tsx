@@ -41,4 +41,3 @@ const SkillsGallery = ({ skillsData }: SkillsGalleryProps) => {
 };
 
 export default SkillsGallery;
-

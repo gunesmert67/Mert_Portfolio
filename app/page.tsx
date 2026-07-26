@@ -4,7 +4,8 @@ import Statistic from '@/components/main/Statistic';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  description: 'Mert G\u00fcne\u015f - Mechatronics Engineer & AI Automation Developer. Explore my portfolio of projects, skills, and experience in AI workflows, automation, and robotics.',
+  description:
+    'Mert G\u00fcne\u015f - Mechatronics Engineer & AI Automation Developer. Explore my portfolio of projects, skills, and experience in AI workflows, automation, and robotics.',
   alternates: {
     canonical: '/',
     languages: {

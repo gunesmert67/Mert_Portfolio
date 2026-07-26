@@ -48,13 +48,25 @@ const ProjectCard = ({
   const formatMonthYear = (dateStr: string) => {
     const [year, month] = dateStr.split('-');
     const date = new Date(parseInt(year), parseInt(month) - 1);
-    return date.toLocaleDateString(language === 'tr' ? 'tr-TR' : 'en-US', { month: 'short', year: 'numeric' });
+    return date.toLocaleDateString(language === 'tr' ? 'tr-TR' : 'en-US', {
+      month: 'short',
+      year: 'numeric',
+    });
   };
 
   const getLocalizedContent = (
-    content: | { en: string | string[]; tr: string | string[] } | string | string[] | undefined,
+    content:
+      | { en: string | string[]; tr: string | string[] }
+      | string
+      | string[]
+      | undefined,
   ) => {
-    if (typeof content === 'object' && content !== null && 'en' in content && 'tr' in content) {
+    if (
+      typeof content === 'object' &&
+      content !== null &&
+      'en' in content &&
+      'tr' in content
+    ) {
       return (content as any)[language] || (content as any)['en'];
     }
     return content;
@@ -64,7 +76,8 @@ const ProjectCard = ({
   const displayDesc = (getLocalizedContent(description) ?? '') as string;
   const displayFeatures = (getLocalizedContent(features) ?? []) as string[];
   const displayChallenges = (getLocalizedContent(challenges) ?? []) as string[];
-  const displayAccomplishments = (getLocalizedContent(accomplishments) ?? []) as string[];
+  const displayAccomplishments = (getLocalizedContent(accomplishments) ??
+    []) as string[];
 
   return (
     <>
@@ -72,8 +85,8 @@ const ProjectCard = ({
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
         className="w-full flex flex-col gap-5 group cursor-pointer"
         onClick={() => setModalOpen(true)}
       >
@@ -94,7 +107,9 @@ const ProjectCard = ({
             <div className="px-3 py-1.5 bg-background/60 backdrop-blur-md rounded-lg border border-border/40 shadow-sm flex items-center gap-2 transition-transform duration-300 group-hover:translate-x-1">
               <span className="text-[10px] font-bold tracking-wider text-foreground uppercase opacity-90">
                 {formatMonthYear(startDate)}
-                {startDate !== endDate && endDate !== null ? ` - ${formatMonthYear(endDate)}` : ''}
+                {startDate !== endDate && endDate !== null
+                  ? ` - ${formatMonthYear(endDate)}`
+                  : ''}
               </span>
               {endDate === null && (
                 <span className="flex h-1.5 w-1.5 relative">
@@ -117,7 +132,11 @@ const ProjectCard = ({
                 text="  DEMO      "
                 onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                   e.stopPropagation();
-                  window.open(sourceUrl as string, '_blank', 'noopener noreferrer');
+                  window.open(
+                    sourceUrl as string,
+                    '_blank',
+                    'noopener noreferrer',
+                  );
                 }}
               />
             ) : githubUrl ? (

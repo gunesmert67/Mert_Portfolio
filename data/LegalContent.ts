@@ -1,98 +1,98 @@
 export const legalContent = {
-    tr: {
-        privacy: {
-            title: 'Gizlilik Politikası',
-            content: [
-                {
-                    heading: '1. Veri Sorumlusu',
-                    text: 'Bu web sitesi Mert Güneş tarafından işletilmektedir. Kişisel verilerinizin güvenliği bizim için önceliklidir.',
-                },
-                {
-                    heading: '2. AI Sohbet Botu ve Veri İşleme',
-                    text: 'Sitemizdeki MertAI sohbet botu ile paylaştığınız mesajlar, size yanıt verebilmek amacıyla işlenir. Bu veriler, botun performansını artırmak için anonim olarak analiz edilebilir.',
-                },
-                {
-                    heading: '3. Üçüncü Taraf Servisler',
-                    text: 'Yapay zeka hizmeti sunmak adına mesajlarınız güvenli API bağlantıları aracılığıyla iş ortaklarımıza (örneğin Groq veya OpenAI) iletilebilir. Kişisel verileriniz bu süreçte gizli tutulur.',
-                },
-                {
-                    heading: '4. Çerezler',
-                    text: 'Sitemiz, kullanıcı deneyimini artırmak ve bot tercihlerini hatırlamak için temel çerezler kullanabilir.',
-                },
-                {
-                    heading: '5. Haklarınız',
-                    text: 'KVKK kapsamında verilerinize erişim, düzeltme ve silme hakkına sahipsiniz. İletişim formu üzerinden bize ulaşabilirsiniz.',
-                },
-            ],
+  tr: {
+    privacy: {
+      title: 'Gizlilik Politikası',
+      content: [
+        {
+          heading: '1. Veri Sorumlusu',
+          text: 'Bu web sitesi Mert Güneş tarafından işletilmektedir. Kişisel verilerinizin güvenliği bizim için önceliklidir.',
         },
-        terms: {
-            title: 'Kullanım Şartları',
-            content: [
-                {
-                    heading: '1. Kabul Edilme',
-                    text: 'Bu web sitesini kullanarak, aşağıda belirtilen kullanım şartlarını kabul etmiş sayılırsınız.',
-                },
-                {
-                    heading: '2. Yapay Zeka Sorumluluk Reddi',
-                    text: 'MertAI tarafından verilen yanıtlar otomatik olarak üretilir. Bilgilerin doğruluğu garanti edilmez; profesyonel tavsiye niteliği taşımaz.',
-                },
-                {
-                    heading: '3. Fikri Mülkiyet',
-                    text: 'Sitede yer alan tüm içerik, projeler ve tasarımlar Mert Güneş\'e aittir. İzinsiz kullanılamaz.',
-                },
-                {
-                    heading: '4. Değişiklik Hakları',
-                    text: 'Bu şartlar önceden haber verilmeksizin güncellenebilir.',
-                },
-            ],
+        {
+          heading: '2. AI Sohbet Botu ve Veri İşleme',
+          text: 'Sitemizdeki MertAI sohbet botu ile paylaştığınız mesajlar, size yanıt verebilmek amacıyla işlenir. Bu veriler, botun performansını artırmak için anonim olarak analiz edilebilir.',
         },
+        {
+          heading: '3. Üçüncü Taraf Servisler',
+          text: 'Yapay zeka hizmeti sunmak adına mesajlarınız güvenli API bağlantıları aracılığıyla iş ortaklarımıza (örneğin Groq veya OpenAI) iletilebilir. Kişisel verileriniz bu süreçte gizli tutulur.',
+        },
+        {
+          heading: '4. Çerezler',
+          text: 'Sitemiz, kullanıcı deneyimini artırmak ve bot tercihlerini hatırlamak için temel çerezler kullanabilir.',
+        },
+        {
+          heading: '5. Haklarınız',
+          text: 'KVKK kapsamında verilerinize erişim, düzeltme ve silme hakkına sahipsiniz. İletişim formu üzerinden bize ulaşabilirsiniz.',
+        },
+      ],
     },
-    en: {
-        privacy: {
-            title: 'Privacy Policy',
-            content: [
-                {
-                    heading: '1. Data Controller',
-                    text: 'This website is operated by Mert Güneş. The security of your personal data is our priority.',
-                },
-                {
-                    heading: '2. AI Chatbot & Data Processing',
-                    text: 'Messages shared with our MertAI chatbot are processed to provide responses. This data may be analyzed anonymously to improve bot performance.',
-                },
-                {
-                    heading: '3. Third-Party Services',
-                    text: 'To provide AI services, your messages may be processed through secure API connections with our partners (e.g., Groq or OpenAI). Your personal data remains confidential during this process.',
-                },
-                {
-                    heading: '4. Cookies',
-                    text: 'Our site may use essential cookies to enhance user experience and remember chatbot preferences.',
-                },
-                {
-                    heading: '5. Your Rights',
-                    text: 'Under GDPR, you have the right to access, rectify, and delete your data. Reach out to us via the contact form.',
-                },
-            ],
+    terms: {
+      title: 'Kullanım Şartları',
+      content: [
+        {
+          heading: '1. Kabul Edilme',
+          text: 'Bu web sitesini kullanarak, aşağıda belirtilen kullanım şartlarını kabul etmiş sayılırsınız.',
         },
-        terms: {
-            title: 'Terms & Conditions',
-            content: [
-                {
-                    heading: '1. Acceptance',
-                    text: 'By using this website, you agree to comply with these terms of use.',
-                },
-                {
-                    heading: '2. AI Disclaimer',
-                    text: 'Responses generated by MertAI are automated. Accuracy is not guaranteed and should not be taken as professional advice.',
-                },
-                {
-                    heading: '3. Intellectual Property',
-                    text: 'All content, projects, and designs on this site belong to Mert Güneş and may not be used without permission.',
-                },
-                {
-                    heading: '4. Changes',
-                    text: 'These terms may be updated at any time without prior notice.',
-                },
-            ],
+        {
+          heading: '2. Yapay Zeka Sorumluluk Reddi',
+          text: 'MertAI tarafından verilen yanıtlar otomatik olarak üretilir. Bilgilerin doğruluğu garanti edilmez; profesyonel tavsiye niteliği taşımaz.',
         },
+        {
+          heading: '3. Fikri Mülkiyet',
+          text: "Sitede yer alan tüm içerik, projeler ve tasarımlar Mert Güneş'e aittir. İzinsiz kullanılamaz.",
+        },
+        {
+          heading: '4. Değişiklik Hakları',
+          text: 'Bu şartlar önceden haber verilmeksizin güncellenebilir.',
+        },
+      ],
     },
+  },
+  en: {
+    privacy: {
+      title: 'Privacy Policy',
+      content: [
+        {
+          heading: '1. Data Controller',
+          text: 'This website is operated by Mert Güneş. The security of your personal data is our priority.',
+        },
+        {
+          heading: '2. AI Chatbot & Data Processing',
+          text: 'Messages shared with our MertAI chatbot are processed to provide responses. This data may be analyzed anonymously to improve bot performance.',
+        },
+        {
+          heading: '3. Third-Party Services',
+          text: 'To provide AI services, your messages may be processed through secure API connections with our partners (e.g., Groq or OpenAI). Your personal data remains confidential during this process.',
+        },
+        {
+          heading: '4. Cookies',
+          text: 'Our site may use essential cookies to enhance user experience and remember chatbot preferences.',
+        },
+        {
+          heading: '5. Your Rights',
+          text: 'Under GDPR, you have the right to access, rectify, and delete your data. Reach out to us via the contact form.',
+        },
+      ],
+    },
+    terms: {
+      title: 'Terms & Conditions',
+      content: [
+        {
+          heading: '1. Acceptance',
+          text: 'By using this website, you agree to comply with these terms of use.',
+        },
+        {
+          heading: '2. AI Disclaimer',
+          text: 'Responses generated by MertAI are automated. Accuracy is not guaranteed and should not be taken as professional advice.',
+        },
+        {
+          heading: '3. Intellectual Property',
+          text: 'All content, projects, and designs on this site belong to Mert Güneş and may not be used without permission.',
+        },
+        {
+          heading: '4. Changes',
+          text: 'These terms may be updated at any time without prior notice.',
+        },
+      ],
+    },
+  },
 };

@@ -47,7 +47,7 @@ export const handleMissingLink = (serviceName: string) => {
 /**
  * Displays a generic information toast with customizable header and text.
  */
-export const infoToast = (
+const infoToast = (
   header: string,
   text: string,
   position: ToastOptions['position'] = 'top-right',

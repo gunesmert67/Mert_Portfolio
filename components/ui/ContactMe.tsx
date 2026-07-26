@@ -15,7 +15,7 @@ const slideUpVariant = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
@@ -70,23 +70,21 @@ const ContactMe = () => {
       id="contact"
       className="flex flex-col items-center pb-12 md:pb-20 pt-10 px-4 lg:px-10 xl:px-16 mx-auto max-w-7xl w-full overflow-hidden relative gap-12"
     >
-      <SectionHeader
-        title={t('contact.title')}
-        useH1={true}
-      />
+      <SectionHeader title={t('contact.title')} useH1={true} />
 
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 w-full max-w-6xl mx-auto items-stretch">
-
         {/* Left Side: Contact Info Card */}
         <motion.div
           custom={0}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: '-50px' }}
           variants={slideUpVariant}
           className="w-full lg:w-1/3 flex justify-center items-center"
         >
-          <div className={`${styles.uiverseContactParent} relative z-10 w-full flex justify-center`}>
+          <div
+            className={`${styles.uiverseContactParent} relative z-10 w-full flex justify-center`}
+          >
             <div className={styles.uiverseContactCard}>
               <div className={styles.uiverseContactGlass}></div>
               <div className={styles.uiverseContactContent}>
@@ -101,13 +99,32 @@ const ContactMe = () => {
               </div>
               <div className={styles.uiverseContactBottom}>
                 <div className={styles.uiverseContactSocialButtonsContainer}>
-                  <a href={`mailto:${ContactData.email}`} className={styles.socialButton} aria-label="Email" title="Email">
+                  <a
+                    href={`mailto:${ContactData.email}`}
+                    className={styles.socialButton}
+                    aria-label="Email"
+                    title="Email"
+                  >
                     <FiMail className={styles.svg} />
                   </a>
-                  <a href={ContactData.linkedin} target="_blank" rel="noopener noreferrer" className={styles.socialButton} aria-label="LinkedIn" title="LinkedIn">
+                  <a
+                    href={ContactData.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialButton}
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
+                  >
                     <FiLinkedin className={styles.svg} />
                   </a>
-                  <a href={ContactData.github} target="_blank" rel="noopener noreferrer" className={styles.socialButton} aria-label="GitHub" title="GitHub">
+                  <a
+                    href={ContactData.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialButton}
+                    aria-label="GitHub"
+                    title="GitHub"
+                  >
                     <FiGithub className={styles.svg} />
                   </a>
                 </div>
@@ -117,7 +134,9 @@ const ContactMe = () => {
                 <span className={`${styles.circle} ${styles.circle2}`}></span>
                 <span className={`${styles.circle} ${styles.circle3}`}></span>
                 <span className={`${styles.circle} ${styles.circle4}`}></span>
-                <span className={`${styles.circle} ${styles.circle5} text-foreground font-black text-xl tracking-tighter select-none`}>
+                <span
+                  className={`${styles.circle} ${styles.circle5} text-foreground font-black text-xl tracking-tighter select-none`}
+                >
                   MG
                 </span>
               </div>
@@ -130,20 +149,24 @@ const ContactMe = () => {
           custom={1}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: true, margin: '-50px' }}
           variants={slideUpVariant}
           className="w-full lg:w-2/3"
         >
           <div className="w-full p-8 md:p-10 rounded-[2rem] bg-background/50 dark:bg-card/40 backdrop-blur-xl border border-border/50 shadow-sm">
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
                 {/* Name Input */}
                 <div className="flex flex-col gap-2 relative group">
-                  <label htmlFor="name" className={`text-xs font-bold uppercase tracking-widest transition-colors ${focusedField === 'name' ? 'text-primary' : 'text-muted-foreground'}`}>
+                  <label
+                    htmlFor="name"
+                    className={`text-xs font-bold uppercase tracking-widest transition-colors ${focusedField === 'name' ? 'text-primary' : 'text-muted-foreground'}`}
+                  >
                     {language === 'tr' ? 'İsim' : 'Name'}
                   </label>
-                  <div className={`relative rounded-xl overflow-hidden transition-all duration-300 ${focusedField === 'name' ? 'ring-2 ring-primary/50 border-transparent shadow-[0_0_15px_rgba(var(--primary),0.2)]' : 'border border-border/50 hover:border-border'}`}>
+                  <div
+                    className={`relative rounded-xl overflow-hidden transition-all duration-300 ${focusedField === 'name' ? 'ring-2 ring-primary/50 border-transparent shadow-[0_0_15px_rgba(var(--primary),0.2)]' : 'border border-border/50 hover:border-border'}`}
+                  >
                     <input
                       type="text"
                       id="name"
@@ -161,10 +184,15 @@ const ContactMe = () => {
 
                 {/* Email Input */}
                 <div className="flex flex-col gap-2 relative group">
-                  <label htmlFor="email" className={`text-xs font-bold uppercase tracking-widest transition-colors ${focusedField === 'email' ? 'text-primary' : 'text-muted-foreground'}`}>
+                  <label
+                    htmlFor="email"
+                    className={`text-xs font-bold uppercase tracking-widest transition-colors ${focusedField === 'email' ? 'text-primary' : 'text-muted-foreground'}`}
+                  >
                     {language === 'tr' ? 'E-posta' : 'Email'}
                   </label>
-                  <div className={`relative rounded-xl overflow-hidden transition-all duration-300 ${focusedField === 'email' ? 'ring-2 ring-primary/50 border-transparent shadow-[0_0_15px_rgba(var(--primary),0.2)]' : 'border border-border/50 hover:border-border'}`}>
+                  <div
+                    className={`relative rounded-xl overflow-hidden transition-all duration-300 ${focusedField === 'email' ? 'ring-2 ring-primary/50 border-transparent shadow-[0_0_15px_rgba(var(--primary),0.2)]' : 'border border-border/50 hover:border-border'}`}
+                  >
                     <input
                       type="email"
                       id="email"
@@ -183,10 +211,15 @@ const ContactMe = () => {
 
               {/* Message Textarea */}
               <div className="flex flex-col gap-2 relative group mt-2">
-                <label htmlFor="message" className={`text-xs font-bold uppercase tracking-widest transition-colors ${focusedField === 'message' ? 'text-primary' : 'text-muted-foreground'}`}>
+                <label
+                  htmlFor="message"
+                  className={`text-xs font-bold uppercase tracking-widest transition-colors ${focusedField === 'message' ? 'text-primary' : 'text-muted-foreground'}`}
+                >
                   {language === 'tr' ? 'Mesaj' : 'Message'}
                 </label>
-                <div className={`relative rounded-xl overflow-hidden transition-all duration-300 ${focusedField === 'message' ? 'ring-2 ring-primary/50 border-transparent shadow-[0_0_15px_rgba(var(--primary),0.2)]' : 'border border-border/50 hover:border-border'}`}>
+                <div
+                  className={`relative rounded-xl overflow-hidden transition-all duration-300 ${focusedField === 'message' ? 'ring-2 ring-primary/50 border-transparent shadow-[0_0_15px_rgba(var(--primary),0.2)]' : 'border border-border/50 hover:border-border'}`}
+                >
                   <textarea
                     id="message"
                     name="message"
@@ -214,7 +247,9 @@ const ContactMe = () => {
                   className="py-4 px-8 bg-foreground text-background font-bold tracking-wide rounded-2xl hover:bg-primary hover:text-white transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-lg"
                 >
                   {isSubmitting ? (
-                    <span className="animate-pulse">{t('contact.sending')}</span>
+                    <span className="animate-pulse">
+                      {t('contact.sending')}
+                    </span>
                   ) : (
                     <>
                       {t('contact.button')}
