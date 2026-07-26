@@ -151,6 +151,23 @@ Follow these steps to run the project locally.
 
    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+5. **Run CI & Quality Control Suite (5 Tests + Build):**
+
+   Run all tests sequentially:
+   ```bash
+   npm run ci
+   ```
+
+   Or run individual checks:
+   ```bash
+   npm run typecheck           # 1. TypeScript type check (tsc --noEmit)
+   npm run lint                # 2. Next.js ESLint rules
+   npm run knip                # 3. Unused files, dependencies & exports audit
+   npm run madge               # 4. Dependency graph visualization
+   npm run architecture-check  # 5. Circular dependency validation
+   npm run build               # 6. Production build compilation
+   ```
+
 ---
 
 ## 📝 Content Management Guide
