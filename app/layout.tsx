@@ -13,7 +13,6 @@ import { ContactData } from '@/data/Contact';
 
 const Footer = dynamic(() => import('@/components/main/Footer'));
 const ChatWidget = dynamic(() => import('@/components/ui/ChatWidget'), { ssr: false });
-const CookieConsent = dynamic(() => import('@/components/ui/CookieConsent'), { ssr: false });
 const ToastProvider = dynamic(() => import('@/components/providers/ToastProvider'), { ssr: false });
 const GoogleAnalyticsProvider = dynamic(() => import('@/components/providers/GoogleAnalyticsProvider'), { ssr: false });
 const TechnicalBackground = dynamic(
@@ -241,7 +240,6 @@ export default function RootLayout({
               <Footer />
             </main>
             <ChatWidget />
-            <CookieConsent />
           </LanguageProvider>
         </ThemeProvider>
 

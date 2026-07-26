@@ -129,6 +129,7 @@ export const CompactMilestoneItem: React.FC<CompactMilestoneProps> = ({
                 src={img}
                 alt={`${displayTitle} Logo`}
                 fill
+                priority={index === 0}
                 sizes="64px"
               />
             </div>

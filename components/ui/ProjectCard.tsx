@@ -21,6 +21,7 @@ interface ProjectCardProps {
   features?: { en: string[]; tr: string[] } | string[];
   challenges?: { en: string[]; tr: string[] } | string[];
   accomplishments?: { en: string[]; tr: string[] } | string[];
+  priority?: boolean;
 }
 
 /**
@@ -40,6 +41,7 @@ const ProjectCard = ({
   features,
   challenges,
   accomplishments,
+  priority = false,
 }: ProjectCardProps) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const { language, t } = useLanguage();
@@ -96,7 +98,8 @@ const ProjectCard = ({
             src={src}
             alt={`${displayTitle} - ${technologyStack.slice(0, 3).join(', ')} Project by Mert Güneş`}
             fill
-            sizes="(max-width: 768px) 100vw, 50vw"
+            priority={priority}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 576px"
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
           {/* Subtle gradient overlay */}

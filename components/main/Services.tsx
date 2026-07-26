@@ -110,7 +110,7 @@ const Services = () => {
             <motion.div
               key={card.id}
               custom={i}
-              initial="hidden"
+              initial={false}
               animate={inView ? 'visible' : 'hidden'}
               variants={cardVariants}
               className="neon-card-wrapper group"

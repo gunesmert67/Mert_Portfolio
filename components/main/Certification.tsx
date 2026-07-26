@@ -22,28 +22,28 @@ const brandDetails: Record<
 > = {
   1: {
     logoPath: '/company-logo/IBM.svg',
-    colorClass: 'text-blue-500',
+    colorClass: 'text-blue-700 dark:text-blue-400',
     bgGlow: 'from-blue-500/20 to-cyan-500/10',
   }, // IBM
   2: {
     logoPath: '/company-logo/McKinsey.svg',
-    colorClass: 'text-indigo-400',
+    colorClass: 'text-indigo-700 dark:text-indigo-400',
     bgGlow: 'from-indigo-500/20 to-slate-500/10',
     invertDark: true,
   }, // McKinsey
   3: {
     logoPath: '/company-logo/Berlitz.svg',
-    colorClass: 'text-orange-500',
+    colorClass: 'text-orange-700 dark:text-orange-400',
     bgGlow: 'from-orange-500/20 to-amber-500/10',
   }, // Berlitz
   4: {
     logoPath: '/company-logo/Udemy.svg',
-    colorClass: 'text-purple-500',
+    colorClass: 'text-purple-700 dark:text-purple-400',
     bgGlow: 'from-purple-500/20 to-fuchsia-500/10',
   }, // Udemy
   5: {
     logoPath: '/company-logo/Pearson.svg',
-    colorClass: 'text-emerald-500',
+    colorClass: 'text-emerald-700 dark:text-emerald-400',
     bgGlow: 'from-emerald-500/20 to-teal-500/10',
     invertDark: true,
   }, // Pearson
@@ -97,7 +97,7 @@ export const Certification = () => {
             <motion.div
               key={cert.id}
               custom={index}
-              initial="hidden"
+              initial={false}
               animate={inView ? 'visible' : 'hidden'}
               variants={cardVariants}
               onMouseEnter={() => setHoveredCard(cert.id)}
@@ -141,7 +141,7 @@ export const Certification = () => {
                         }
                       />
                     ) : (
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground/40 px-3 py-1 border border-dashed border-border/30 rounded-full">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground px-3 py-1 border border-dashed border-border/50 rounded-full">
                         {language === 'tr' ? 'Kayıt Yok' : 'No Link'}
                       </span>
                     )}

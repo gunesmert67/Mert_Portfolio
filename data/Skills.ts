@@ -155,7 +155,7 @@ export const SkillsData: SkillCategory[] = [
       {
         id: 14,
         skillName: 'Whisper AI',
-        image: '/logo/whisper.svg',
+        image: '/logo/Whisper.svg',
         width: 75,
         height: 75,
         skillLevel: 5,

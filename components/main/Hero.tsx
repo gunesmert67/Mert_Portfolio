@@ -116,7 +116,7 @@ const Hero = () => {
       <motion.div
         className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8 z-10"
         variants={containerVariants}
-        initial="hidden"
+        initial={false}
         animate="visible"
       >
         {/* Left Side: Typography */}

@@ -1,10 +1,8 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
+import ContactMe from '@/components/ui/ContactMe';
 import JsonLd from '@/components/seo/JsonLd';
 import { ContactData } from '@/data/Contact';
-
-const ContactMe = dynamic(() => import('@/components/ui/ContactMe'));
 
 export const metadata: Metadata = {
   title: 'İletişim',
