@@ -4,13 +4,7 @@ import { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import { ContactData } from '@/data/Contact';
 
-const Skills = dynamic(() => import('@/components/main/Skills'), {
-  loading: () => (
-    <div className="h-[60vh] w-full flex items-center justify-center">
-      Loading Skills...
-    </div>
-  ),
-});
+import Skills from '@/components/main/Skills';
 
 export const metadata: Metadata = {
   title: 'Yetenekler',

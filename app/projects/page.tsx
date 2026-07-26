@@ -6,9 +6,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import { ContactData } from '@/data/Contact';
 import { projectsData } from '@/data/Projects';
 
-const Projects = dynamic(() => import('@/components/main/Projects'), {
-  loading: () => <Loader />,
-});
+import Projects from '@/components/main/Projects';
 
 export const metadata: Metadata = {
   title: 'Projeler',

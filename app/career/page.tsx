@@ -4,9 +4,7 @@ import { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import { ContactData } from '@/data/Contact';
 
-const CareerTimeline = dynamic(
-  () => import('@/components/main/CareerTimeline'),
-);
+import CareerTimeline from '@/components/main/CareerTimeline';
 
 export const metadata: Metadata = {
   title: 'Kariyer',

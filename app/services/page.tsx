@@ -1,10 +1,8 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
+import Services from '@/components/main/Services';
 import JsonLd from '@/components/seo/JsonLd';
 import { ContactData } from '@/data/Contact';
-
-const Services = dynamic(() => import('@/components/main/Services'));
 
 export const metadata: Metadata = {
   title: 'Hizmetler',
