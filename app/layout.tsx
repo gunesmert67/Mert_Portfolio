@@ -55,31 +55,51 @@ export const metadata: Metadata = {
     locale: 'tr_TR',
     url: ContactData.website,
     title:
-      'Mert G\u00fcne\u015f | Mekatronik M\u00fchendisi & Yapay Zeka Uzman\u0131',
+      'Mert Güneş | Mekatronik Mühendisi & Yapay Zeka Uzmanı',
     description:
-      'Mekatronik M\u00fchendisli\u011fi ve Yapay Zeka Sistemlerinde Uzmanl\u0131k. Projelerimi ve inovasyonlar\u0131m\u0131 ke\u015ffedin.',
-    siteName: 'Mert G\u00fcne\u015f Portfolyo',
+      'Mekatronik Mühendisliği ve Yapay Zeka Sistemlerinde Uzmanlık. Projelerimi ve inovasyonlarımı keşfedin.',
+    siteName: 'Mert Güneş Portfolyo',
     images: [
       {
-        url: '/icon.png',
+        url: `${ContactData.website}/icon.png`,
+        secureUrl: `${ContactData.website}/icon.png`,
         width: 1200,
         height: 630,
-        alt: 'Mert G\u00fcne\u015f Portfolio',
+        alt: 'Mert Güneş Portfolio Logo',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title:
-      'Mert G\u00fcne\u015f | Mekatronik M\u00fchendisi & Yapay Zeka Uzman\u0131',
+      'Mert Güneş | Mekatronik Mühendisi & Yapay Zeka Uzmanı',
     description:
-      'Mekatronik M\u00fchendisli\u011fi ve Yapay Zeka Sistemlerinde Uzmanl\u0131k. Projelerimi ve inovasyonlar\u0131m\u0131 ke\u015ffedin.',
-    images: ['/icon.png'],
+      'Mekatronik Mühendisliği ve Yapay Zeka Sistemlerinde Uzmanlık. Projelerimi ve inovasyonlarımı keşfedin.',
+    images: [`${ContactData.website}/icon.png`],
     creator: '@mertgunes_6767',
   },
   icons: {
-    icon: '/icon.png',
-    apple: '/icon.png',
+    icon: [
+      { url: '/icon.png', sizes: 'any', type: 'image/png' },
+      { url: '/icon.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    shortcut: ['/icon.png'],
+    apple: [
+      { url: '/icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'apple-touch-icon-precomposed',
+        url: '/icon.png',
+      },
+    ],
+  },
+  appleWebApp: {
+    capable: true,
+    title: 'Mert Güneş',
+    statusBarStyle: 'default',
   },
   category: 'Technology & Engineering',
   classification: 'Mechatronics & AI Engineering Portfolio',
