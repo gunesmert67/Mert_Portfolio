@@ -15,6 +15,7 @@ const Footer = dynamic(() => import('@/components/main/Footer'));
 const ChatWidget = dynamic(() => import('@/components/ui/ChatWidget'), { ssr: false });
 const CookieConsent = dynamic(() => import('@/components/ui/CookieConsent'), { ssr: false });
 const ToastProvider = dynamic(() => import('@/components/providers/ToastProvider'), { ssr: false });
+const GoogleAnalyticsProvider = dynamic(() => import('@/components/providers/GoogleAnalyticsProvider'), { ssr: false });
 const TechnicalBackground = dynamic(
   () => import('@/components/main/TechnicalBackground'),
   { ssr: false },
@@ -145,22 +146,7 @@ export default function RootLayout({
       <body
         className={`${dmSans.className} bg-background text-foreground overflow-y-scroll overflow-x-hidden`}
       >
-        {gaId && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-              strategy="lazyOnload"
-            />
-            <Script id="google-analytics" strategy="lazyOnload">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${gaId}');
-              `}
-            </Script>
-          </>
-        )}
+        {gaId && <GoogleAnalyticsProvider gaId={gaId} />}
         <script
           dangerouslySetInnerHTML={{
             __html: `
