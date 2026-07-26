@@ -60,7 +60,7 @@ const Footer = () => {
                 href={link.href}
                 target={link.label === 'Email' ? undefined : '_blank'}
                 rel={link.label === 'Email' ? undefined : 'noopener noreferrer'}
-                className="text-muted-foreground/70 hover:text-primary transition-colors duration-300"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300"
                 aria-label={link.label}
               >
                 {React.cloneElement(link.icon as React.ReactElement, {
@@ -72,7 +72,7 @@ const Footer = () => {
         </div>
 
         {/* Center: Credits */}
-        <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground/60 whitespace-nowrap">
+        <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground whitespace-nowrap">
           <span>© {currentYear}</span>
           <span className="hidden sm:inline">&bull;</span>
           <span className="hidden sm:inline">{t('footer.builtWith')}</span>
@@ -82,13 +82,13 @@ const Footer = () => {
         <div className="flex items-center gap-4 md:gap-6">
           <button
             onClick={() => setActiveLegal('privacy')}
-            className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground/70 hover:text-primary transition-colors duration-300 whitespace-nowrap"
+            className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground hover:text-primary transition-colors duration-300 whitespace-nowrap"
           >
             {t('footer.privacy')}
           </button>
           <button
             onClick={() => setActiveLegal('terms')}
-            className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground/70 hover:text-primary transition-colors duration-300 whitespace-nowrap"
+            className="text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground hover:text-primary transition-colors duration-300 whitespace-nowrap"
           >
             {t('footer.terms')}
           </button>
