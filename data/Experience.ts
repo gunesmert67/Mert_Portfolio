@@ -64,14 +64,14 @@ export const ExperienceData = [
     },
     description: {
       en: [
-        'Developing Python and Streamlit-based internal performance dashboards to derive insights from operational data.',
-        'Automating repetitive manual tasks within service processes using n8n and AI tools.',
-        'Contributing to evidence-based process improvements by performing root cause analysis on service data.',
+        'Developing Python and Streamlit-based dashboards to improve operational visibility and support data-driven decision-making.',
+        'Automating repetitive manual tasks within service processes using n8n and AI-based tools.',
+        'Contributing to process improvements through root cause analysis and structured data analysis.',
       ],
       tr: [
-        'Operasyonel verileri anlamlandırmak için Python ve Streamlit tabanlı şirket içi performans panelleri geliştiriyorum.',
-        'n8n ve yapay zeka araçlarını kullanarak servis süreçlerindeki tekrarlayan manuel işleri otomatikleştiriyorum.',
-        'Servis verileri üzerinden kök neden analizi yaparak süreç iyileştirmelerine veri odaklı katkı sağlıyorum.',
+        'Operasyonel görünürlüğü artırmak ve veriye dayalı karar alma süreçlerini desteklemek için Python ve Streamlit tabanlı paneller geliştiriyorum.',
+        'n8n ve yapay zeka tabanlı araçlar kullanarak servis süreçlerindeki tekrarlayan manuel görevleri otomatikleştiriyorum.',
+        'Kök neden analizi ve yapılandırılmış veri analizi yoluyla süreç iyileştirmelerine katkı sağlıyorum.',
       ],
     },
     technologies: [
