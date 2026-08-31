@@ -323,11 +323,11 @@ export const projectsData = [
       en: 'An interactive data visualization dashboard designed to explore operational datasets and demonstrate data-driven reporting capabilities.',
       tr: 'Operasyonel veri setlerini keşfetmek ve veriye dayalı raporlama yeteneklerini sergilemek için tasarlanmış interaktif bir veri görselleştirme paneli.',
     },
-    sourceUrl: 'https://mertgunes.me',
+    sourceUrl: null,
     youtubeUrl: null,
     githubUrl: null,
     startDate: '2025-09-01',
-    endDate: '2026-06-30',
+    endDate: '2026-04-30',
     technologyStack: [
       'Python',
       'Streamlit',
@@ -510,7 +510,7 @@ export const projectsData = [
     youtubeUrl: null,
     githubUrl: 'https://github.com/gunesmert67/Mert_Portfolio',
     startDate: '2026-02-01',
-    endDate: '2026-02-01',
+    endDate: null,
     technologyStack: [
       'Next.js',
       'TypeScript',
