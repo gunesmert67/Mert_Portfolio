@@ -114,9 +114,32 @@ export default function ContactPage() {
     },
   };
 
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Mert Güneş ile hangi konularda iletişime geçilebilir?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mert Güneş ile yerel RAG ve yapay zeka entegrasyonları, otonom sistem tasarımı, kurumsal süreç otomasyonu, modern web geliştirme ve teknik danışmanlık konularında iletişime geçebilirsiniz.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Mert Güneş’e en hızlı nasıl ulaşılabilir?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'İletişim formu üzerinden veya doğrudan LinkedIn (linkedin.com/in/mertgunes34) ve e-posta (gunesmert67@gmail.com) kanallarıyla en hızlı şekilde bağlantı kurabilirsiniz.',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="flex flex-col gap-8 md:gap-16 pt-24 pb-16">
-      <JsonLd data={[breadcrumbLd, contactPageLd]} />
+      <JsonLd data={[breadcrumbLd, contactPageLd, faqLd]} />
       <ContactMe />
     </div>
   );

@@ -106,9 +106,32 @@ export default function CertificationsPage() {
     })),
   };
 
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Mert Güneş hangi doğrulanmış uluslararası sertifikalara sahiptir?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mert Güneş; IBM onaylı Generative AI Essentials, McKinsey & Company onaylı Problem Solving & Digital Leadership (McKinsey Forward), Berlitz onaylı B2 İngilizce ve Udemy onaylı İleri Seviye Python sertifikalarına sahiptir.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Mert Güneş’in sertifikaları nasıl doğrulanabilir?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'IBM ve McKinsey & Company sertifikaları Credly dijital rozet altyapısı üzerinden doğrudan ve şeffaf şekilde doğrulanabilmektedir.',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="flex flex-col gap-8 md:gap-16 pt-24 pb-16">
-      <JsonLd data={[breadcrumbLd, certificationsListLd]} />
+      <JsonLd data={[breadcrumbLd, certificationsListLd, faqLd]} />
       <Certification />
     </div>
   );

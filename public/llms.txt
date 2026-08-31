@@ -1,7 +1,7 @@
 # Mert Güneþ
 
-> Mechatronics Engineer & AI Specialist based in Istanbul, Turkey.
-> Specializing in AI workflows, RAG architectures, local LLM deployment, autonomous mechatronic systems, product & technology management, and full-stack software development.
+> Mechatronics Engineer, AI Specialist & Product & Technology Manager based in Istanbul, Turkey.
+> Specializing in AI workflows, local RAG architectures, LLM deployment, autonomous mechatronic systems, product management, and full-stack software development.
 
 ## Summary & Profile
 Mert Güneþ is a technology professional operating at the intersection of Mechatronics Engineering, Artificial Intelligence, and Product Management. Currently serving as Product & Technology Manager at Alkom Technology, he builds end-to-end autonomous solutions, local document-grounded AI assistants (RAG), automated enterprise workflows, and high-performance web applications.
@@ -31,16 +31,17 @@ Mert Güneþ is a technology professional operating at the intersection of Mechatr
 - **Pulsar Electromobile**: Carbon-fiber electric vehicle chassis engineering for Teknofest Efficiency Challenge.
 
 ## Main Navigation Links
-- [Portfolio Homepage](https://mertgunes.com): Profile overview, bio, and engineering philosophy.
-- [Projects Portfolio](https://mertgunes.com/projects): Comprehensive technical project breakdown and source code.
-- [Services & Solutions](https://mertgunes.com/services): AI engineering, mechatronic design, and technical consulting.
-- [Career & Experience](https://mertgunes.com/career): Dual-track timeline of professional engineering roles and academics.
-- [Skills](https://mertgunes.com/skills): Categorized technical skill matrix and proficiency levels.
-- [Certifications](https://mertgunes.com/certifications): Professional credentials from IBM, McKinsey, Berlitz, and Udemy.
-- [Contact](https://mertgunes.com/contact): Reach out for project inquiries, consulting, and engineering collaborations.
+- [Portfolio Homepage](https://www.mertgunes.com): Profile overview, bio, and engineering philosophy.
+- [Projects Portfolio](https://www.mertgunes.com/projects): Comprehensive technical project breakdown and source code.
+- [Services & Solutions](https://www.mertgunes.com/services): AI engineering, mechatronic design, and technical consulting.
+- [Career & Experience](https://www.mertgunes.com/career): Dual-track timeline of professional engineering roles and academics.
+- [Skills](https://www.mertgunes.com/skills): Categorized technical skill matrix and proficiency levels.
+- [Certifications](https://www.mertgunes.com/certifications): Professional credentials from IBM, McKinsey, Berlitz, and Udemy.
+- [Contact](https://www.mertgunes.com/contact): Reach out for project inquiries, consulting, and engineering collaborations.
 
 ## Social & Developer Links
+- [LinkedIn](https://linkedin.com/in/mertgunes34)
 - [GitHub](https://github.com/gunesmert67)
-- [LinkedIn](https://linkedin.com/in/mertgunes67)
-- [Twitter](https://twitter.com/mertgunes_6767)
-- [Medium](https://medium.com/@mertgunes6767)
+- [X (Twitter)](https://x.com/mertgunes_6767)
+- [Medium](https://medium.com/@gunesmert67)
+- [Instagram](https://www.instagram.com/mert.gunes6/)

@@ -108,9 +108,32 @@ export default function ProjectsPage() {
     })),
   };
 
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: "Mert Güneş'in öne çıkan yapay zeka ve mühendislik projeleri nelerdir?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mert Güneş’in öne çıkan projeleri arasında: Çevrimdışı Sesli Asistan (Yerel RAG + Whisper v3 + Qwen), İnteraktif 3D Seyahat Günlüğü (Three.js), Endüstriyel Veri Paneli (Streamlit), Uçtan Uca Akıllı Ev Mimarisi (IoT), FabArm 5-DOF Robot Kol ve Teknofest Pulsar Elektromobil yer almaktadır.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Çevrimdışı Sesli Asistan (Local Voice RAG) projesinin temel amacı nedir?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Bu proje, kurumsal veya hassas belgelerle sesli etkileşim sağlarken hiçbir veriyi internete aktarmayan, tamamen yerel donanımda çalışan ve saniyenin altında yanıt üreten kapalı devre bir yapay zeka asistanıdır.',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="flex flex-col gap-8 md:gap-16 pt-24 pb-16">
-      <JsonLd data={[breadcrumbLd, projectsLd]} />
+      <JsonLd data={[breadcrumbLd, projectsLd, faqLd]} />
       <Projects />
     </div>
   );

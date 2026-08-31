@@ -134,9 +134,32 @@ export default function CareerPage() {
     })),
   };
 
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: "Mert Güneş'in iş deneyimleri ve mevcut pozisyonu nedir?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mert Güneş, Alkom Technology bünyesinde Ürün ve Teknoloji Yöneticisi (Product & Technology Manager) olarak görev yapmaktadır. Daha önce DHE Endüstriyel bünyesinde Teknik Destek Mühendisi ve Tepe Analitik bünyesinde Operasyon & Servis Mühendisi olarak çalışmıştır.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: "Mert Güneş'in akademik geçmişi ve eğitim dereceleri nelerdir?",
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mert Güneş, Marmara Üniversitesi Yönetim Bilişim Sistemleri (YBS) Yüksek Lisans programında (GPA: 3.95) yapay zeka odaklı eğitimine devam etmekte, lisans derecesini ise İstanbul Ticaret Üniversitesi Mekatronik Mühendisliği bölümünden %100 Başarı Bursu ile tamamlamıştır.',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="flex flex-col gap-8 md:gap-16 pt-24 pb-16">
-      <JsonLd data={[breadcrumbLd, careerLd, experienceListLd]} />
+      <JsonLd data={[breadcrumbLd, careerLd, experienceListLd, faqLd]} />
       <CareerTimeline />
     </div>
   );
