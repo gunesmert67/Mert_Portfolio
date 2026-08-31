@@ -6,6 +6,50 @@ import { MilestoneTypes } from '@/types';
 export const ExperienceData = [
   {
     id: 1,
+    type: MilestoneTypes.Work,
+    date: {
+      en: 'February 2026 - Present',
+      tr: 'Şubat 2026 - Halen',
+    },
+    title: {
+      en: 'Product & Technology Manager',
+      tr: 'Ürün & Teknoloji Yöneticisi',
+    },
+    img: '/company-logo/alkom.svg',
+    organization: {
+      en: 'Alkom Technology',
+      tr: 'Alkom Teknoloji',
+    },
+    location: {
+      en: 'Istanbul, Turkey',
+      tr: 'İstanbul, Türkiye',
+    },
+    description: {
+      en: [
+        'China-based supplier research and sourcing.',
+        'Product analysis and technical evaluation.',
+        'Market research in industrial technologies.',
+        'Website and digital infrastructure development.',
+        'Managing product positioning and pricing strategies.',
+      ],
+      tr: [
+        'Çin merkezli tedarikçi araştırması ve kaynak bulma operasyonları.',
+        'Ürün analizi ve kapsamlı teknik değerlendirme.',
+        'Endüstriyel teknolojiler alanında pazar araştırması.',
+        'Web sitesi ve dijital altyapı geliştirme süreçleri.',
+        'Ürün konumlandırma ve fiyatlandırma stratejilerinin yönetimi.',
+      ],
+    },
+    technologies: [
+      'Product Management',
+      'Technical Sourcing',
+      'Market Research',
+      'Digital Infrastructure',
+      'Pricing Strategy',
+    ],
+  },
+  {
+    id: 2,
     type: MilestoneTypes.Education,
     date: {
       en: 'September 2025 - February 2027',
@@ -43,11 +87,11 @@ export const ExperienceData = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     type: MilestoneTypes.Work,
     date: {
-      en: 'August 2025 - Present',
-      tr: 'Ağustos 2025 - Halen',
+      en: 'August 2025 - August 2026',
+      tr: 'Ağustos 2025 - Ağustos 2026',
     },
     title: {
       en: 'Technical Support Engineer',
@@ -64,27 +108,26 @@ export const ExperienceData = [
     },
     description: {
       en: [
-        'Developing Python and Streamlit-based dashboards to improve operational visibility and support data-driven decision-making.',
-        'Automating repetitive manual tasks within service processes using n8n and AI-based tools.',
-        'Contributing to process improvements through root cause analysis and structured data analysis.',
+        'Developed data-driven dashboards and reporting solutions to increase visibility into business and operational performance.',
+        'Automated repetitive operational processes using AI-based solutions, reducing manual workload and boosting efficiency.',
+        'Conducted root cause analysis (RCA) to identify process improvement opportunities and support data-driven decision-making.',
       ],
       tr: [
-        'Operasyonel görünürlüğü artırmak ve veriye dayalı karar alma süreçlerini desteklemek için Python ve Streamlit tabanlı paneller geliştiriyorum.',
-        'n8n ve yapay zeka tabanlı araçlar kullanarak servis süreçlerindeki tekrarlayan manuel görevleri otomatikleştiriyorum.',
-        'Kök neden analizi ve yapılandırılmış veri analizi yoluyla süreç iyileştirmelerine katkı sağlıyorum.',
+        'İşletme ve operasyonel performansa ilişkin görünürlüğü artırmak için veri odaklı gösterge panelleri ve raporlama çözümleri geliştirdim.',
+        'Yapay zeka tabanlı çözümler kullanarak tekrarlayan operasyonel süreçleri otomatikleştirdim, manuel iş yükünü azalttım ve verimliliği artırdım.',
+        'Süreç iyileştirme fırsatlarını belirlemek ve veri odaklı karar vermeyi desteklemek için kök neden analizi (RCA) gerçekleştirdim.',
       ],
     },
     technologies: [
-      'Python',
-      'Streamlit',
-      'n8n',
+      'Enterprise Resource Planning (ERP)',
+      'Process Improvement',
+      'Pre-Sales Support',
+      'Data Analysis',
       'AI Automation',
-      'Data Analytics',
-      'SQL',
     ],
   },
   {
-    id: 3,
+    id: 4,
     type: MilestoneTypes.Work,
     date: {
       en: 'August 2023 - March 2025',
@@ -124,7 +167,7 @@ export const ExperienceData = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     type: MilestoneTypes.Education,
     date: {
       en: 'September 2018 - July 2023',
