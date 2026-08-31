@@ -141,7 +141,7 @@ export default function RootLayout({
   const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-Y6G6EMTEQ1';
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="tr" suppressHydrationWarning>
       <body
         className={`${dmSans.className} bg-background text-foreground overflow-y-scroll overflow-x-hidden`}
       >
