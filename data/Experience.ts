@@ -8,8 +8,8 @@ export const ExperienceData = [
     id: 1,
     type: MilestoneTypes.Work,
     date: {
-      en: 'February 2026 - Present',
-      tr: 'Şubat 2026 - Halen',
+      en: 'January 2026 - Present',
+      tr: 'Ocak 2026 - Halen',
     },
     title: {
       en: 'Product & Technology Manager',
