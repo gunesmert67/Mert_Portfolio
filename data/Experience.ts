@@ -15,7 +15,7 @@ export const ExperienceData = [
       en: 'Product & Technology Manager',
       tr: 'Ürün & Teknoloji Yöneticisi',
     },
-    img: '/company-logo/alkom.svg',
+    img: '/company-logo/alkom.webp',
     organization: {
       en: 'Alkom Technology',
       tr: 'Alkom Teknoloji',
