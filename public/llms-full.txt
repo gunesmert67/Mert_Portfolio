@@ -1,29 +1,65 @@
-# Mert GÃ¼neÅŸ - Comprehensive Profile & Technical Catalog
+# Mert Güneþ - Comprehensive Profile & Technical Catalog
 
 ## Overview
-Mert GÃ¼neÅŸ is a Mechatronics Engineer and AI Specialist (AI Automation Developer) based in Istanbul, Turkey. He focuses on building intelligent autonomous systems, local Retrieval-Augmented Generation (RAG) models, automated business workflows, and modern web applications.
+Mert Güneþ is a Mechatronics Engineer, AI Specialist, and Product & Technology Manager based in Istanbul, Turkey. He operates at the nexus of hardware engineering, artificial intelligence, and enterprise software, building autonomous IoT systems, local Retrieval-Augmented Generation (RAG) models, automated business workflows, and modern web applications.
+
+## Current Role & Professional Background
+- **Product & Technology Manager** @ Alkom Technology (Jan 2026 – Present)
+  - Leading China-based supplier research and technical sourcing operations.
+  - Conducting comprehensive product analyses, quality assurance, and technical evaluations.
+  - Formulating product positioning, competitive benchmarking, and strategic pricing models.
+  - Directing website and digital technology infrastructure development.
+- **Technical Support Engineer** @ DHE Industrial (Aug 2025 – Aug 2026)
+  - Developed operational dashboards and reporting pipelines for business visibility.
+  - Automated repetitive service processes with AI and workflow automation tools.
+  - Conducted root cause analyses (RCA) and structured data analysis to optimize workflows.
+  - Utilized ERP, process improvement methodologies, and pre-sales engineering support.
+- **Operations & Service Engineer** @ Tepe Analitik (Aug 2023 – Mar 2025)
+  - Directed end-to-end installation, calibration, and maintenance for advanced laboratory instruments.
+  - Coordinated with international engineering teams for remote diagnostics and technical troubleshooting.
+  - Standardized customer operational procedures across varied industrial environments.
+
+## Academic Credentials
+- **Master of Science (M.Sc.) in Management Information Systems** — Marmara University (2025 – 2027) | GPA: 3.95
+  - Specialization in AI-powered business development, advanced data analytics, and enterprise information systems.
+- **Bachelor of Science (B.Sc.) in Mechatronics Engineering** — Istanbul Ticaret University (2018 – 2023) | GPA: 3.10
+  - Completed with 100% Academic Excellence Scholarship.
+  - Mechanical Team Leader for Pulsar Electromobile in the Teknofest Efficiency Challenge.
 
 ## Technical Skills Matrix
 
 ### Artificial Intelligence & Automation
-- **Architectures**: RAG (Retrieval-Augmented Generation), Agentic Workflows, Function Calling, Prompt Engineering.
-- **Models & Tools**: OpenAI Whisper v3, Qwen 2.5, Llama 3, Ollama, Qdrant Vector Database, ChromaDB, LangChain, n8n.
-- **AI Integration**: Speech-to-Text (STT), Text-to-Speech (TTS), Local Air-Gapped Deployments, Enterprise Privacy AI.
+- **Architectures**: Local RAG (Retrieval-Augmented Generation), Agentic Workflows, Function Calling, Prompt Engineering, Structured Data Extraction.
+- **Models & Tools**: OpenAI Whisper v3, Qwen 2.5, Llama 3, Ollama, Qdrant Vector Database, ChromaDB, Hugging Face.
+- **Integration**: On-premise air-gapped deployments, Speech-to-Text (STT), Text-to-Speech (TTS), Enterprise Privacy AI.
+
+### Product & Engineering Management
+- **Competencies**: Enterprise Resource Planning (ERP), Process Improvement, Pre-Sales Support, Root Cause Analysis (RCA), Technical Sourcing, Pricing Strategy.
 
 ### Mechatronics & Hardware Engineering
-- **Control Systems**: PLC (Programmable Logic Controller), Microcontroller (Arduino, ESP32, STM32), Sensor Data Fusion.
-- **Robotics**: Kinematics, Motor Control, Autonomous Navigation, Hardware-in-the-loop (HIL) testing.
+- **Control Systems**: PLC (Programmable Logic Controller), Microcontroller Programming (ESP32, STM32, Arduino), Sensor Data Fusion.
+- **Robotics**: Kinematics, End-Effector Design, Motor Control, Autonomous Mecanum Platforms, SolidWorks CAD modeling.
 
 ### Full-Stack Web & Software Engineering
-- **Frontend**: Next.js (App Router), React, TypeScript, Tailwind CSS, Framer Motion.
-- **Backend & Cloud**: Python, FastAPI, Docker, Node.js, RESTful APIs, MySQL, PostgreSQL.
-- **DevOps & Analytics**: Vercel, Analytics, Speed Insights, GitHub Actions CI/CD.
+- **Frontend**: Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS, Framer Motion, Three.js / React Three Fiber, GLSL Shaders.
+- **Backend & Data**: Python, FastAPI, Pandas, RESTful APIs, MySQL, PostgreSQL.
+- **DevOps & Analytics**: Vercel, Git/GitHub, Speed Insights, SEO/GEO metadata architecture.
 
-## Services Offered
-1. **AI & Automation Systems**: Building custom RAG assistants, local LLM installations, and n8n workflow automations for companies.
-2. **Mechatronic & Robotics Design**: End-to-end prototyping of automated hardware-software hardware solutions and sensor integration.
-3. **Full-Stack Web Development**: Building fast, SEO-optimized, modern web applications with Next.js and React.
-4. **Technical Consulting**: Architectural guidance for AI privacy, hardware selection, and digital transformation.
+## Key Projects Catalog
+1. **Personal Portfolio Website**: Minimalist, architectural portfolio built with Next.js, Framer Motion, and high-performance technical visual systems.
+2. **Interactive 3D Travel Log**: Three.js/React Three Fiber 3D globe visualizing international travel routes with custom GLSL atmospheric shaders.
+3. **Offline Voice Assistant (RAG)**: Privacy-focused, zero-cloud dependency voice assistant combining Whisper v3, Qwen 2.5, and Qdrant.
+4. **Industrial Data Dashboard**: Operational dataset visualization tool demonstrating data analytics and KPI reporting.
+5. **End-to-End Smart Home Architecture**: Autonomous smart home network managing 20+ IoT nodes with IP zoning and 99.9% uptime.
+6. **FabArm 5-DOF Robotic Arm**: 5-axis robotic manipulator with inverse kinematics mounted on an omnidirectional mecanum wheel base.
+7. **Pulsar Electromobile**: Carbon-fiber electric vehicle engineered for Teknofest Efficiency Challenge (~40% weight reduction achieved).
+
+## Verified Certifications
+- **IBM**: Generative AI Essentials: Using LLMs to Work with Data (Credly verified)
+- **McKinsey & Company**: McKinsey Forward Program — Problem Solving & Digital Leadership (Credly verified)
+- **Berlitz Corporation**: General English Course – B2 Intermediate Proficiency
+- **Udemy**: Comprehensive Python Programming (OOP, Data Structures, Algorithms)
+- **Pearson**: English Preparatory Program Certificate (Pearson Assured)
 
 ## Contact Information
 - **Website**: https://mertgunes.com
@@ -31,3 +67,5 @@ Mert GÃ¼neÅŸ is a Mechatronics Engineer and AI Specialist (AI Automation Develop
 - **LinkedIn**: https://linkedin.com/in/mertgunes67
 - **GitHub**: https://github.com/gunesmert67
 - **Twitter**: https://twitter.com/mertgunes_6767
+- **Medium**: https://medium.com/@mertgunes6767
+- **Location**: Istanbul, Turkey (Coordinates: 41.0082° N, 28.9784° E)

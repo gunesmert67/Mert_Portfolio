@@ -1,21 +1,64 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
 import { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import { ContactData } from '@/data/Contact';
-
+import { ExperienceData } from '@/data/Experience';
+import { MilestoneTypes } from '@/types';
 import CareerTimeline from '@/components/main/CareerTimeline';
 
 export const metadata: Metadata = {
-  title: 'Kariyer',
+  title: 'Kariyer & Deneyim | Profesyonel Özgeçmiş',
   description:
-    "Mert Güneş'in profesyonel özgeçmişi, iş deneyimleri ve akademik geçmişi. Mekatronik mühendisliği ve AI alanındaki kariyer yolculuğu.",
+    "Mert Güneş'in kariyer yolculuğu, iş deneyimleri (Alkom Technology, DHE Industrial, Tepe Analitik) ve akademik geçmişi (Marmara YBS Yüksek Lisans, Ticaret Mekatronik Lisans).",
+  keywords: [
+    'Mert Güneş Kariyer',
+    'Mert Güneş CV',
+    'Alkom Technology',
+    'DHE Industrial',
+    'Product & Technology Manager',
+    'Technical Support Engineer',
+    'Mekatronik Mühendisi Özgeçmiş',
+    'Marmara Üniversitesi YBS',
+    'Ticaret Üniversitesi Mekatronik',
+    'AI Engineer Resume',
+  ],
   alternates: {
     canonical: '/career',
     languages: {
       'tr-TR': '/career',
       'en-US': '/career',
     },
+  },
+  openGraph: {
+    type: 'profile',
+    locale: 'tr_TR',
+    url: `${ContactData.website}/career`,
+    title: 'Kariyer & Deneyim | Mert Güneş - Profesyonel Özgeçmiş',
+    description:
+      "Mert Güneş'in iş deneyimleri, liderlik rolleri ve akademik kariyer yolculuğu.",
+    siteName: 'Mert Güneş Portfolyo',
+    images: [
+      {
+        url: `${ContactData.website}/icon.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Mert Güneş - Kariyer ve Deneyim',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kariyer & Deneyim | Mert Güneş',
+    description:
+      'Mekatronik, Yapay Zeka ve Ürün Yönetimi alanındaki profesyonel iş deneyimleri.',
+    images: [`${ContactData.website}/icon.png`],
+    creator: '@mertgunes_6767',
+  },
+  other: {
+    'geo.region': 'TR-34',
+    'geo.placename': 'Istanbul, Turkey',
+    'geo.position': '41.0082;28.9784',
+    ICBM: '41.0082, 28.9784',
   },
 };
 
@@ -42,31 +85,61 @@ export default function CareerPage() {
   const careerLd = {
     '@context': 'https://schema.org',
     '@type': 'Occupation',
-    name: 'Mechatronics Engineer & AI Specialist',
+    name: 'Product & Technology Manager / Mechatronics Engineer & AI Specialist',
     occupationLocation: {
       '@type': 'City',
       name: 'Istanbul',
     },
     skills: [
-      'Mechatronics',
-      'AI Automation',
-      'Python',
+      'Product Management',
+      'Technical Sourcing',
+      'AI Workflows & RAG',
+      'Mechatronics Engineering',
+      'Enterprise Resource Planning (ERP)',
+      'Process Improvement',
       'Next.js',
-      'Robotics',
-      'RAG',
+      'Python',
+      'Control Systems',
     ],
     responsibilities: [
-      'Developing AI workflows and automation systems',
-      'Designing mechatronic components and robotics solutions',
-      'Building full-stack web and cloud applications',
+      'China-based supplier research, technical sourcing, and product evaluation at Alkom Technology',
+      'Developing AI workflows, dashboards, and automated operational pipelines',
+      'Designing mechatronic, robotic, and IoT architecture solutions',
+      'Building full-stack cloud and web applications',
     ],
+  };
+
+  const experienceListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Mert Güneş - Kariyer & Deneyim Listesi',
+    itemListElement: ExperienceData.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type':
+          item.type === MilestoneTypes.Education
+            ? 'EducationalOccupationalCredential'
+            : 'Role',
+        roleName: typeof item.title === 'object' ? item.title.tr : item.title,
+        startDate: typeof item.date === 'object' ? item.date.tr : item.date,
+        organization: {
+          '@type': 'Organization',
+          name: typeof item.organization === 'object' ? item.organization.tr : item.organization,
+        },
+        description: Array.isArray(item.description?.tr)
+          ? item.description.tr.join(' ')
+          : item.description?.tr || '',
+      },
+    })),
   };
 
   return (
     <div className="flex flex-col gap-8 md:gap-16 pt-24 pb-16">
-      <JsonLd data={[breadcrumbLd, careerLd]} />
+      <JsonLd data={[breadcrumbLd, careerLd, experienceListLd]} />
       <CareerTimeline />
     </div>
   );
 }
+
 

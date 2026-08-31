@@ -1,27 +1,43 @@
-# Mert GÃ¼neÅŸ
+# Mert Güneþ
 
 > Mechatronics Engineer & AI Specialist based in Istanbul, Turkey.
-> Specializing in AI workflows, RAG architectures, local LLM deployment, autonomous mechatronic systems, and full-stack software development.
+> Specializing in AI workflows, RAG architectures, local LLM deployment, autonomous mechatronic systems, product & technology management, and full-stack software development.
 
 ## Summary & Profile
-Mert GÃ¼neÅŸ is a technology professional operating at the intersection of Mechatronics Engineering and Artificial Intelligence. He builds end-to-end autonomous solutions, local document-grounded AI assistants (RAG), automated workflows (n8n), and high-performance web applications.
+Mert Güneþ is a technology professional operating at the intersection of Mechatronics Engineering, Artificial Intelligence, and Product Management. Currently serving as Product & Technology Manager at Alkom Technology, he builds end-to-end autonomous solutions, local document-grounded AI assistants (RAG), automated enterprise workflows, and high-performance web applications.
 
 ## Key Capabilities & Technical Stack
-- **AI Automation & LLMs**: Local RAG Architectures, OpenAI Whisper v3, Qwen 2.5, Llama 3, Qdrant Vector DB, Ollama, n8n Workflow Automation.
-- **Mechatronics & Robotics**: Embedded Systems, PLC Programming, Sensor Integration, Control Systems, Microcontrollers.
-- **Full-Stack Software**: Next.js, React, TypeScript, Python, Docker, REST APIs, Tailwind CSS.
+- **AI Automation & LLMs**: Local RAG Architectures, OpenAI Whisper v3, Qwen 2.5, Llama 3, Qdrant Vector DB, Ollama, AI Workflows & Automation.
+- **Product & Business Tech**: Product & Technology Management, Enterprise Resource Planning (ERP), Process Improvement, Pre-Sales Support, Sourcing & Technical Evaluation, Data Analysis.
+- **Mechatronics & Robotics**: Embedded Systems, Control Systems, Sensor Integration, Microcontrollers, SolidWorks, Robotics Kinematics.
+- **Full-Stack Software**: Next.js, React, TypeScript, Python, Tailwind CSS, Framer Motion, REST APIs, Vercel.
+
+## Professional Experience
+- **Product & Technology Manager** @ Alkom Technology (Jan 2026 – Present)
+- **Technical Support Engineer** @ DHE Industrial (Aug 2025 – Aug 2026)
+- **Operations & Service Engineer** @ Tepe Analitik (Aug 2023 – Mar 2025)
+
+## Education
+- **M.Sc. Management Information Systems** @ Marmara University (2025 – 2027)
+- **B.Sc. Mechatronics Engineering** @ Istanbul Ticaret University (2018 – 2023, 100% Scholarship)
 
 ## Key Projects
-- **Offline Voice Assistant (RAG)**: Completely air-gapped, on-prem voice assistant using Whisper v3, Qwen 2.5, and Qdrant for document semantic querying.
-- **Automated AI Workflows**: n8n-powered autonomous agents and data processing pipelines.
+- **Personal Portfolio Website**: Modern, high-performance architectural portfolio with dynamic engineering visual systems.
+- **Interactive 3D Travel Log**: Three.js & React Three Fiber powered interactive 3D globe visualization.
+- **Offline Voice Assistant (RAG)**: Completely air-gapped, on-prem voice assistant using Whisper v3, Qwen 2.5, and Qdrant.
+- **Industrial Data Dashboard**: Operational metrics visualization and data-driven reporting system.
+- **End-to-End Smart Home Architecture**: Autonomous IoT ecosystem managing 20+ smart home nodes.
+- **FabArm 5-DOF Robotic Arm**: 5-axis robotic manipulator with inverse kinematics and mecanum platform.
+- **Pulsar Electromobile**: Carbon-fiber electric vehicle chassis engineering for Teknofest Efficiency Challenge.
 
 ## Main Navigation Links
-- [Portfolio Homepage](https://mertgunes.com): Profile overview and highlights.
-- [Projects Portfolio](https://mertgunes.com/projects): Comprehensive technical project breakdown.
+- [Portfolio Homepage](https://mertgunes.com): Profile overview, bio, and engineering philosophy.
+- [Projects Portfolio](https://mertgunes.com/projects): Comprehensive technical project breakdown and source code.
 - [Services & Solutions](https://mertgunes.com/services): AI engineering, mechatronic design, and technical consulting.
-- [Career & Experience](https://mertgunes.com/career): Timeline of engineering roles and achievements.
-- [Certifications](https://mertgunes.com/certifications): Professional credentials from IBM, McKinsey, etc.
-- [Contact](https://mertgunes.com/contact): Reach out for project inquiries and engineering collaborations.
+- [Career & Experience](https://mertgunes.com/career): Dual-track timeline of professional engineering roles and academics.
+- [Skills](https://mertgunes.com/skills): Categorized technical skill matrix and proficiency levels.
+- [Certifications](https://mertgunes.com/certifications): Professional credentials from IBM, McKinsey, Berlitz, and Udemy.
+- [Contact](https://mertgunes.com/contact): Reach out for project inquiries, consulting, and engineering collaborations.
 
 ## Social & Developer Links
 - [GitHub](https://github.com/gunesmert67)

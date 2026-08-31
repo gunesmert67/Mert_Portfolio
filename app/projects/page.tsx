@@ -1,23 +1,62 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
-import Loader from '@/components/ui/Loader';
 import { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import { ContactData } from '@/data/Contact';
 import { projectsData } from '@/data/Projects';
-
 import Projects from '@/components/main/Projects';
 
 export const metadata: Metadata = {
-  title: 'Projeler',
+  title: 'Projeler | Yapay Zeka, Robotik & Web Portfolyosu',
   description:
-    "Yapay zeka, robotik ve yazılım geliştirme alanındaki projelerim. Mert Güneş'in inovatif çözümlerini ve teknik portfolyosunu inceleyin.",
+    "Çevrimdışı Sesli Asistan (RAG), 3D Seyahat Günlüğü, Endüstriyel Veri Paneli, Akıllı Ev IoT ve Robotik Kol projeleri. Mert Güneş'in teknik proje portfolyosu ve açık kaynak kodları.",
+  keywords: [
+    'Mert Güneş Projeler',
+    'Offline Voice Assistant RAG',
+    'Local RAG Whisper Qwen',
+    '3D Travel Log Three.js',
+    'Smart Home IoT Home Assistant',
+    'FabArm Robotic Arm',
+    'Pulsar Electromobile Teknofest',
+    'AI Projects Turkey',
+    'Next.js Portfolio Projects',
+  ],
   alternates: {
     canonical: '/projects',
     languages: {
       'tr-TR': '/projects',
       'en-US': '/projects',
     },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'tr_TR',
+    url: `${ContactData.website}/projects`,
+    title: 'Projeler | Mert Güneş - Yapay Zeka, Robotik ve Web Portfolyosu',
+    description:
+      "Yapay zeka, otonom robotik ve modern web geliştirme alanındaki uçtan uca mühendislik projeleri.",
+    siteName: 'Mert Güneş Portfolyo',
+    images: [
+      {
+        url: `${ContactData.website}/icon.png`,
+        width: 1200,
+        height: 630,
+        alt: 'Mert Güneş - Projeler ve Açık Kaynak Çalışmalar',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Projeler | Mert Güneş',
+    description:
+      'Mekatronik, Yapay Zeka ve Yazılım projelerimin detayları ve kaynak kodları.',
+    images: [`${ContactData.website}/icon.png`],
+    creator: '@mertgunes_6767',
+  },
+  other: {
+    'geo.region': 'TR-34',
+    'geo.placename': 'Istanbul, Turkey',
+    'geo.position': '41.0082;28.9784',
+    ICBM: '41.0082, 28.9784',
   },
 };
 
@@ -44,20 +83,26 @@ export default function ProjectsPage() {
   const projectsLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'Mert Güneş - Projeler',
+    name: 'Mert Güneş - Mühendislik ve Yazılım Projeleri',
     numberOfItems: projectsData.length,
     itemListElement: projectsData.map((project, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       item: {
-        '@type': 'SoftwareSourceCode',
+        '@type': project.githubUrl ? 'SoftwareSourceCode' : 'CreativeWork',
         name: project.title.tr,
+        headline: project.title.en,
         description: project.description.tr,
+        keywords: project.technologyStack.join(', '),
         programmingLanguage: project.technologyStack,
         codeRepository: project.githubUrl || undefined,
+        url: project.sourceUrl || `${ContactData.website}/projects`,
+        dateCreated: project.startDate,
+        dateModified: project.endDate || undefined,
         author: {
           '@type': 'Person',
           name: 'Mert Güneş',
+          url: ContactData.website,
         },
       },
     })),
@@ -70,4 +115,5 @@ export default function ProjectsPage() {
     </div>
   );
 }
+
 
