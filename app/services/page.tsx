@@ -105,7 +105,7 @@ export default function ServicesPage() {
         url: ContactData.website,
       },
       description:
-        'n8n, yapay zeka ajanları ve API entegrasyonları ile tekrarlayan iş süreçlerini ve operasyonel görevleri tam otonom hale getirme.',
+        'Yapay zeka ajanları, LLM iş akışları ve modern API entegrasyonları ile tekrarlayan iş süreçlerini ve operasyonel görevleri tam otonom hale getirme.',
       areaServed: 'Global',
     },
     {

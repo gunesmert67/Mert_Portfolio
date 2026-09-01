@@ -4,11 +4,11 @@
 export const ServicesApps = [
   {
     id: 1,
-    title: 'n8n',
-    icon: '/logo/n8n-wordmark-light.svg',
+    title: 'Antigravity',
+    icon: '/logo/antigravity.svg',
     width: 32,
     height: 32,
-    invertInDark: true,
+    invertInDark: false,
   },
   {
     id: 2,
@@ -43,10 +43,10 @@ export const ServicesApps = [
   },
   {
     id: 6,
-    title: 'MySQL',
-    icon: '/logo/mysql-wordmark-light.svg',
+    title: 'Next.js',
+    icon: '/logo/nextjs_icon_dark.svg',
     width: 32,
     height: 32,
-    invertInDark: false,
+    invertInDark: true,
   },
 ];

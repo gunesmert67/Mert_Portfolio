@@ -41,7 +41,7 @@ Mert Güneþ is a Mechatronics Engineer, AI Specialist, and Product & Technology M
 
 ### Full-Stack Web & Software Engineering
 - **Frontend**: Next.js 14 (App Router), React 18, TypeScript, Tailwind CSS, Framer Motion, Three.js / React Three Fiber, GLSL Shaders.
-- **Backend & Data**: Python, FastAPI, Pandas, RESTful APIs, MySQL, PostgreSQL.
+- **Backend & Data**: Python, FastAPI, Pandas, RESTful APIs, Cloud Databases.
 - **DevOps & Analytics**: Vercel, Git/GitHub, Speed Insights, SEO/GEO metadata architecture.
 
 ## Key Projects Catalog

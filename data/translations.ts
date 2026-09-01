@@ -33,7 +33,7 @@ export const translations = {
         "Yerel LLM'ler ve vektör veritabanları kullanarak izole çalışan otonom asistanlar ve akıllı bilgi getirme mimarileri.",
       service2Name: 'Otomasyon & İş Akışları',
       service2Desc:
-        'n8n ve Python ile tekrarlayan süreçleri elimine eden, verimlilik odaklı otonom veri ve bildirim akışları.',
+        'Yapay zeka modelleri ve Python ile tekrarlayan süreçleri elimine eden, verimlilik odaklı otonom veri ve bildirim akışları.',
       service3Name: 'Görsel AI & Üretim',
       service3Desc:
         'Stable Diffusion ve LoRA kullanarak spesifik veri setleriyle eğitilmiş jeneratif görsel üretimi.',
@@ -172,7 +172,7 @@ export const translations = {
         'Autonomous assistants and smart retrieval architectures using local LLMs and vector databases for isolated operations.',
       service2Name: 'Automation & Workflows',
       service2Desc:
-        'Efficiency-oriented autonomous data and notification streams with n8n and Python, eliminating repetitive processes.',
+        'Efficiency-oriented autonomous data and notification streams with AI models and Python, eliminating repetitive processes.',
       service3Name: 'Visual AI & Generation',
       service3Desc:
         'Generative image production trained on specific datasets using Stable Diffusion and LoRA.',

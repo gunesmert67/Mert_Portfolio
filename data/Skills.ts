@@ -188,16 +188,6 @@ export const SkillsData: SkillCategory[] = [
     skills: [
       {
         id: 17,
-        skillName: 'n8n',
-        image: '/logo/n8n-wordmark-light.svg',
-        width: 90,
-        height: 40,
-        skillLevel: 5,
-        link: 'https://n8n.io/',
-        invertInDark: true,
-      },
-      {
-        id: 18,
         skillName: 'Docker',
         image: '/logo/docker.svg',
         width: 75,
@@ -206,7 +196,7 @@ export const SkillsData: SkillCategory[] = [
         link: 'https://www.docker.com/',
       },
       {
-        id: 19,
+        id: 18,
         skillName: 'Vercel',
         image: '/logo/vercel.svg',
         width: 75,
@@ -216,16 +206,7 @@ export const SkillsData: SkillCategory[] = [
         invertInDark: true,
       },
       {
-        id: 20,
-        skillName: 'MySQL',
-        image: '/logo/mysql-wordmark-light.svg',
-        width: 90,
-        height: 50,
-        skillLevel: 4,
-        link: 'https://www.mysql.com/',
-      },
-      {
-        id: 21,
+        id: 19,
         skillName: 'Git',
         image: '/logo/git.svg',
         width: 75,
@@ -234,7 +215,7 @@ export const SkillsData: SkillCategory[] = [
         link: 'https://git-scm.com/',
       },
       {
-        id: 22,
+        id: 20,
         skillName: 'GitHub',
         image: '/logo/github_light.svg',
         width: 75,
@@ -244,7 +225,7 @@ export const SkillsData: SkillCategory[] = [
         invertInDark: true,
       },
       {
-        id: 23,
+        id: 21,
         skillName: 'VS Code',
         image: '/logo/vscode.svg',
         width: 75,

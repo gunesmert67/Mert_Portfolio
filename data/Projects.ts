@@ -72,12 +72,12 @@ export const projectsData = [
     category: ProjectCategories.AI_Data,
     src: '/project-img/email-automation.webp',
     title: {
-      en: 'AI Workflow Automation (n8n)',
-      tr: 'AI İş Akışı Otomasyonu (n8n)',
+      en: 'AI Workflow & Email Automation',
+      tr: 'AI İş Akışı & E-Posta Otomasyonu',
     },
     description: {
-      en: 'Designed an automated system to classify incoming emails using LLM-based content analysis with n8n integration.',
-      tr: 'E-postaları ve iş süreçlerini yapay zeka ile otomatize eden n8n iş akışları tasarladım.',
+      en: 'Designed an automated system to classify incoming emails and triage operational tasks using LLM-based content analysis and webhook integrations.',
+      tr: 'Gelen e-postaları ve iş süreçlerini LLM tabanlı içerik analizi ve webhook entegrasyonları ile sınıflandırıp otomatize eden akıllı bir sistem tasarladım.',
     },
     sourceUrl: null,
     youtubeUrl: null,
@@ -85,10 +85,10 @@ export const projectsData = [
     startDate: '2025-10-01',
     endDate: '2025-11-01',
     technologyStack: [
-      'n8n',
+      'AI Workflows',
       'LLM Integration',
       'OpenAI API',
-      'Low-Code Automation',
+      'Webhook Automation',
       'Python',
     ],
     features: {
