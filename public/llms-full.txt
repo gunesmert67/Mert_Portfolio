@@ -5,10 +5,9 @@ Mert Güneþ is a Mechatronics Engineer, AI Specialist, and Product & Technology M
 
 ## Current Role & Professional Background
 - **Product & Technology Manager** @ Alkom Technology (Jan 2026 – Present)
-  - Leading China-based supplier research and technical sourcing operations.
-  - Conducting comprehensive product analyses, quality assurance, and technical evaluations.
-  - Formulating product positioning, competitive benchmarking, and strategic pricing models.
-  - Directing website and digital technology infrastructure development.
+  - Developing modern web platforms, dynamic QR menu systems, and digital infrastructure for businesses.
+  - Integrating AI-powered tools into product lifecycles to boost process efficiency and product performance.
+  - Managing technical evaluation, market analysis, and strategic pricing for global technology products.
 - **Technical Support Engineer** @ DHE Industrial (Aug 2025 – Aug 2026)
   - Developed operational dashboards and reporting pipelines for business visibility.
   - Automated repetitive service processes with AI and workflow automation tools.
@@ -34,7 +33,7 @@ Mert Güneþ is a Mechatronics Engineer, AI Specialist, and Product & Technology M
 - **Integration**: On-premise air-gapped deployments, Speech-to-Text (STT), Text-to-Speech (TTS), Enterprise Privacy AI.
 
 ### Product & Engineering Management
-- **Competencies**: Enterprise Resource Planning (ERP), Process Improvement, Pre-Sales Support, Root Cause Analysis (RCA), Technical Sourcing, Pricing Strategy.
+- **Competencies**: Product Management, AI Integration, Web & Digital Platforms, Enterprise Resource Planning (ERP), Process Improvement, Pre-Sales Support, Root Cause Analysis (RCA), Technical Evaluation, Pricing Strategy.
 
 ### Mechatronics & Hardware Engineering
 - **Control Systems**: PLC (Programmable Logic Controller), Microcontroller Programming (ESP32, STM32, Arduino), Sensor Data Fusion.
