@@ -1,7 +1,6 @@
 {
   "$schema": "https://unpkg.com/knip@latest/schema.json",
   "ignore": [
-    ".next/**",
     "optimize-image.js"
   ],
   "ignoreDependencies": [

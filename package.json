@@ -73,5 +73,9 @@
     "edge >= 90",
     "firefox >= 88",
     "safari >= 14"
-  ]
+  ],
+  "allowScripts": {
+    "@vercel/speed-insights": true,
+    "sharp": true
+  }
 }
